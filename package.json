@@ -1,7 +1,7 @@
 {
   "name": "Aurora",
   "version": "0.0.1",
-  "description": "Aurora System",
+  "description": "Aurora System by Pixeden",
   "author": "elrumordelaluz @ Pixeden",
   "license": "MIT",
   "repository": {
@@ -17,6 +17,7 @@
     "gulp-concat": "^2.4.3",
     "gulp-cssmin": "^0.1.6",
     "gulp-filter": "^2.0.1",
+    "gulp-header": "^1.2.2",
     "gulp-imagemin": "^2.2.0",
     "gulp-jade": "^0.11.0",
     "gulp-jshint": "^1.9.2",

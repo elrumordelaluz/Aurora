@@ -1,11 +1,15 @@
-/*
+/* * * * * * * * * * * * * * * * * * * * *\
   
+    GLOBAL SETTINGS
+
+\* * * * * * * * * * * * * * * * * * * * */
 
 
-   ____  ____  _  _  ____  ____  ____  _  _ 
-  (  _ \(_  _)( \/ )( ___)(  _ \( ___)( \( )
-  )___/ _)(_  )  (  )__)  )(_) ))__)  )  ( 
-  (__)  (____)(_/\_)(____)(____/(____)(_)\_)
+$prefix:                'aurora'; // false to disable
+
+$aurora:                if( $prefix, '#{$prefix}-', '' );
+
+$box-model:             border-box;
 
 
 
@@ -13,13 +17,45 @@
 
 
 
-*/
+/* GRIDS STUFF */
 
-// @import "partials/resets";
-@import "partials/typography";
-@import "partials/base";
-@import "partials/layout";
-@import "partials/modules";
-@import "partials/grids";
-@import "partials/overrides";
-@import "partials/responsive";
+/**
+ * There are four grids techniques to choose depending on the final use and browser support.
+ *
+ * table    --  lorem ipsum
+ * block    --  lorem ipsum
+ * float    --  lorem ipsum
+ * grid     --  lorem ipsum
+ *
+ **/
+
+$grid_style:            'table'; 
+
+$columns:               12;
+
+$container-width:       940px;
+
+$breakpoints: (
+                        'sm'  : ( min-width:  768px ),
+  
+                        'md'  : ( min-width:  992px ),
+                        
+                        'lg'  : ( min-width: 1200px )
+);
+
+
+$gutter:                1rem;
+
+$vertical-space:        false;
+
+$grid_debug:            true;
+
+
+
+
+
+
+
+
+
+

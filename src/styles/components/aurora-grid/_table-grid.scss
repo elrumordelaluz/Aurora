@@ -1,0 +1,61 @@
+
+// aurora-grid :: Table Style
+// Distribute spaces also when not specify breakpoint
+
+
+@each $bp-name, $bp-num in $breakpoints {
+
+  @include breakpoints( $bp-name ) {
+
+
+    .aurora-grid--gutters {
+      
+      margin-left:  - $gutter;
+      margin-right: - $gutter;
+
+    }
+
+    .aurora-grid--gutters .aurora-grid {
+
+      border-spacing: $gutter 0;
+      
+      @if( $vertical-space ) {
+        margin-bottom: $gutter;
+      }
+
+    }
+
+
+
+    .#{$aurora}grid {
+
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+
+    }
+
+
+
+      .#{$aurora}grid__item {
+        
+        display: table-cell;
+
+      }
+
+      @include do-grid-items ( $columns, $bp-name );
+
+
+      // Hidden Items to simulate push/pull items
+      .item-#{$bp-name}--hidden {
+        visibility: hidden;
+      }
+
+
+
+  }
+
+}
+
+
+

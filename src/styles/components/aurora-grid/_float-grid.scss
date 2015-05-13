@@ -1,0 +1,41 @@
+
+// aurora-grid :: Float Style
+
+
+@each $bp-name, $bp-num in $breakpoints {
+
+  @include breakpoints( $bp-name ) {
+
+    .#{$aurora}grid {
+      
+      &:before, &:after {
+        display: table;
+        content: " ";
+      }
+      &:after {
+        clear: both;
+      }
+
+    }
+
+      .#{$aurora}grid__item {
+        
+        float: left;
+
+      }
+
+
+      .#{$aurora}grid__item--right {
+        
+        float: right;
+
+      }
+
+      @include do-grid-items ( $columns, $bp-name );
+
+      @include do-push-items ( $columns, $bp-name );
+
+  }
+
+}
+

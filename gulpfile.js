@@ -2,6 +2,7 @@ var gulp = require('gulp'),
   sass = require('gulp-ruby-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   cssmin = require('gulp-cssmin'),
+  header  = require('gulp-header'),
   jshint = require('gulp-jshint'),
   uglify = require('gulp-uglify'),
   imagemin = require('gulp-imagemin'),
@@ -17,15 +18,31 @@ var gulp = require('gulp'),
   jade = require('gulp-jade'),
   marked = require('marked'),
   mainBowerFiles = require('main-bower-files'),
-  gulpFilter = require('gulp-filter');
+  gulpFilter = require('gulp-filter'),
+
+  package = require('./package.json');
+
+
+var banner = [
+  '/* * * * * * * * * * * * * * * * * * * * *\\ \n',
+    ' <%= package.name %> ',
+    'v<%= package.version %> \n ',
+    '<%= package.description %> \n',
+    ' (c) ' + new Date().getFullYear() + ' <%= package.author %> \n',
+    ' <%= package.homepage %> \n',
+  '\\* * * * * * * * * * * * * * * * * * * * */',
+  '\n'
+].join('');
 
 gulp.task('styles', function(){
   return sass('src/styles/', 
               { style: 'expanded' })
+              .pipe(header(banner, { package : package }))
               .pipe(autoprefixer())
               .pipe(gulp.dest('dist/assets/css'))
               .pipe(rename({suffix: '.min'}))
               .pipe(cssmin())
+              .pipe(header(banner, { package : package }))
               .pipe(gulp.dest('dist/assets/css'))
               .pipe(notify({ message: 'Styles task complete!'}));
 });
@@ -101,7 +118,7 @@ gulp.task('copy-fonts', function(){
 
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('libs', 'templates', 'styles', 'scripts', 'images', 'copy-fonts');
+    gulp.start( 'templates', 'styles', 'scripts', 'images', 'copy-fonts' );
 });
 
 gulp.task('watch', function(){

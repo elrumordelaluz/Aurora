@@ -1,0 +1,22 @@
+
+// aurora-grid :: Debug
+
+@if ( $grid_debug ) {
+
+  .#{$aurora}grid__item {
+    
+    color: white;
+    background-color: #3498db;
+    border: 1px solid;
+    counter-increment: grid-item;
+    text-align: center;
+    padding: 10px;
+
+    &:before {
+      content: 'item - ' counter(grid-item);      
+      display: block;
+    }
+
+  }
+
+}
