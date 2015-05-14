@@ -81,24 +81,69 @@
 
 
 
-@mixin do-push-items ( $cols, $prefix ) {
+@mixin do-push-items ( $cols, $prefix, $type: 'float' ) {
 
   @for $i from 1 through $cols {
    
     @if not $prefix {
 
-      .item--push-#{$i} {
 
-        margin-left: calc( #{$i}/12 * 100% );
+      @if ( $type == 'float') {
+        .item--push-#{$i} {
+          margin-left: calc( #{$i}/12 * 100% );
+        }
+      } 
+      @else if ( $type == 'table' ) {
+        .item--push-#{$i} {
+          position: relative;
+          left: calc( #{$i}/12 * 100% );
+        }
+      }
+
+
+    } @else {
+
+      
+      @if ( $type == 'float') {
+        .item-#{$prefix}--push-#{$i} {
+          margin-left: calc( #{$i}/12 * 100% );
+        } 
+      }
+      @else if ( $type == 'table' ) {
+        .item-#{$prefix}--push-#{$i} {
+          position: relative;
+          left: calc( #{$i}/12 * 100% );
+        }
+      }
+
+
+
+    } // @else
+    
+  } // @for
+
+} // @mixin
+
+
+
+@mixin do-pull-items ( $cols, $prefix ) {
+
+  @for $i from 1 through $cols {
+   
+    @if not $prefix {
+
+      .item--pull-#{$i} {
+
+        margin-left: calc( -#{$i}/12 * 100% );
         
 
       } // item
 
     } @else {
       
-      .item-#{$prefix}--push-#{$i} {
+      .item-#{$prefix}--pull-#{$i} {
 
-        margin-left: calc( #{$i}/12 * 100% );
+        margin-left: calc( -#{$i}/12 * 100% );
 
       } // item
 

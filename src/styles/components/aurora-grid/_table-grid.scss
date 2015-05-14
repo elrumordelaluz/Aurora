@@ -8,24 +8,12 @@
   @include breakpoints( $bp-name ) {
 
 
-    .aurora-grid--gutters {
+    .#{$aurora}grid--gutters .#{$aurora}grid__item{
       
-      margin-left:  - $gutter;
-      margin-right: - $gutter;
+      padding-left: $gutter / 2;
+      padding-right: $gutter / 2;
 
     }
-
-    .aurora-grid--gutters .aurora-grid {
-
-      border-spacing: $gutter 0;
-      
-      @if( $vertical-space ) {
-        margin-bottom: $gutter;
-      }
-
-    }
-
-
 
     .#{$aurora}grid {
 
@@ -45,12 +33,7 @@
 
       @include do-grid-items ( $columns, $bp-name );
 
-
-      // Hidden Items to simulate push/pull items
-      .item-#{$bp-name}--hidden {
-        visibility: hidden;
-      }
-
+      @include do-push-items ( $columns, $bp-name, 'table' );
 
 
   }

@@ -8,3 +8,24 @@
   max-width: $container-width;
 
 }
+
+
+@each $bp-name, $bp-num in $breakpoints {
+
+  @include breakpoints( $bp-name ) {
+  
+
+    // Hidden Items
+    .item-#{$bp-name}--hidden {
+      visibility: hidden;
+    }
+    // Invisible Items
+    .item-#{$bp-name}--invisible {
+      display: none;
+    }
+
+
+    
+  }
+
+}

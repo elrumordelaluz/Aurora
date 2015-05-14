@@ -5,9 +5,19 @@
 @each $bp-name, $bp-num in $breakpoints {
 
   @include breakpoints( $bp-name ) {
+    
+
+    .#{$aurora}grid--gutters .#{$aurora}grid__item{
+      padding-left: $gutter / 2;
+      padding-right: $gutter / 2;
+    }
 
     .#{$aurora}grid {
       
+      @if( $vertical-space ) {
+        margin-bottom: $gutter;
+      }
+
       &:before, &:after {
         display: table;
         content: " ";
@@ -34,6 +44,9 @@
       @include do-grid-items ( $columns, $bp-name );
 
       @include do-push-items ( $columns, $bp-name );
+
+      @include do-pull-items ( $columns, $bp-name );
+
 
   }
 
