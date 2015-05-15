@@ -2,42 +2,92 @@ extends layouts/mainLayout
 
 block content
 
+  mixin show-row(bp, cols, style)
+    h3 Grid #{bp}
+    - var px = style !== ' ' ? 'aurora-grid--' + style : ''
+    - for (var i = 1; i <= cols; ++i) {
+      - if (cols%i == 0) {
+          div(class="aurora-grid #{px}")
+            - for (var n = 1; n <= cols/i; ++n) {
+              div(class='aurora-grid__item item-#{bp}-#{i}')
+            - }
+      - }
+    - }
+    
+
   section.section
+
+    h1 Float
     
     .aurora-container
       
-      .aurora-grid--gutters
-        .aurora-grid
-          .aurora-grid__item.item-sm-2
-          
+      +show-row('sm', 12, 'float')
 
-      .aurora-grid
-        .aurora-grid__item.item-md-8.item-lg--hidden.item-sm-2.item-lg-6
-        .aurora-grid__item.item-md-4.item-sm-10.item-lg-6
+      +show-row('md', 12, 'float')
 
-      .aurora-grid
+      +show-row('lg', 12, 'float')
+    
+
+
+    h1 Table
+
+    .aurora-container
+      
+      +show-row('sm', 12, 'table')
+
+      +show-row('md', 12, 'table')
+
+      +show-row('lg', 12, 'table')
+
+
+    h1 Inline Block
+
+    .aurora-container
+      
+      +show-row('sm', 12, 'block')
+
+      +show-row('md', 12, 'block')
+
+      +show-row('lg', 12, 'block')
+
+
+    .aurora-container
+
+      h3 Nested
+      .aurora-grid.aurora-grid--float
         .aurora-grid__item.item-sm-6
           .aurora-grid
-            .aurora-grid__item.item-lg-2
+            .aurora-grid__item.item-lg-2.item-md--push-2
             .aurora-grid__item.item-lg-5.item-lg--hidden
             .aurora-grid__item.item-lg-5
         .aurora-grid__item.item-sm-6
       
-      .aurora-grid
+      
+      .aurora-grid.aurora-grid--float
         .aurora-grid__item.item-sm-2
-        .aurora-grid__item.item-sm-2.item-md--push-1
-        .aurora-grid__item.item-sm-2.item-md--push-3
+          p hjkh
+        .aurora-grid__item.item-sm-2.item--right
+          p hjkh
         .aurora-grid__item.item-sm-2
-        .aurora-grid__item.item-sm-2.item-md--push-1
+          p hjkh
         .aurora-grid__item.item-sm-2
+          p hjkh
+        .aurora-grid__item.item-sm-1.item-sm--offset-1
+          p hjkh
+        .aurora-grid__item.item-sm-2
+          p hjkh
+        .aurora-grid__item.item-sm-2
+          p hjkh
+        .aurora-grid__item.item-sm-2
+          p hjkh
 
 
 
-      .aurora-grid
+      .aurora-grid.aurora-grid--float
         .aurora-grid__item.item-sm-9
         .aurora-grid__item.item-sm-4
         .aurora-grid__item.item-sm-6
-          
+
             
 
       

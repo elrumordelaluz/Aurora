@@ -1,9 +1,9 @@
 
-// aurora-grid :: Float Style
+// aurora-grid :: Inline Block Style
 
-@mixin float-helpers( $all-styles: false ){
+@mixin block-helpers( $all-styles: false ){
 
-  $style-sel: if( $all-styles, '.#{$aurora}grid--float', '.#{$aurora}grid');
+  $style-sel: if( $all-styles, '.#{$aurora}grid--block', '.#{$aurora}grid');
     
     // Gutters
 
@@ -24,13 +24,13 @@
 
     #{$style-sel} {
       
-      &:before, &:after {
-        display: table;
-        content: " ";
+      padding: 0;
+      @if ( $inline-block-hacks == 'font') {
+        font-size: 0;
+      } @else if ( $inline-block-hacks == 'letter') {
+        letter-spacing:-0.31em;
       }
-      &:after {
-        clear: both;
-      }
+      
 
     }
       

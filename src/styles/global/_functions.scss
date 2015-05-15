@@ -13,66 +13,115 @@
 /* MIXINS */
 
 
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+$placeholders: ();
 
 
-@mixin breakpoints ( $name ) {
+@mixin breakpoints($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  
+  @if $value != null {                                    // 1
+    $current-breakpoint: $breakpoint         !global;     // 2
+    @media (min-width: $value) { @content; }              // 3
+    $current-breakpoint: $default-breakpoint !global;     // 5
+  }
+  
+  @else {                                  
+    @warn "Invalid breakpoint `#{$breakpoint}`.";         // 6
+  }
+}
 
-  @if map-has-key( $breakpoints, $name ) {
-
-    @media #{ inspect( map-get($breakpoints, $name) ) } {
-      
-      @content;
+@mixin placeholder($name) {
+  @if not index($placeholders, $name) {                  // 1
+    $placeholders: append($placeholders, $name) !global; // 2
     
+    @at-root {
+      @each $breakpoint, $value in $breakpoints {        // 3
+        @media (min-width: $value) {                     // 4
+          %#{$name}-#{$breakpoint} {                     // 5
+            @content;                                    // 6
+          }
+        }
+      }
+    
+      %#{$name}-#{$default-breakpoint} {                 // 7
+        @content;
+      }
     }
-
   }
- 
+  
   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Please make sure it is defined in `$breakpoints` map.";
+    @warn "Placeholder `#{$name}` already exists.";      // 8
   }
+}
+
+
+@mixin _($name) {
+  @extend %#{$name}-#{$current-breakpoint} !optional;
 }
 
 
 
 
 
+@include placeholder('fl') { float: left; }
+@include placeholder('fr') { float: right; }
+@include placeholder('dtc') { display: table-cell; }
+@include placeholder('dib') { 
+  display: inline-block; 
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  font-size: initial;
+}
 
 
+@mixin do-grid-items ( $cols, $prefix, $style ) {
 
-@mixin do-grid-items ( $cols, $prefix ) {
+  $px: if($prefix, -#{$prefix}, '' );
+
 
   @for $i from 1 through $cols {
-   
-    @if not $prefix {
 
-      .item-#{$i} {
+    .item#{$px}-#{$i} {
 
-        width: calc( #{$i}/12 * 100% );
+      @if ( $style == 'float' ){
+
+        @include _(fl);
         
-        @if ( $grid_debug ) {
-          &:before {
-            content:'item - #{$i}';
-          }
-        }
+        &.item--right {
+          @include _(fr);
+        }  
 
-      } // item
+      } @else if ( $style == 'table' ){
+        
+          @include _(dtc);
 
-    } @else {
+      } @else if ( $style == 'block' ){
+        
+          @include _(dib);
+
+      } @else if ( $style == 'all' ){
+        
+        .#{$aurora}grid--float & { @include _(fl); }
+
+        .#{$aurora}grid--table & { @include _(dtc); }
+
+        .#{$aurora}grid--block & { @include _(dib); }
+
+      }
       
-      .item-#{$prefix}-#{$i} {
-
-        width: calc( #{$i}/12 * 100% );
-
-        @if ( $grid_debug ) {
-          &:before {
-            content:'item - #{$prefix} - #{$i}';
-          }
+      width: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
+      
+      @if ( $grid_debug ) {
+        &:before {
+          content:'Item#{$px}-#{$i}'!important;
         }
+      }
 
-      } // item
+    }
 
-    } // @else
     
   } // @for
 
@@ -81,44 +130,23 @@
 
 
 
-@mixin do-push-items ( $cols, $prefix, $type: 'float' ) {
+@mixin do-push-items ( $cols, $prefix ) {
+
+  $px: if($prefix, -#{$prefix}, '' );
 
   @for $i from 1 through $cols {
    
-    @if not $prefix {
+    .item#{$px}--push-#{$i} {
 
+      left: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
 
-      @if ( $type == 'float') {
-        .item--push-#{$i} {
-          margin-left: calc( #{$i}/12 * 100% );
-        }
-      } 
-      @else if ( $type == 'table' ) {
-        .item--push-#{$i} {
-          position: relative;
-          left: calc( #{$i}/12 * 100% );
+      @if ( $grid_debug ) {
+        &:before {
+          content:'Item#{$px}--push-#{$i}'!important;
         }
       }
 
-
-    } @else {
-
-      
-      @if ( $type == 'float') {
-        .item-#{$prefix}--push-#{$i} {
-          margin-left: calc( #{$i}/12 * 100% );
-        } 
-      }
-      @else if ( $type == 'table' ) {
-        .item-#{$prefix}--push-#{$i} {
-          position: relative;
-          left: calc( #{$i}/12 * 100% );
-        }
-      }
-
-
-
-    } // @else
+    }
     
   } // @for
 
@@ -128,30 +156,60 @@
 
 @mixin do-pull-items ( $cols, $prefix ) {
 
+  $px: if($prefix, -#{$prefix}, '' );
+
   @for $i from 1 through $cols {
-   
-    @if not $prefix {
 
-      .item--pull-#{$i} {
-
-        margin-left: calc( -#{$i}/12 * 100% );
-        
-
-      } // item
-
-    } @else {
+    .item#{$px}--pull-#{$i} {
       
-      .item-#{$prefix}--pull-#{$i} {
+      right: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
 
-        margin-left: calc( -#{$i}/12 * 100% );
+      @if ( $grid_debug ) {
+        &:before {
+          content:'Item#{$px}--pull-#{$i}'!important;
+        }
+      }
 
-      } // item
-
-    } // @else
+    }
     
   } // @for
 
 } // @mixin
+
+
+
+@mixin do-offset-items ( $cols, $prefix ) {
+
+  $px: if($prefix, -#{$prefix}, '' );
+
+  @for $i from 1 through $cols {
+
+    .item#{$px}--offset-#{$i} {
+      
+      margin-left: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
+
+      @if ( $grid_debug ) {
+        &:before {
+          content:'Item#{$px}--offset-#{$i}'!important;
+        }
+      }
+
+    }
+    
+  } // @for
+
+} // @mixin
+
+
+
+
+
+
+
+
+
+
+
 
 
 

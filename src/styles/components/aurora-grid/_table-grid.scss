@@ -2,20 +2,30 @@
 // aurora-grid :: Table Style
 // Distribute spaces also when not specify breakpoint
 
+@mixin table-helpers( $all-styles: false ){
+  
+  $style-sel: if( $all-styles, '.#{$aurora}grid--table', '.#{$aurora}grid');
 
-@each $bp-name, $bp-num in $breakpoints {
+    
+    // Gutters
 
-  @include breakpoints( $bp-name ) {
-
-
-    .#{$aurora}grid--gutters .#{$aurora}grid__item{
+    .#{$aurora}grid--gutters {
       
-      padding-left: $gutter / 2;
-      padding-right: $gutter / 2;
+      margin-left:  -$gutter/2;
+      margin-right: -$gutter/2;
 
     }
 
-    .#{$aurora}grid {
+    .#{$aurora}grid--gutters #{$style-sel} {
+      
+      border-spacing: $gutter/2 0;
+
+    }
+
+
+    // Grid
+
+    #{$style-sel} {
 
       display: table;
       table-layout: fixed;
@@ -24,19 +34,6 @@
     }
 
 
-
-      .#{$aurora}grid__item {
-        
-        display: table-cell;
-
-      }
-
-      @include do-grid-items ( $columns, $bp-name );
-
-      @include do-push-items ( $columns, $bp-name, 'table' );
-
-
-  }
 
 }
 

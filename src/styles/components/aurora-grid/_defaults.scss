@@ -10,22 +10,23 @@
 }
 
 
-@each $bp-name, $bp-num in $breakpoints {
-
-  @include breakpoints( $bp-name ) {
-  
-
-    // Hidden Items
-    .item-#{$bp-name}--hidden {
-      visibility: hidden;
-    }
-    // Invisible Items
-    .item-#{$bp-name}--invisible {
-      display: none;
-    }
-
-
+.#{$aurora}grid {
     
+  @if( $vertical-space ) {
+    margin-bottom: $gutter/2;
   }
 
 }
+
+
+// Grid Item
+
+  .#{$aurora}grid__item {
+
+    position: relative;
+    min-height: 1px;
+    font-size: initial;
+
+  }
+
+

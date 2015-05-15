@@ -1,7 +1,84 @@
 
 @import "defaults";
 @import "debug";
-
-// TODO: Codition to import Table Style dependint on Settings
+@import "float-grid";
 @import "table-grid";
+@import "block-grid";
+
+@if ( $grid_style == 'float') {
+
+  @each $bp-name, $bp-num in $breakpoints {
+
+    @include breakpoints( $bp-name ) {
+
+      @include float-helpers( false );
+      @include do-grid-items ( $columns, $bp-name, 'float' );
+      @include do-offset-items ( $columns, $bp-name );
+      @include do-push-items ( $columns, $bp-name );
+      @include do-pull-items ( $columns, $bp-name );
+
+    }
+
+  }
+
+} @else if ( $grid_style == 'table' ) {
+
+  @each $bp-name, $bp-num in $breakpoints {
+
+    @include breakpoints( $bp-name ) {
+
+      @include table-helpers( false );
+      @include do-grid-items ( $columns, $bp-name, 'table' );
+      @include do-push-items ( $columns, $bp-name );
+      @include do-pull-items ( $columns, $bp-name );
+
+      // Hidden Items 
+      .item-#{$bp-name}--hidden {
+        visibility: hidden;
+      }
+      // Invisible Items
+      .item-#{$bp-name}--invisible {
+        display: none;
+      }
+
+    }
+
+  }
+
+} @else if ( $grid_style == 'block' ) {
+
+  @each $bp-name, $bp-num in $breakpoints {
+
+    @include breakpoints( $bp-name ) {
+      
+      @include block-helpers( false);
+      @include do-grid-items ( $columns, $bp-name, 'block' );      
+
+    }
+
+  }
+
+} @else if ( $grid_style == 'all' ) {
+  
+    @each $bp-name, $bp-num in $breakpoints {
+
+      @include breakpoints( $bp-name ) {
+
+        @include table-helpers( true );
+        @include float-helpers( true );
+        @include block-helpers( true );
+        
+        @include do-grid-items ( $columns, $bp-name, 'all' );
+
+        @include do-offset-items ( $columns, $bp-name );
+
+        @include do-push-items ( $columns, $bp-name );
+        @include do-pull-items ( $columns, $bp-name );
+
+      }
+
+    }
+  
+
+}
 
