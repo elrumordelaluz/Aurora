@@ -11,6 +11,12 @@
 
     @include breakpoints( $bp-name ) {
 
+      @if ( $responsive_container ){
+        .#{$aurora}container {
+          width: map-get($container, $bp-name);
+        }  
+      }
+
       @include float-helpers( false );
       @include do-grid-items ( $columns, $bp-name, 'float' );
       @include do-offset-items ( $columns, $bp-name );
@@ -26,6 +32,12 @@
   @each $bp-name, $bp-num in $breakpoints {
 
     @include breakpoints( $bp-name ) {
+
+      @if ( $responsive_container ){
+        .#{$aurora}container {
+          width: map-get($container, $bp-name);
+        }  
+      }
 
       @include table-helpers( false );
       @include do-grid-items ( $columns, $bp-name, 'table' );
@@ -50,6 +62,12 @@
   @each $bp-name, $bp-num in $breakpoints {
 
     @include breakpoints( $bp-name ) {
+
+      @if ( $responsive_container ){
+        .#{$aurora}container {
+          width: map-get($container, $bp-name);
+        }  
+      }
       
       @include block-helpers( false);
       @include do-grid-items ( $columns, $bp-name, 'block' );      
@@ -63,6 +81,12 @@
     @each $bp-name, $bp-num in $breakpoints {
 
       @include breakpoints( $bp-name ) {
+        
+        @if ( $responsive_container ){
+          .#{$aurora}container {
+            width: map-get($container, $bp-name);
+          }  
+        }
 
         @include table-helpers( true );
         @include float-helpers( true );

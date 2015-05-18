@@ -2,92 +2,17 @@ extends layouts/mainLayout
 
 block content
 
-  mixin show-row(bp, cols, style)
-    h3 Grid #{bp}
-    - var px = style !== ' ' ? 'aurora-grid--' + style : ''
-    - for (var i = 1; i <= cols; ++i) {
-      - if (cols%i == 0) {
-          div(class="aurora-grid #{px}")
-            - for (var n = 1; n <= cols/i; ++n) {
-              div(class='aurora-grid__item item-#{bp}-#{i}')
-            - }
-      - }
-    - }
+  .aurora-container
+    .aurora-grid.aurora-grid--float
+      .aurora-grid__item.item-sm-6
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ratione perferendis, earum officiis officia impedit molestiae facilis nostrum aspernatur quis quaerat ipsum soluta esse expedita illum repellendus laboriosam non necessitatibus, deleniti magni autem? Quia harum sed maxime assumenda, earum sint, numquam molestias qui quos consequuntur, repudiandae explicabo suscipit est beatae pariatur aut, vitae. Est ipsum, expedita eaque nulla possimus quae incidunt. Cum natus assumenda recusandae alias labore eveniet ipsum, quam iure, et, consectetur iusto, repellat nostrum sed quo nam ipsa. Eius ullam unde placeat itaque harum quidem vero illum. Pariatur dolorem, delectus laborum sint reiciendis sapiente placeat quibusdam quasi labore!
+      .aurora-grid__item.item-sm-3
+        h1 Ciao
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum nulla, fugiat minima sunt. Corporis ipsam, suscipit adipisci dignissimos commodi perspiciatis obcaecati. Consequatur quasi praesentium, numquam repudiandae doloremque, alias, excepturi voluptate optio veritatis cupiditate inventore? Necessitatibus nulla iusto dignissimos, debitis odit distinctio earum suscipit. Facere sunt tempora in. Maxime, ratione ex?
+      .aurora-grid__item.item-sm-3
+        h1 Ciao
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum nulla, fugiat minima sunt. Corporis ipsam, suscipit adipisci dignissimos commodi perspiciatis obcaecati. Consequatur quasi praesentium, numquam repudiandae doloremque, alias, excepturi voluptate optio veritatis cupiditate inventore? Necessitatibus nulla iusto dignissimos, debitis odit distinctio earum suscipit. Facere sunt tempora in. Maxime, ratione ex?
     
-
-  section.section
-
-    h1 Float
-    
-    .aurora-container
-      
-      +show-row('sm', 12, 'float')
-
-      +show-row('md', 12, 'float')
-
-      +show-row('lg', 12, 'float')
-    
-
-
-    h1 Table
-
-    .aurora-container
-      
-      +show-row('sm', 12, 'table')
-
-      +show-row('md', 12, 'table')
-
-      +show-row('lg', 12, 'table')
-
-
-    h1 Inline Block
-
-    .aurora-container
-      
-      +show-row('sm', 12, 'block')
-
-      +show-row('md', 12, 'block')
-
-      +show-row('lg', 12, 'block')
-
-
-    .aurora-container
-
-      h3 Nested
-      .aurora-grid.aurora-grid--float
-        .aurora-grid__item.item-sm-6
-          .aurora-grid
-            .aurora-grid__item.item-lg-2.item-md--push-2
-            .aurora-grid__item.item-lg-5.item-lg--hidden
-            .aurora-grid__item.item-lg-5
-        .aurora-grid__item.item-sm-6
-      
-      
-      .aurora-grid.aurora-grid--float
-        .aurora-grid__item.item-sm-2
-          p hjkh
-        .aurora-grid__item.item-sm-2.item--right
-          p hjkh
-        .aurora-grid__item.item-sm-2
-          p hjkh
-        .aurora-grid__item.item-sm-2
-          p hjkh
-        .aurora-grid__item.item-sm-1.item-sm--offset-1
-          p hjkh
-        .aurora-grid__item.item-sm-2
-          p hjkh
-        .aurora-grid__item.item-sm-2
-          p hjkh
-        .aurora-grid__item.item-sm-2
-          p hjkh
-
-
-
-      .aurora-grid.aurora-grid--float
-        .aurora-grid__item.item-sm-9
-        .aurora-grid__item.item-sm-4
-        .aurora-grid__item.item-sm-6
-
             
 
       

@@ -11,14 +11,14 @@
 
     .#{$aurora}grid--gutters {
       
-      margin-left:  -$gutter/2;
-      margin-right: -$gutter/2;
+      margin-left:  -$gutter;
+      margin-right: -$gutter;
 
     }
 
     .#{$aurora}grid--gutters #{$style-sel} {
       
-      border-spacing: $gutter/2 0;
+      border-spacing: $gutter 0;
 
     }
 

@@ -9,7 +9,19 @@ $prefix:                'aurora'; // false to disable
 
 $aurora:                if( $prefix, '#{$prefix}-', '' );
 
-$box-model:             border-box;
+$global_box_model:             true;
+
+
+/**
+ * There are lots of resets types on the web, we included this to choose:
+ *
+ * normalize     --  http://necolas.github.io/normalize.css/
+ * meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
+ * html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
+ * none          --  only resets box model based on the variable and margins/padings to 0
+ *
+ **/
+$reset_type:            false;
 
 
 
@@ -17,7 +29,11 @@ $box-model:             border-box;
 
 
 
-/* GRIDS STUFF */
+/* * * * * * * * * * * * * * * * * * * * *\
+  
+    GRID SETTINGS
+
+\* * * * * * * * * * * * * * * * * * * * */
 
 /**
  * There are four grids techniques to choose depending on the final use and browser support.
@@ -32,17 +48,27 @@ $grid_style:            'all';
 
 $columns:               12;
 
-$container-width:       940px;
-
 $breakpoints: (
-  
   'sm'      : 768px,
-  
   'md'      : 992px,
-  
   'lg'      : 1200px
-
 );
+
+// $breakpoints: ( 'sm': 40em, 'md': 52em, 'lg': 64em );
+
+$responsive_container: false;
+
+$container: (
+  'sm'      : 750px,
+  'md'      : 970px,
+  'lg'      : 1170px
+);
+
+
+/**
+ * Default container width in case not use breakpoints
+**/
+$container_width:       940px;
 
 /**
  * Gutter distributes half on left and right sides
@@ -52,7 +78,7 @@ $gutter:                30px;
 /**
  * If apply the same gutter space between grids (rows)
 **/
-$vertical-space:        true;
+$vertical_space:        false;
 
 /**
  * If use css calc() to get the items widths or calculate the percentage before
@@ -67,13 +93,61 @@ $calc:                  false;
  * letter   --  Letter hack adds a negative letter-spacing to the container and then reset it on each item.
  *
  **/
-$inline-block-hacks:    'letter';
+$inline_block_hacks:    'letter';
 
-
+/**
+ * Debug: item shows an auto generated content inside each item; grid shows a transparency grid as background
+**/
+$item_debug:            false;
 $grid_debug:            true;
 
 
 
+
+
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * *\
+  
+    TYPOGRAPHY SETTINGS
+
+\* * * * * * * * * * * * * * * * * * * * */
+
+
+$font_family:           'Helvetica Neue', Helvetica, sans-serif;
+$font_size:             16px;
+$line_height:           1.5;
+$cap_height:            .68;
+
+/* The baseline is the imaginary line upon which a line of text rests */
+$baseline:              $font_size * $line_height / 2;
+
+
+/* Headings */
+$h_font_family:         $font_family;
+$h_font_weight:         bold;
+
+
+
+$h_line : $line_height;
+$h_lines : (
+
+  h1 : 3,
+  h2 : 4,
+  h3 : 3,
+  h4 : 2,
+  h5 : 2,
+  h6 : 1
+
+);
+
+$h_m_top:               0;
+$h_m_bottom:            0;
+
+
+$rhythm_debug:          true;
 
 
 

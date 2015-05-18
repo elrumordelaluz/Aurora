@@ -1,0 +1,35 @@
+
+body {
+  font-family: $font_family;
+  font-size: $font_size;
+  line-height: $line_height;
+  
+  @if ( $rhythm_debug ){ 
+    // background: linear-gradient(#eee .1em, transparent .1em);
+    background: linear-gradient(to bottom,#0ff 0,rgba(255,255,255,0)1px);
+    //background-size: 100% $line_height * $font_size;
+    background-repeat: repeat-y;
+    background-size: 100% $baseline;
+  }
+
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $h_font_weight;
+}
+
+h1 {
+  padding-top: 6px;
+  margin-bottom: 18px;
+  // line-height: 1.15;
+  font-size: $h_line * $font_size * 4;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+p {
+  margin-top: 0;
+  @include baseline( $font_size );
+}

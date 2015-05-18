@@ -7,22 +7,33 @@
     
     // Gutters
 
-    .#{$aurora}grid--gutters#{$style-sel} .#{$aurora}grid__item {
+    .#{$aurora}grid__item {
       padding-left: $gutter / 2;
       padding-right: $gutter / 2;
+
+      .no-gutter & {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
     }
 
-    #{$style-sel}.#{$aurora}grid--gutters {
+    #{$style-sel} {
       
       margin-right: -$gutter / 2;
       margin-left: -$gutter / 2;
+
+      &.no-gutter {
+        margin-left: 0;
+        margin-right: 0;
+      }
 
     }
 
 
     // Grid
 
-    #{$style-sel} {
+    #{$style-sel}, .#{$aurora}container {
       
       &:before, &:after {
         display: table;

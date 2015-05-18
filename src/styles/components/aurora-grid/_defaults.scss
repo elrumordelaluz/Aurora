@@ -2,17 +2,20 @@
 // aurora-grid :: Defaults
 
 .#{$aurora}container {
+  
+  @if ( not $responsive_container ){
+    max-width: $container_width;
+  }
 
   margin-left: auto;
   margin-right: auto;
-  max-width: $container-width;
 
 }
 
 
 .#{$aurora}grid {
     
-  @if( $vertical-space ) {
+  @if( $vertical_space ) {
     margin-bottom: $gutter/2;
   }
 
@@ -25,7 +28,13 @@
 
     position: relative;
     min-height: 1px;
+    letter-spacing: normal;
+    word-spacing: normal;
     font-size: initial;
+
+    @if ( not $global_box_model ) {
+      box-sizing: border-box;
+    }
 
   }
 

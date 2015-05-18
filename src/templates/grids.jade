@@ -1,0 +1,73 @@
+extends layouts/mainLayout
+
+block content
+
+  mixin show-row(bp, cols, style)
+    h3 Grid #{bp}
+    - var px = style !== ' ' ? 'aurora-grid--' + style : ''
+    - for (var i = 1; i <= cols; ++i) {
+      - if (cols%i == 0) {
+          div(class="aurora-grid #{px}")
+            - for (var n = 1; n <= cols/i; ++n) {
+              div(class='aurora-grid__item item-#{bp}-#{i}')
+            - }
+      - }
+    - }
+    
+  
+  mixin show-nested( style, num )
+    - var px = style !== ' ' ? 'aurora-grid--' + style : ''
+    if ( num > 0 )
+      div(class="aurora-grid #{px}")
+        div(class="aurora-grid__item item-sm-6")
+          +show-nested( style, num-1)
+        div(class="aurora-grid__item item-sm-6")
+          +show-nested( style, num-1)
+
+
+
+  h1 Float
+
+  .aurora-container
+    
+    +show-row('sm', 12, 'float')
+    +show-row('md', 12, 'float')
+    +show-row('lg', 12, 'float')
+    
+    h3 Nested Float
+    +show-nested('float', 4)
+
+
+
+  h1 Table
+
+  .aurora-container
+    
+    +show-row('sm', 12, 'table')
+    +show-row('md', 12, 'table')
+    +show-row('lg', 12, 'table')
+
+    h3 Nested Table
+    +show-nested('table', 4)
+
+
+  h1 Inline Block
+
+  .aurora-container
+    
+    +show-row('sm', 12, 'block')
+    +show-row('md', 12, 'block')
+    +show-row('lg', 12, 'block')
+
+    h3 Nested Inline Block
+    +show-nested('block', 4)
+
+            
+
+      
+
+block scripts
+
+  script.
+
+        
