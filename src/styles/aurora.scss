@@ -1,5 +1,6 @@
 
-@import "global/all";
+// Use one method and comment the other
 
-@import "components/aurora-typo/all";
-@import "components/aurora-grid/all";
+// @import "all.raw"; // by Argument
+
+@import "all.itcss"; // ITCSS logic

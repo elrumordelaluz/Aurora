@@ -1,0 +1,35 @@
+
+/* * * * * * * * * * * * * * * * * * * * *\
+  
+    TYPOGRAPHY DEFAULTS
+
+\* * * * * * * * * * * * * * * * * * * * */
+
+
+html {
+  
+  text-size-adjust: 100%;
+
+  @include base_font_size( $root_size );
+  
+}
+
+body {
+
+  font-family: unquote( map-get($bodytype, font-family) );
+  font-style: normal;
+  font-weight: map-get( $bodytype, regular );
+  line-height: $line_height;
+
+  @include fontsize( zeta, all );
+  
+  @if ( $rhythm_debug ){ 
+    background: linear-gradient(to bottom,#0ff 0,rgba(255,255,255,0)1px);
+    background-repeat: repeat-y;
+    background-size: 100% 1rem;
+  }
+
+}
+
+
+

@@ -1,31 +1,3 @@
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    GLOBAL SETTINGS
-
-\* * * * * * * * * * * * * * * * * * * * */
-
-
-$prefix:                'aurora'; // false to disable
-
-$aurora:                if( $prefix, '#{$prefix}-', '' );
-
-$global_box_model:             true;
-
-
-/**
- * There are lots of resets types on the web, we included this to choose:
- *
- * normalize     --  http://necolas.github.io/normalize.css/
- * meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
- * html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
- * none          --  only resets box model based on the variable and margins/padings to 0
- *
- **/
-$reset_type:            false;
-
-
-
-
 
 
 
@@ -48,16 +20,11 @@ $grid_style:            'all';
 
 $columns:               12;
 
-$breakpoints: (
-  'sm'      : 768px,
-  'md'      : 992px,
-  'lg'      : 1200px
-);
-
-// $breakpoints: ( 'sm': 40em, 'md': 52em, 'lg': 64em );
-
 $responsive_container: false;
 
+/**
+ * Contaner sizes for each breakpoint, in case $responsive_container is true
+**/
 $container: (
   'sm'      : 750px,
   'md'      : 970px,
@@ -102,52 +69,6 @@ $item_debug:            false;
 $grid_debug:            true;
 
 
-
-
-
-
-
-
-
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    TYPOGRAPHY SETTINGS
-
-\* * * * * * * * * * * * * * * * * * * * */
-
-
-$font_family:           'Helvetica Neue', Helvetica, sans-serif;
-$font_size:             16px;
-$line_height:           1.5;
-$cap_height:            .68;
-
-/* The baseline is the imaginary line upon which a line of text rests */
-$baseline:              $font_size * $line_height / 2;
-
-
-/* Headings */
-$h_font_family:         $font_family;
-$h_font_weight:         bold;
-
-
-
-$h_line : $line_height;
-$h_lines : (
-
-  h1 : 3,
-  h2 : 4,
-  h3 : 3,
-  h4 : 2,
-  h5 : 2,
-  h6 : 1
-
-);
-
-$h_m_top:               0;
-$h_m_bottom:            0;
-
-
-$rhythm_debug:          true;
 
 
 

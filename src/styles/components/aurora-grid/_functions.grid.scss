@@ -1,81 +1,11 @@
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    FUNCTIONS & MIXINS
-
-    1. Grid 
-    2. Typo
-
-\* * * * * * * * * * * * * * * * * * * * */
-
-
-  
-
-
-
-
-
-
-
-
 
 
 
 /* * * * * * * * * * * * * * * * * * * * *\
   
-    1. GRID FUNCTIONS / MIXINS
+    GRID FUNCTIONS & MIXINS
 
 \* * * * * * * * * * * * * * * * * * * * */
-
-
-$default-breakpoint: root;
-$current-breakpoint: $default-breakpoint;
-$placeholders: ();
-
-
-@mixin breakpoints($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
-  
-  @if $value != null {                                   
-    $current-breakpoint: $breakpoint         !global;    
-    @media (min-width: $value) { @content; }             
-    $current-breakpoint: $default-breakpoint !global;    
-  }
-  
-  @else {                                  
-    @warn "Invalid breakpoint `#{$breakpoint}`.";        
-  }
-}
-
-@mixin placeholder($name) {
-  @if not index($placeholders, $name) {                 
-    $placeholders: append($placeholders, $name) !global;
-    
-    @at-root {
-      @each $breakpoint, $value in $breakpoints {       
-        @media (min-width: $value) {                    
-          %#{$name}-#{$breakpoint} {                    
-            @content;                                   
-          }
-        }
-      }
-    
-      %#{$name}-#{$default-breakpoint} {                
-        @content;
-      }
-    }
-  }
-  
-  @else {
-    @warn "Placeholder `#{$name}` already exists.";     
-  }
-}
-
-
-@mixin _($name) {
-  @extend %#{$name}-#{$current-breakpoint} !optional;
-}
-
-
 
 
 
@@ -210,55 +140,4 @@ $placeholders: ();
   } // @for
 
 } // @mixin
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    2. TYPO FUNCTIONS / MIXINS
-
-\* * * * * * * * * * * * * * * * * * * * */
-
-
-@mixin baseline( $fz, $scale: 2 ) {
-  
-  $rhythm: $line_height * $fz / $scale;
-
-  $lines: ceil( ($fz + 0.001px) / $rhythm );
-
-  $lh: $rhythm * $lines / $fz;
-
-  font-size: $fz;
-  line-height: $lh;
-  
-  $baseline_distance: ($lh - $cap_height) / 2;
-
-  padding-top: $baseline_distance + em;
-  margin-bottom: $line_height - $baseline_distance + em;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

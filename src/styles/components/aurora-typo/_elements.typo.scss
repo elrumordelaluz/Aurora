@@ -1,0 +1,215 @@
+
+/* * * * * * * * * * * * * * * * * * * * *\
+  
+    TYPOGRAPHY ELEMENTS
+
+\* * * * * * * * * * * * * * * * * * * * */
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+  font-family: unquote(map-get($headingtype, font-family));
+  font-style: normal;
+  font-weight: map-get( $headingtype, bold );
+}
+
+h1, .alpha { @include sassline( alpha, $headingtype, 3, 1, all ); }
+h2, .beta { @include sassline( beta, $headingtype, 3, 1, all ); }
+h3, .gamma { @include sassline( gamma, $headingtype, 3, 1, all ); }
+h4, .delta { @include sassline( delta, $headingtype, 2, 0, all ); }
+h5, .epsilon { @include sassline( epsilon, $headingtype, 2, 0, all ); }
+h6, .zeta { @include sassline( zeta, $headingtype, 2, 0, all ); }
+
+p {    
+  @include baseline( 
+    $fontsize: zeta, 
+    $font: $bodytype, 
+    $lineheight: 2, 
+    $below: 2, 
+    $breakpoint: all
+  );
+}
+
+small, .caption {
+  font-family: unquote(map-get($headingtype, font-family));
+  font-style: normal;
+  font-weight: map-get($headingtype, regular);
+
+  @include fontsize(theta, all);
+}
+
+small { line-height: 1rem; }
+
+.caption { @include baseline(theta, $headingtype, 2, 2, all); }
+
+h1 + .caption, .alpha + .caption, h2 + .caption, .beta + .caption, h3 + .caption, .gamma + .caption {
+  margin-top: -1rem;
+}
+
+.delta + .caption, .epsilon + .caption, .zeta + .caption {
+  margin-top: 0rem;
+}
+
+
+
+$link_color: map-get($type_colors, links);
+$link_hover: darken( $link_color, 10 );
+$heading_color: map-get($type_colors, heading);
+
+
+a {
+  transition: color .1s, background-color .1s;
+
+  color: $link_color;
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    color: $link_hover;
+    text-decoration: none;
+  }
+}
+
+
+
+ul, ol {
+  @include baseline(zeta, $bodytype, 2, 2, all);
+
+  li {
+    
+    font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+
+    margin-left: 2rem;
+
+    @include breakpoints(sm) {
+      margin-left: 0;
+    }
+  }
+}
+
+
+// Bold.
+b, strong, .bold {
+  font-weight: map-get($bodytype, bold);
+}
+
+// Italic.
+em, i, .italic {
+  font-style: map-get($bodytype, italic);
+}
+
+// Caption and inline small text.
+small, .caption {
+  font-family: unquote(map-get($headingtype, font-family));
+  font-style: normal;
+  font-weight: map-get($headingtype, regular);
+
+  @include fontsize(theta, all);
+}
+
+small {
+  line-height: 1rem;
+}
+
+.caption {
+  color: map-get($type_colors, caption);
+
+  @include baseline(theta, $headingtype, 2, 2, all);
+}
+
+
+blockquote {
+
+  p {
+    border-left: 0.15rem solid $link_color;
+    font-style: map-get($bodytype, italic);
+    padding-left: 1rem;
+
+    // Add spacing below blockquote paragraphs to align to baseline grid.
+    $get-scale: map-get($modular-scale, scale-0);
+    $get-size: map-get($get-scale, zeta);
+    $rootsize: nth($font_sizes, 1);
+    $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001};
+    $baseline-push: #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001)};
+
+    margin-bottom: #{$baseline-push}rem;
+    padding-bottom: #{$baseline-shift}rem;
+
+    @for $i from 2 through $bps-length {
+      $get-scale: map-get($modular-scale, scale-#{$i - 1});
+      $get-size: map-get($get-scale, zeta);
+      $rootsize: nth($font_sizes, $i);
+      $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001};
+      $baseline-push: #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($bodytype, cap-height))) / $rootsize + 0.00001)};
+
+      @media screen and (min-width: ( nth($bps_values, $i) / 1px ) / 16 * 1em ) {
+        margin-bottom: #{$baseline-push}rem;
+        padding-bottom: #{$baseline-shift}rem;
+      }
+    }
+  }
+
+  @include breakpoints(sm) {
+    margin-left: -1rem;
+  }
+}
+
+
+hr {
+  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,map-get($type_colors, caption) 50%);
+  background-position: 0 50%;
+  background-repeat: repeat-x;
+  background-size: 100% 0.15rem;
+  border: 0;
+  margin: 0;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+
+code, pre {
+  background-color: #333;
+  font-family: unquote(map-get($monospacetype, font-family));
+}
+
+pre {
+  display: block;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+code {
+  line-height: 1rem;
+
+  @include fontsize(theta, all);
+}
+
+
+.upper {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+
+.small-caps {
+  font-feature-settings: 'smcp' 1, 'kern' 1;
+
+  letter-spacing: 0.1rem;
+}
+
+
+.lining-numerals {
+  
+  font-feature-settings: 'lnum' 1, 'kern' 1;
+}
+
+.oldstyle-numerals {
+  
+  font-feature-settings: 'onum' 1, 'kern' 1;
+}
+
+
