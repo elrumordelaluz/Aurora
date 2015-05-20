@@ -9,8 +9,14 @@
 html {
   
   text-size-adjust: 100%;
+  
+  @include base_font_size( $root_size, 'xs' );
 
-  @include base_font_size( $root_size );
+  @each $bp-name, $bp-num in $breakpoints {
+    @include breakpoints( $bp-name ) {
+      @include base_font_size( $root_size, $bp-name );
+    }
+  }
   
 }
 
@@ -19,9 +25,8 @@ body {
   font-family: unquote( map-get($bodytype, font-family) );
   font-style: normal;
   font-weight: map-get( $bodytype, regular );
-  line-height: $line_height;
-
-  @include fontsize( zeta, all );
+  
+  @include set( $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'font');
   
   @if ( $rhythm_debug ){ 
     background: linear-gradient(to bottom,#0ff 0,rgba(255,255,255,0)1px);

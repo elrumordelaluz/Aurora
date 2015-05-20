@@ -65,6 +65,24 @@ $placeholders: ();
 }
 
 
+@function mq( $val, $base ) {
+  
+  @if ( $mq_em ) {
+    @return un_px($val) / un_px($base) * 1em;
+  } @else {
+    @return $val;
+  }
+
+}
+
+
+
+
+
+
+
+
+
 // Math from: https://github.com/adambom/Sass-Math/blob/master/math.scss
 
 
