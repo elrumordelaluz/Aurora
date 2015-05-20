@@ -28,7 +28,7 @@
 
 @mixin set( $val, $lh, $lines, $bp, $return: 'both' ) {
 
-  $ms: map-get($modular_scales, $bp);
+  $ms: if($responsive_scales, map-get($modular_scales, $bp), $base_modular);
   $base: map-get($ms, b);
   $base: map-get($ms, b);
   $func: map-get($ms, f);

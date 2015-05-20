@@ -11,17 +11,21 @@ html {
   text-size-adjust: 100%;
   
   @include base_font_size( $root_size, 'xs' );
-
-  @each $bp-name, $bp-num in $breakpoints {
-    @include breakpoints( $bp-name ) {
-      @include base_font_size( $root_size, $bp-name );
+  
+  @if ( $responsive_scales ){
+    
+    @each $bp-name, $bp-num in $breakpoints {
+      @include breakpoints( $bp-name ) {
+        @include base_font_size( $root_size, $bp-name );
+      }
     }
+
   }
   
 }
 
 body {
-
+  
   font-family: unquote( map-get($bodytype, font-family) );
   font-style: normal;
   font-weight: map-get( $bodytype, regular );
