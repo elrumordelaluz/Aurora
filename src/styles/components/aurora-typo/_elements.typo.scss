@@ -14,18 +14,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: map-get( $headingtype, bold );
 }
 
-// h1, .alpha { @include sassline( alpha, $headingtype, 3, 1, all ); }
-// h2, .beta { @include sassline( beta, $headingtype, 3, 1, all ); }
-// h3, .gamma { @include sassline( gamma, $headingtype, 3, 1, all ); }
-// h4, .delta { @include sassline( delta, $headingtype, 2, 0, all ); }
-// h5, .epsilon { @include sassline( epsilon, $headingtype, 2, 0, all ); }
-// h6, .zeta { @include sassline( zeta, $headingtype, 2, 0, all ); }
-// p { @include baseline( zeta, $bodytype, 2, 2, all ); }
-
-
-
-
-
 h1 { @include set( $val: 5, $lh: 3, $lines: 1, $bp: 'xs'); }
 h2 { @include set( $val: 4, $lh: 3, $lines: 1, $bp: 'xs'); }
 h3 { @include set( $val: 3, $lh: 3, $lines: 1, $bp: 'xs'); }
@@ -33,8 +21,8 @@ h4 { @include set( $val: 2, $lh: 2, $lines: 0, $bp: 'xs'); }
 h5 { @include set( $val: 1, $lh: 2, $lines: 0, $bp: 'xs'); }
 h6 { @include set( $val: 0, $lh: 2, $lines: 0, $bp: 'xs'); }
 p { @include set( $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
-
-small { @include set( $val: -2, $lh: 1, $lines: 2, $bp: 'xs', $return: 'font'); }
+.caption { @include set( $val: -2, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
+code, small { @include set( $val: -2, $lh: 1, $lines: 2, $bp: 'xs', $return: 'font'); }
 ul, ol { @include set( $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
 
 @each $bp-name, $bp-num in $breakpoints {
@@ -56,10 +44,8 @@ ul, ol { @include set( $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline
     h6 { @include set( $val: 0, $lh: 2, $lines: 0, $bp: $bp-name); }
     p { @include set( $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
     .caption { @include set( $val: -2, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
-    small { @include set( $val: -2, $lh: 1, $lines: 2, $bp: $bp-name, $return: 'font'); }
-
+    code, small { @include set( $val: -2, $lh: 1, $lines: 2, $bp: $bp-name, $return: 'font'); }
     ul, ol { @include set( $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
-
 
   }
 
@@ -67,32 +53,14 @@ ul, ol { @include set( $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 small, .caption {
   font-family: unquote( map-get($headingtype, font-family) );
   font-style: normal;
   font-weight: map-get( $headingtype, regular );
-
- // @include fontsize(theta, all);
 }
-
-
-
 
 .caption { 
   color: map-get($type_colors, caption);
-  // @include baseline(theta, $headingtype, 2, 2, all); 
 }
 
 h1 + .caption, .alpha + .caption, h2 + .caption, .beta + .caption, h3 + .caption, .gamma + .caption {
@@ -103,8 +71,6 @@ h1 + .caption, .alpha + .caption, h2 + .caption, .beta + .caption, h3 + .caption
   margin-top: 0rem;
 }
 
-
-
 $link_color: map-get($type_colors, links);
 $link_hover: darken( $link_color, 10 );
 $heading_color: map-get($type_colors, heading);
@@ -112,7 +78,6 @@ $heading_color: map-get($type_colors, heading);
 
 a {
   transition: color .1s, background-color .1s;
-
   color: $link_color;
   text-decoration: none;
 
@@ -122,11 +87,7 @@ a {
   }
 }
 
-
-
 ul, ol {
- // @include baseline(zeta, $bodytype, 2, 2, all);
-
   li {
     
     font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
@@ -139,35 +100,25 @@ ul, ol {
   }
 }
 
-
-// Bold.
 b, strong, .bold {
   font-weight: map-get($bodytype, bold);
 }
 
-// Italic.
 em, i, .italic {
   font-style: map-get($bodytype, italic);
 }
 
-
-
-
-
-
 blockquote {
-
   p {
     border-left: 0.15rem solid $link_color;
     font-style: map-get($bodytype, italic);
     padding-left: 1rem;
   }
 
-  @include breakpoints(sm) {
+  @include breakpoints( sm ) {
     margin-left: -1rem;
   }
 }
-
 
 hr {
   background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,map-get($type_colors, caption) 50%);
@@ -179,7 +130,6 @@ hr {
   padding-bottom: 3rem;
   padding-top: 3rem;
 }
-
 
 code, pre {
   background-color: #333;
@@ -198,31 +148,23 @@ pre {
 
 code {
   line-height: 1rem;
-
-  // @include fontsize(theta, all);
 }
-
 
 .upper {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 
-
 .small-caps {
   font-feature-settings: 'smcp' 1, 'kern' 1;
-
   letter-spacing: 0.1rem;
 }
 
-
 .lining-numerals {
-  
   font-feature-settings: 'lnum' 1, 'kern' 1;
 }
 
 .oldstyle-numerals {
-  
   font-feature-settings: 'onum' 1, 'kern' 1;
 }
 

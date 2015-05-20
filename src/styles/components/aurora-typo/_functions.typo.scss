@@ -30,6 +30,7 @@
 
   $ms: map-get($modular_scales, $bp);
   $base: map-get($ms, b);
+  $base: map-get($ms, b);
   $func: map-get($ms, f);
   $sizes: map-get($ms, s);
 
