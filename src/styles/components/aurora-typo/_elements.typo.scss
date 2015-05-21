@@ -28,12 +28,6 @@ ul, ol { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return
 @each $bp-name, $bp-num in $breakpoints {
 
   @include breakpoints( $bp-name ) {
-    
-    $ms: map-get($modular_scales, $bp-name);
-    $base: map-get($ms, b);
-    $func: map-get($ms, f);
-    $sizes: map-get($ms, s);
-
     h1 { @include set( $headingtype, $val: 5, $lh: 3, $lines: 1, $bp: $bp-name); }
     h2 { @include set( $headingtype, $val: 4, $lh: 3, $lines: 1, $bp: $bp-name); }
     h3 { @include set( $headingtype, $val: 3, $lh: 3, $lines: 1, $bp: $bp-name); }
@@ -42,7 +36,8 @@ ul, ol { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return
     h6 { @include set( $headingtype, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name); }
     p { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
     .caption { @include set( $headingtype, $val: -2, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
-    code, small { @include set( $monospacetype, $val: -2, $lh: 1, $lines: 2, $bp: $bp-name, $return: 'font'); }
+    small { @include set( $bodytype, $val: -2, $lh: 1, $lines: 2, $bp: $bp-name, $return: 'font'); }
+    code { @include set( $monospacetype, $val: -2, $lh: 1, $lines: 1, $bp: $bp-name ); }
     ul, ol { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
   }
 
@@ -130,8 +125,9 @@ hr {
   padding-top: 3rem;
 }
 
-code, pre {
-  background-color: #333;
+// code, 
+pre {
+  background-color: rgba( #333,.5);
   font-family: unquote(map-get($monospacetype, font-family));
 }
 
@@ -139,7 +135,8 @@ code, pre {
 pre {
   display: block;
   margin-bottom: 2rem;
-  padding: 1rem;
+  // padding: 1rem;
+  padding: 0.55rem 1rem;
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
@@ -147,7 +144,8 @@ pre {
 }
 
 code {
-  line-height: 1rem;
+  // line-height: 1rem;
+  color: white;
 }
 
 mark, .highlight {

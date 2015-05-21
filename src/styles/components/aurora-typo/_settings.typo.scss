@@ -34,7 +34,7 @@ $base_modular: (
   s: 16px 28px
 );
 
-$responsive_scales: false;
+$responsive_scales: true;
 
 $modular_scales: (
   
@@ -94,7 +94,7 @@ $headingtype: (
 );
 
 $monospacetype: (
-  font-family: 'Menlo, monospace',
+  font-family: 'Lucida Console, Monaco, monospace',
   regular: 400,
   cap-height: 0.68
 );
