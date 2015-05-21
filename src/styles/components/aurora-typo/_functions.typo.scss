@@ -25,28 +25,32 @@
   @return ( ( $fz / 2 * (( $lh * $b /  $fz) - $c )) / $b + 0.00001 ) * 1rem;
 }
 
+@function rem($fz, $base) {
+  @return $fz / $base / 1px * 1rem;
+}
 
-@mixin set( $val, $lh, $lines, $bp, $return: 'both' ) {
-
+@mixin set( $font, $val, $lh, $lines, $bp, $return: 'both' ) {
+  
+  $cap: map-get($font, cap-height);
   $ms: if($responsive_scales, map-get($modular_scales, $bp), $base_modular);
-  $base: map-get($ms, b);
+  
   $base: map-get($ms, b);
   $func: map-get($ms, f);
   $sizes: map-get($ms, s);
 
   $fz: ms( $val, $sizes, $func );
-  
+
   @if ( $return == 'font' ) {
-    font-size: $fz;
+    font-size: rem( $fz, $base );
     line-height: #{$lh}rem;
   } @else if ( $return == 'baseline' ) {
-    padding-top: shift( $fz, $lh, $base, 0.68 );
-    margin-bottom: push( $lines, $fz, $lh, $base, 0.68 );
+    padding-top: shift( $fz, $lh, $base, $cap );
+    margin-bottom: push( $lines, $fz, $lh, $base, $cap );
   } @else {
-    font-size: $fz;
+    font-size: rem( $fz, $base );
     line-height: #{$lh}rem;
-    padding-top: shift( $fz, $lh, $base, 0.68 );
-    margin-bottom: push( $lines, $fz, $lh, $base, 0.68 );
+    padding-top: shift( $fz, $lh, $base, $cap );
+    margin-bottom: push( $lines, $fz, $lh, $base, $cap );
   } 
 
 }

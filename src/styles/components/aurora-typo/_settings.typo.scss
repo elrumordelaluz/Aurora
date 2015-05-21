@@ -1,4 +1,4 @@
-@import 'modular-scale';
+@import 'modular-scale';  // https://github.com/modularscale/modularscale-sass
 
 /* * * * * * * * * * * * * * * * * * * * *\
   
@@ -34,7 +34,7 @@ $base_modular: (
   s: 16px 28px
 );
 
-$responsive_scales: true;
+$responsive_scales: false;
 
 $modular_scales: (
   
@@ -79,11 +79,11 @@ $modular_scales: (
 */
 
 $bodytype: (
-  font-family: 'Helvetica, sans-serif',
+  font-family: 'Palatino Linotype, Book Antiqua, Palatino, serif',
   regular: 400,
   bold: 700,
   italic: italic,
-  cap-height: 0.65
+  cap-height: 0.52
 );
 
 $headingtype: (

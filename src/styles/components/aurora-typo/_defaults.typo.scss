@@ -30,7 +30,7 @@ body {
   font-style: normal;
   font-weight: map-get( $bodytype, regular );
   
-  @include set( $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'font');
+  @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'font');
   
   @if ( $rhythm_debug ){ 
     background: linear-gradient(to bottom,#0ff 0,rgba(255,255,255,0)1px);
