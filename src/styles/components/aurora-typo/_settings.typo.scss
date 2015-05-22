@@ -29,12 +29,12 @@ $baseline:              $root_size * $line_height / 2;
 */
 
 $base_modular: (
-  b: 12,
+  b: 16,
   f: $golden,
-  s: 16px 28px
+  s: 16px
 );
 
-$responsive_scales: true;
+$responsive_scales: false;
 
 $modular_scales: (
   
