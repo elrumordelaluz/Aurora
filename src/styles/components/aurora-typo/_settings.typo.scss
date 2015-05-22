@@ -34,7 +34,7 @@ $base_modular: (
   s: 16px
 );
 
-$responsive_scales: false;
+$responsive_scales: true;
 
 $modular_scales: (
   
@@ -78,35 +78,80 @@ $modular_scales: (
 *  cap-height    -- cap height number
 */
 
-$bodytype: (
+$body_type: (
+
   font-family: 'Palatino Linotype, Book Antiqua, Palatino, serif',
+
   regular: 400,
+
   bold: 700,
+
   italic: italic,
+
   cap-height: 0.52
+
 );
 
-$headingtype: (
+$h_type: (
+
   font-family: 'Helvetica, sans-serif',
+
   regular: 400,
+
   bold: 700,
+
   cap-height: 0.65
+
 );
 
-$monospacetype: (
+$mono_type: (
+  
   font-family: 'Lucida Console, Monaco, monospace',
+  
   regular: 400,
+  
   cap-height: 0.68
+
 );
+
+
+
 
 $type_colors: (
+
   links: $color_highlight,
+  
   heading: #2d2d2d,
+  
   body: #505050,
-  caption: #787878
+  
+  light: #a7a7a7
+
 );
 
 
+
+$responsive_txt_helpers: true;
+
+
+
+/**
+ * Debug: rhythm shows horizontal baselines as <body> background
+**/
+
 $rhythm_debug:          true;
+
+$debug_colors: (
+  black: #000,
+  white: #fff,
+  red: #BD424B, 
+  orange: #CB6020,
+  yellow: #FFE960,
+  green: #3F9679,
+  blue: #4C8DCF,
+  light: #d7d7d7
+);
+
+$debug_line_colors: map-get( $debug_colors, light );
 
 

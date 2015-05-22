@@ -5,7 +5,14 @@
 \* * * * * * * * * * * * * * * * * * * * */
 
 
-$prefix:                'aurora'; // false to disable
+$lg_prefix: 'aurora';
+$sm_prefix: 'ae';
+
+
+/**
+ * Prefix to add before element/components (i.e aurora-component / ae-component); false to disable.
+ **/
+$prefix:                $sm_prefix;
 
 $aurora:                if( $prefix, '#{$prefix}-', '' );
 
@@ -30,7 +37,7 @@ $reset_type:            false;
 /**
  * Media queries in em or px
  **/
-$mq_em:               false;
+$mq_em:               false; // TODO add to grids
 
 $breakpoints: (
   'sm'      : 768px,
@@ -40,17 +47,27 @@ $breakpoints: (
 );
 
 
-// $breakpoints: ( 'sm': 40em, 'md': 52em, 'lg': 64em );
+/**
+ * Helper prefixes
+ **/
+
+$txt_pfx: 'txt';
 
 
 
 
 
 
+$aurora_colors: (
+  1: rgb(233, 161, 181),
+  2: rgb(179, 147, 171),
+  3: rgb(187, 222, 196),
+  4: rgb(184, 252, 240),
+  5: rgb(100, 110, 179),
+  6: rgb(33, 27, 62)
+);
 
-
-
-$color_highlight: #8aedb2;
+$color_highlight: map-get( $aurora_colors, 1 );
 
 
 

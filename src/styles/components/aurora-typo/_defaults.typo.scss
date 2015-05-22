@@ -26,14 +26,14 @@ html {
 
 body {
   
-  font-family: unquote( map-get($bodytype, font-family) );
+  font-family: unquote( map-get($body_type, font-family) );
   font-style: normal;
-  font-weight: map-get( $bodytype, regular );
+  font-weight: map-get( $body_type, regular );
   
-  @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'font');
+  @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'font');
   
   @if ( $rhythm_debug ){ 
-    background: linear-gradient(to bottom,#0ff 0,rgba(255,255,255,0)1px);
+    background: linear-gradient( to bottom, $debug_line_colors 0, transparent 1px );
     background-repeat: repeat-y;
     background-size: 100% 1rem;
   }

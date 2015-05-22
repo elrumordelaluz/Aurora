@@ -7,83 +7,86 @@
 
 
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .h1 {
   font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-  font-family: unquote( map-get($headingtype, font-family) );
+  font-family: unquote( map-get( $h_type, font-family ) );
   font-style: normal;
-  font-weight: map-get( $headingtype, bold );
+  font-weight: map-get( $h_type, bold );
 }
 
-h3 { @include set( $headingtype, $val: 3, $lh: 3, $lines: 1, $bp: 'xs'); }
-h4 { @include set( $headingtype, $val: 2, $lh: 2, $lines: 0, $bp: 'xs'); }
-h5 { @include set( $headingtype, $val: 1, $lh: 2, $lines: 0, $bp: 'xs'); }
-h6 { @include set( $headingtype, $val: 0, $lh: 2, $lines: 0, $bp: 'xs'); }
-p { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
-.caption { @include set( $headingtype, $val: -2, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
-code, small { @include set( $monospacetype, $val: -2, $lh: 1, $lines: 2, $bp: 'xs', $return: 'font'); }
-ul, ol { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
+
+
+h3, .h3 { @include set( $h_type, $val: 3, $lh: 2, $lines: 1, $bp: 'xs'); }
+h4, .h4 { @include set( $h_type, $val: 2, $lh: 2, $lines: 1, $bp: 'xs'); }
+h5, .h5 { @include set( $h_type, $val: 1, $lh: 2, $lines: 1, $bp: 'xs'); }
+h6, .h6 { @include set( $h_type, $val: 0, $lh: 2, $lines: 1, $bp: 'xs'); }
+
+p { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
+code{ @include set( $mono_type, $val: -2, $lh: 1, $lines: 2, $bp: 'xs', $return: 'font'); }
+ul, ol { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
 
 
 @if( $responsive_scales ) {
   
-  h1 { @include set( $headingtype, $val: 5, $lh: 3, $lines: 1, $bp: 'xs'); }
-  h2 { @include set( $headingtype, $val: 4, $lh: 3, $lines: 1, $bp: 'xs'); }
+  h1, .h1 { @include set( $h_type, $val: 5, $lh: 3, $lines: 1, $bp: 'xs'); }
+  h2, .h2 { @include set( $h_type, $val: 4, $lh: 3, $lines: 1, $bp: 'xs'); }
 
   @each $bp-name, $bp-num in $breakpoints {
     
     @include breakpoints( $bp-name ) {
-      h1 { @include set( $headingtype, $val: 5, $lh: 3, $lines: 1, $bp: $bp-name); }
-      h2 { @include set( $headingtype, $val: 4, $lh: 3, $lines: 1, $bp: $bp-name); }
-      h3 { @include set( $headingtype, $val: 3, $lh: 3, $lines: 1, $bp: $bp-name); }
-      h4 { @include set( $headingtype, $val: 2, $lh: 2, $lines: 0, $bp: $bp-name); }
-      h5 { @include set( $headingtype, $val: 1, $lh: 2, $lines: 0, $bp: $bp-name); }
-      h6 { @include set( $headingtype, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name); }
-      p { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
-      .caption { @include set( $headingtype, $val: -2, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
-      small { @include set( $bodytype, $val: -2, $lh: 1, $lines: 2, $bp: $bp-name, $return: 'font'); }
-      code { @include set( $monospacetype, $val: -2, $lh: 1, $lines: 1, $bp: $bp-name ); }
-      ul, ol { @include set( $bodytype, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
+      
+      h1, .h1 { @include set( $h_type, $val: 8, $lh: 4, $lines: 2, $bp: $bp-name); }
+      h2, .h1 { @include set( $h_type, $val: 6, $lh: 3, $lines: 2, $bp: $bp-name); }
+      h3, .h3 { @include set( $h_type, $val: 3, $lh: 2, $lines: 1, $bp: $bp-name); }
+      h4, .h4 { @include set( $h_type, $val: 2, $lh: 2, $lines: 1, $bp: $bp-name); }
+      h5, .h5 { @include set( $h_type, $val: 1, $lh: 2, $lines: 1, $bp: $bp-name); }
+      h6, .h6 { @include set( $h_type, $val: 0, $lh: 2, $lines: 1, $bp: $bp-name); }
+      
+      p { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
+      code { @include set( $mono_type, $val: -2, $lh: 1, $lines: 1, $bp: $bp-name ); }
+      ul, ol { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
     }
   }
 
 }
 @else {
   
-  h1 { @include set( $headingtype, $val: 5, $lh: 10, $lines: 1, $bp: 'xs'); }
-  h2 { @include set( $headingtype, $val: 4, $lh: 5, $lines: 1, $bp: 'xs'); }
+  // h1, .h1 { @include set( $h_type, $val: 5, $lh: 10, $lines: 1, $bp: 'xs'); }
+  // h2, .h2 { @include set( $h_type, $val: 4, $lh: 5, $lines: 1, $bp: 'xs'); }
+  h1, .h1 { @include set( $h_type, $val: 8, $lh: 4, $lines: 2, $bp: 'xs'); }
+  h2, .h1 { @include set( $h_type, $val: 6, $lh: 3, $lines: 2, $bp: 'xs'); }
 
 }
 
 
 
-small, .caption {
-  font-family: unquote( map-get($headingtype, font-family) );
-  font-style: normal;
-  font-weight: map-get( $headingtype, regular );
+
+h1 small, 
+h2 small, 
+h3 small, 
+h4 small, 
+h5 small, 
+h6 small {
+  color: map-get( $type_colors, light );
+  // margin-top: -1rem;
 }
 
-.caption { 
-  color: map-get($type_colors, caption);
-}
-
-h1 + .caption, h2 + .caption, h3 + .caption {
-  margin-top: -1rem;
+small {
+  font-size: .75em;
+  line-height: 1rem;
 }
 
 
-$link_color: map-get($type_colors, links);
-$link_hover: darken( $link_color, 10 );
-$heading_color: map-get($type_colors, heading);
+
+$heading_color: map-get( $type_colors, heading );
 
 
 a {
-  transition: color .1s, background-color .1s;
-  color: $link_color;
+  color: map-get( $type_colors, links );
   text-decoration: none;
 
   &:hover, &:active, &:focus {
-    color: $link_hover;
-    text-decoration: none;
+    color: darken( map-get( $type_colors, links ), 10 );
   }
 }
 
@@ -102,18 +105,18 @@ ul, ol {
 
 
 b, strong, .bold {
-  font-weight: map-get($bodytype, bold);
+  font-weight: map-get($body_type, bold);
 }
 
 em, i, .italic {
-  font-style: map-get($bodytype, italic);
+  font-style: map-get($body_type, italic);
 }
 
 blockquote {
 
   p {
-    border-left: 0.15rem solid $link_color;
-    font-style: map-get($bodytype, italic);
+    border-left: 0.15rem solid map-get( $type_colors, links );
+    font-style: map-get($body_type, italic);
     padding-left: 1rem;
   }
 
@@ -123,27 +126,22 @@ blockquote {
 }
 
 hr {
-  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0) 50%,map-get($type_colors, caption) 50%);
-  background-position: 0 50%;
-  background-repeat: repeat-x;
-  background-size: 100% 0.15rem;
+  width: 75%;
   border: 0;
-  margin: 0;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  border-bottom: 1px solid;
+  padding: .15rem 0;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
-// code, 
 pre {
   background-color: rgba( #333,.5);
-  font-family: unquote(map-get($monospacetype, font-family));
+  font-family: unquote( map-get( $mono_type, font-family ) );
 }
-
 
 pre {
   display: block;
   margin-bottom: 2rem;
-  // padding: 1rem;
   padding: 0.55rem 1rem;
   white-space: pre;
   white-space: pre-wrap;
@@ -152,19 +150,23 @@ pre {
 }
 
 code {
-  // line-height: 1rem;
   color: white;
 }
 
-mark, .highlight {
-  background-color: $link_color;
+mark, 
+.highlight {
+  background-color: map-get( $type_colors, links );;
 }
 
-del, s, .line-through {
+del, 
+s, 
+.line-through {
   text-decoration-line: line-through;
 }
 
-ins, u, .text-underlined {
+ins, 
+u, 
+.text-underlined {
   text-decoration: underline;
 }
 

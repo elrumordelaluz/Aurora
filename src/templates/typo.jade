@@ -2,60 +2,72 @@ extends layouts/mainLayout
 
 block content
 
-  .aurora-container
-    .aurora-grid.aurora-grid--float
-      .aurora-grid__item.item-sm-6
+  .ae-container
+    .ae-grid.ae-grid--float
+      .ae-grid__item.item-sm-8
         
-        h1 h1 title
-        h2 h2 title
-        h3 h3 title
-        h4 h4 title
-        h5 h5 title
-        h6 h6 title
+        h1  Lorem ipsum dolor sit amet.
+          small  [h1]
+        h2 Lorem ipsum dolor sit amet, consectetur adipisicing.
+          small  [h2]
+        h3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, reiciendis.
+          small  [h3]
+        h4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, quo!
+          small  [h4]
+        h5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, repudiandae!
+          small  [h5]
+        h6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, enim.
+          small  [h6]
+        
         p  Lorem ipsum 
-          mark  Lorem ipsum dolor.dolor sit amet, 
-          | consectetur adipisicing elit. 
-          del Sit ratione perferendis, 
-          | earum officiis officia impedit molestiae facilis nostrum aspernatur quis quaerat ipsum soluta esse expedita illum repellendus laboriosam non necessitatibus, deleniti magni autem? Quia harum sed maxime assumenda, earum sint, numquam molestias qui quos consequuntur, repudiandae explicabo suscipit est beatae pariatur aut, vitae. Est ipsum, expedita eaque nulla possimus quae incidunt. Cum natus assumenda recusandae alias labore eveniet ipsum, quam iure, et, consectetur iusto, repellat nostrum sed quo nam ipsa. Eius ullam unde placeat itaque harum quidem vero illum. Pariatur dolorem, delectus laborum sint reiciendis sapiente placeat quibusdam quasi labore!
+          mark  highlighted text
+          |  consectetur adipisicing elit. 
+          del lined through text
+          |  earum officiis officia impedit molestiae facilis nostrum aspernatur 
+          ins  underlined text
+          |  quis quaerat ipsum soluta esse expedita illum repellendus 
+          strong bolded text
+          |  laboriosam non necessitatibus, 
+          em italic text
+          |  deleniti magni autem? Quia harum sed maxime assumenda, earum sint, numquam molestias qui quos consequuntur, repudiandae explicabo suscipit est beatae pariatur aut, vitae. Est ipsum, expedita eaque nulla possimus quae incidunt. Cum natus assumenda recusandae alias labore eveniet ipsum, quam iure, et, consectetur iusto, repellat nostrum sed quo nam ipsa. Eius ullam unde placeat itaque harum quidem vero illum. Pariatur dolorem, delectus laborum sint reiciendis sapiente placeat quibusdam quasi labore!
+
+
+      .ae-grid__item.item-sm-4
+        h1 Title
+          small  sub
+        h3 subtitle
+        p
+          small Small text: lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex iure nihil culpa, sunt, quae excepturi hic eaque vero quod.
         
-        ul
-          li gjhkj
-          li jkjhkh
-            ul 
-              li jhkkl
-              li hjkh
-          li jlkjlk
-
-      .aurora-grid__item.item-sm-3
-        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum nulla, fugiat minima sunt. Corporis ipsam, suscipit adipisci dignissimos commodi perspiciatis obcaecati. Consequatur quasi praesentium, numquam repudiandae doloremque, alias, excepturi voluptate optio veritatis cupiditate inventore? Necessitatibus nulla iusto dignissimos, debitis odit distinctio earum suscipit. Facere sunt tempora in. Maxime, ratione ex?
-        ol 
-          li jhkjh
-          li jkhkj
-          li hjkhkj
-            ol 
-              li hjkhkj
-              li kjklj
-
+        p  Lorem 
+          a(href='#0') ipsum dolor sit amet, 
+          | consectetur adipisicing elit. Dolorum nulla, fugiat minima sunt. Corporis ipsam, suscipit adipisci dignissimos commodi perspiciatis obcaecati. Consequatur quasi praesentium, numquam repudiandae doloremque, alias, excepturi voluptate optio veritatis cupiditate inventore? Necessitatibus nulla iusto dignissimos, debitis odit distinctio earum suscipit. Facere sunt tempora in. Maxime, ratione ex?
+        
         pre 
           code class { 
             |    hola: world; 
             |  }
-      .aurora-grid__item.item-sm-3
-        h3 H3 heading
-          small cap
-        p
-          small  Lorem ipsum dolor sit amet, consectetur adipisicing.
-
-        p  Lorem 
-          a ipsum dolor sit amet, 
-          | consectetur adipisicing elit. Dolorum nulla, fugiat minima sunt. Corporis ipsam, suscipit adipisci dignissimos commodi perspiciatis obcaecati. Consequatur quasi praesentium, numquam repudiandae doloremque, alias, excepturi voluptate optio veritatis cupiditate inventore? Necessitatibus nulla iusto dignissimos, debitis odit distinctio earum suscipit. Facere sunt tempora in. Maxime, ratione ex?
-        
             
-  .aurora-container
-    .aurora-grid.aurora-grid--float
-      .aurora-grid__item.item-sm-12
-        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis esse, beatae libero officia nam excepturi totam necessitatibus ullam est quo.
-        hr
+  .ae-container
+    .ae-grid.ae-grid--float
+      .ae-grid__item.item-sm-4
+        p.txt-center Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur vel dolorum tempora excepturi inventore maxime sint blanditiis sapiente consequatur veritatis.
+          br
+          strong  [text-center]
+      .ae-grid__item.item-sm-4
+        p.txt-md-right  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et in, quod debitis fugit, minus dignissimos odio unde voluptates ducimus nemo?
+          br
+          strong  [txt-md-right]
+      .ae-grid__item.item-sm-4
+        p.txt-lg-center  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque, fuga earum ad sequi qui iste. Sunt, tempora iste incidunt.
+          br
+          strong  [txt-lg-center]
+      
+
+  .ae-container
+    .ae-grid.ae-grid--float
+      .ae-grid__item.item-sm-12
+
         blockquote
           p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel aut earum hic ullam corrupti ad saepe non, dolore quas incidunt ratione ea aliquid velit blanditiis reprehenderit nulla necessitatibus placeat sequi, esse recusandae, adipisci fuga in laborum delectus. Cumque eum facere, unde. Tenetur aperiam excepturi voluptatem sunt voluptates, provident, hic ut dolores eaque adipisci atque! Maxime alias consequatur quos veniam excepturi odit reprehenderit accusantium voluptas eos est velit eveniet, dolore praesentium, culpa dicta laborum consequuntur! Iure perspiciatis qui sed fugiat animi, officia officiis, totam explicabo eaque repudiandae mollitia dignissimos voluptates optio dolores laboriosam, quisquam accusamus aspernatur minus voluptate soluta ex facere.
 

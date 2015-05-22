@@ -4,31 +4,31 @@ block content
 
   mixin show-row(bp, cols, style)
     h3 Grid #{bp}
-    - var px = style !== ' ' ? 'aurora-grid--' + style : ''
+    - var px = style !== ' ' ? 'ae-grid--' + style : ''
     - for (var i = 1; i <= cols; ++i) {
       - if (cols%i == 0) {
-          div(class="aurora-grid #{px}")
+          div(class="ae-grid #{px}")
             - for (var n = 1; n <= cols/i; ++n) {
-              div(class='aurora-grid__item item-#{bp}-#{i}')
+              div(class='ae-grid__item item-#{bp}-#{i}')
             - }
       - }
     - }
     
   
   mixin show-nested( style, num )
-    - var px = style !== ' ' ? 'aurora-grid--' + style : ''
+    - var px = style !== ' ' ? 'ae-grid--' + style : ''
     if ( num > 0 )
-      div(class="aurora-grid #{px}")
-        div(class="aurora-grid__item item-sm-6")
+      div(class="ae-grid #{px}")
+        div(class="ae-grid__item item-sm-6")
           +show-nested( style, num-1)
-        div(class="aurora-grid__item item-sm-6")
+        div(class="ae-grid__item item-sm-6")
           +show-nested( style, num-1)
 
 
 
   h1 Float
 
-  .aurora-container
+  .ae-container
     
     +show-row('sm', 12, 'float')
     +show-row('md', 12, 'float')
@@ -41,7 +41,7 @@ block content
 
   h1 Table
 
-  .aurora-container
+  .ae-container
     
     +show-row('sm', 12, 'table')
     +show-row('md', 12, 'table')
@@ -53,7 +53,7 @@ block content
 
   h1 Inline Block
 
-  .aurora-container
+  .ae-container
     
     +show-row('sm', 12, 'block')
     +show-row('md', 12, 'block')
