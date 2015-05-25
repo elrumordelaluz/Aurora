@@ -65,8 +65,8 @@ $inline_block_hacks:    'letter';
 /**
  * Debug: item shows an auto generated content inside each item; grid shows a transparency grid as background
 **/
-$item_debug:            false;
-$grid_debug:            true;
+$item_debug:            map-get( $ae_debug, grid_item );
+$grid_debug:            map-get( $ae_debug, grid_grid );
 
 
 

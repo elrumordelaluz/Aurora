@@ -7,7 +7,7 @@
 
 
 
-h1, h2, h3, h4, h5, h6, .h1 {
+h1, h2, h3, h4, h5, h6, .#{$aurora}h1, .#{$aurora}h1, .#{$aurora}h3, .#{$aurora}h4, .#{$aurora}h5, .#{$aurora}h6 {
   font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
   font-family: unquote( map-get( $h_type, font-family ) );
   font-style: normal;
@@ -28,8 +28,7 @@ ul, ol { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $retur
 
 table p { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
 
-form { @include set( $h_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
-
+// form { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
 
 
 h1 small, 
@@ -142,19 +141,19 @@ code {
 }
 
 mark, 
-.highlight {
+.#{$txt_pfx}-highlight {
   background-color: map-get( $type_colors, links );;
 }
 
 del, 
 s, 
-.line-through {
+.#{$txt_pfx}-line-through {
   text-decoration-line: line-through;
 }
 
 ins, 
 u, 
-.text-underlined {
+.#{$txt_pfx}-underlined {
   text-decoration: underline;
 }
 
@@ -191,7 +190,7 @@ u,
       
       table p { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name, $return: 'baseline'); }
 
-      form { @include set( $h_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
+      // form { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name, $return: 'baseline'); }
 
     }
   }

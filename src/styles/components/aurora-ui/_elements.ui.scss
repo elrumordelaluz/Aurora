@@ -1,0 +1,35 @@
+
+
+button, .#{$btn_pfx} {
+  border: 0;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: .5rem 1rem;
+  margin: 0;
+  height: auto;
+  line-height: 1rem;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+input {
+  background-color: white;
+  border: 1px solid map-get( $btn_colors, light );
+  padding: .5rem;
+  margin: 0;
+  height: auto;
+  vertical-align: middle;
+  -webkit-appearance: none; 
+}
+
+.#{$btn_pfx} {
+  background-color: map-get( $btn_colors, light );
+  color: inherit;
+}
+
+.#{$btn_pfx}-alias {
+  color: white;
+  background-color: map-get( $btn_colors, dark );
+}

@@ -26,6 +26,8 @@ html {
 
 body {
   
+  color: map-get( $type_colors, body );
+
   font-family: unquote( map-get($body_type, font-family) );
   font-style: normal;
   font-weight: map-get( $body_type, regular );

@@ -80,15 +80,17 @@ $modular_scales: (
 
 $body_type: (
 
-  font-family: 'Palatino Linotype, Book Antiqua, Palatino, serif',
+  // font-family: 'Palatino Linotype, Book Antiqua, Palatino, serif',
+  font-family: 'Helvetica, sans-serif',
 
-  regular: 400,
+  regular: 200,
 
   bold: 700,
 
   italic: italic,
 
-  cap-height: 0.52
+  // cap-height: 0.52
+  cap-height: 0.65
 
 );
 
@@ -117,21 +119,22 @@ $mono_type: (
 
 
 
-$type_colors: (
 
-  links: $color_highlight,
-  
-  heading: #2d2d2d,
-  
-  body: #505050,
-  
-  light: #a7a7a7
 
-);
 
+
+
+/**
+ * Helper prefixes
+ **/
+
+$txt_pfx: 'txt';
 
 
 $responsive_txt_helpers: true;
+
+
+
 
 
 
@@ -139,7 +142,7 @@ $responsive_txt_helpers: true;
  * Debug: rhythm shows horizontal baselines as <body> background
 **/
 
-$rhythm_debug:          true;
+$rhythm_debug:          map-get( $ae_debug, rhythm );
 
 $debug_colors: (
   black: #000,
