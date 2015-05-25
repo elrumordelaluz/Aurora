@@ -31,7 +31,7 @@ $global_box_model:             true;
  * none          --  only resets box model based on the variable and margins/padings to 0
  *
  **/
-$reset_type:            false;
+$reset_type:            none;
 
 
 /**
@@ -109,9 +109,9 @@ $btn_colors: (
 
 $ae_debug: (
 
-  rhythm: true,
+  rhythm: false,
 
-  grid_grid: true,
+  grid_grid: false,
 
   grid_item: false
 

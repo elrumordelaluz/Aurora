@@ -10,19 +10,68 @@ block content
 
         form
           p
-            label(for='inputExample') Name: 
-            input#inputExample(type="text")
-            button Send
+            label(for='inputExample_1') Name: 
+            input#inputExample_1(type="text")
+            input(type='submit', value='Send').btn 
+        
+        form
+          //- weird trick to avoid Chrome autocomplete, shame. 
+          input(style="display:none",type="email",name="fakeusernameremembered")
+          input(style="display:none",type="password",name="fakepasswordremembered")
+          //- http://stackoverflow.com/questions/15738259/disabling-chrome-autofill
+
+          label(for='inputExample_2').block Email: 
+          input#inputExample_2(type="email").block.full-width
+
+          label(for='inputExample_3').block Password: 
+          input#inputExample_3(type="password").block.full-width
+          
+          label(for='selectExample_1').block Choose:
+          select#selectExample_1.block.full-width
+            option(value='1') Option 1
+            option(value='2') Option 2
+            option(value='3') Option 3
+            option(value='4') Option 4
+            option(value='5') Option 5
+            option(value='6') Option 6
+            option(value='7') Option 7
+          
+          label(for='textareaExample_1').block Message:
+          textarea.full-width#textareaExample_1
+          
+          input(type='checkbox')#checkboxExample_1
+          label(for='checkboxExample_1') Remember
+          br
+          button.btn Send
+
       
         
         
       .ae-grid__item.item-sm-6
         h4 button
+        p
+          button button
+          button.btn btn 
+          |  
+          a(href='#0').btn a(href) 
 
-        button button
-        button.btn btn
-        button.btn-alias btn-alias
-        a(href='#hjk').btn hjkh
+        p
+          input(type='button', value='input_button').btn 
+          input(type='submit', value='input_submit').btn 
+          //- button.btn-alias btn-alias
+        p
+          button.btn(disabled) disabled
+
+        p
+          button.btn.full-width full-width
+        
+        p
+          button.btn.btn-lg btn-lg
+          button.btn Default
+          button.btn.btn-sm btn-sm
+          button.btn.btn-xs btn-xs
+
+        
 
         
       

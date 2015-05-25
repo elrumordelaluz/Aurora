@@ -30,6 +30,8 @@
 }
 
 
+
+
 @if( $responsive_txt_helpers ) {
   
   @each $bp-name, $bp-num in $breakpoints {
@@ -47,6 +49,7 @@
       .#{$txt_pfx}-#{$bp-name}-right {
         text-align: right;
       }
+
 
     }
   

@@ -28,8 +28,6 @@ ul, ol { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $retur
 
 table p { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
 
-// form { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
-
 
 h1 small, 
 h2 small, 
@@ -189,8 +187,6 @@ u,
       blockquote cite { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name, $return: 'baseline'); }
       
       table p { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name, $return: 'baseline'); }
-
-      // form { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name, $return: 'baseline'); }
 
     }
   }
