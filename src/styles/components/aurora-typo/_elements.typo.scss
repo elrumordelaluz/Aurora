@@ -15,49 +15,20 @@ h1, h2, h3, h4, h5, h6, .h1 {
 }
 
 
-
-h3, .h3 { @include set( $h_type, $val: 3, $lh: 2, $lines: 1, $bp: 'xs'); }
-h4, .h4 { @include set( $h_type, $val: 2, $lh: 2, $lines: 1, $bp: 'xs'); }
-h5, .h5 { @include set( $h_type, $val: 1, $lh: 2, $lines: 1, $bp: 'xs'); }
-h6, .h6 { @include set( $h_type, $val: 0, $lh: 2, $lines: 1, $bp: 'xs'); }
+h1, .#{$aurora}h1 { @include set( $h_type, $val: 8, $lh: 4, $lines: 2, $bp: 'xs'); }
+h2, .#{$aurora}h1 { @include set( $h_type, $val: 6, $lh: 3, $lines: 2, $bp: 'xs'); }
+h3, .#{$aurora}h3 { @include set( $h_type, $val: 3, $lh: 2, $lines: 1, $bp: 'xs'); }
+h4, .#{$aurora}h4 { @include set( $h_type, $val: 2, $lh: 2, $lines: 1, $bp: 'xs'); }
+h5, .#{$aurora}h5 { @include set( $h_type, $val: 1, $lh: 2, $lines: 1, $bp: 'xs'); }
+h6, .#{$aurora}h6 { @include set( $h_type, $val: 0, $lh: 2, $lines: 1, $bp: 'xs'); }
 
 p { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
-code{ @include set( $mono_type, $val: -2, $lh: 1, $lines: 2, $bp: 'xs', $return: 'font'); }
+code { @include set( $mono_type, $val: -4, $lh: 1, $lines: 0, $bp: 'xs'); }
 ul, ol { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'baseline'); }
 
+table p { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
 
-@if( $responsive_scales ) {
-  
-  h1, .h1 { @include set( $h_type, $val: 5, $lh: 3, $lines: 1, $bp: 'xs'); }
-  h2, .h2 { @include set( $h_type, $val: 4, $lh: 3, $lines: 1, $bp: 'xs'); }
-
-  @each $bp-name, $bp-num in $breakpoints {
-    
-    @include breakpoints( $bp-name ) {
-      
-      h1, .h1 { @include set( $h_type, $val: 8, $lh: 4, $lines: 2, $bp: $bp-name); }
-      h2, .h1 { @include set( $h_type, $val: 6, $lh: 3, $lines: 2, $bp: $bp-name); }
-      h3, .h3 { @include set( $h_type, $val: 3, $lh: 2, $lines: 1, $bp: $bp-name); }
-      h4, .h4 { @include set( $h_type, $val: 2, $lh: 2, $lines: 1, $bp: $bp-name); }
-      h5, .h5 { @include set( $h_type, $val: 1, $lh: 2, $lines: 1, $bp: $bp-name); }
-      h6, .h6 { @include set( $h_type, $val: 0, $lh: 2, $lines: 1, $bp: $bp-name); }
-      
-      p { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
-      code { @include set( $mono_type, $val: -2, $lh: 1, $lines: 1, $bp: $bp-name ); }
-      ul, ol { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
-    }
-  }
-
-}
-@else {
-  
-  // h1, .h1 { @include set( $h_type, $val: 5, $lh: 10, $lines: 1, $bp: 'xs'); }
-  // h2, .h2 { @include set( $h_type, $val: 4, $lh: 5, $lines: 1, $bp: 'xs'); }
-  h1, .h1 { @include set( $h_type, $val: 8, $lh: 4, $lines: 2, $bp: 'xs'); }
-  h2, .h1 { @include set( $h_type, $val: 6, $lh: 3, $lines: 2, $bp: 'xs'); }
-
-}
-
+form { @include set( $h_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
 
 
 
@@ -103,7 +74,6 @@ ul, ol {
 }
 
 
-
 b, strong, .bold {
   font-weight: map-get($body_type, bold);
 }
@@ -113,11 +83,21 @@ em, i, .italic {
 }
 
 blockquote {
+  
+  p { @include set( $body_type, $val: 0, $lh: 2, $lines: 1, $bp: 'xs', $return: 'baseline'); }
+  cite { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
 
-  p {
-    border-left: 0.15rem solid map-get( $type_colors, links );
+  border-left: 0.15rem solid map-get( $type_colors, links );
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  
+  cite {
+    &:before {
+      content: "\2014 \0020";
+    }
+    display: block;
+    color: map-get( $type_colors, light );
     font-style: map-get($body_type, italic);
-    padding-left: 1rem;
   }
 
   @include breakpoints( sm ) {
@@ -134,8 +114,10 @@ hr {
   margin-top: 3rem;
 }
 
-pre {
-  background-color: rgba( #333,.5);
+pre, code {
+  background-color: #272822;
+  border-radius: .3rem;
+  color: #f8f8f2;
   font-family: unquote( map-get( $mono_type, font-family ) );
 }
 
@@ -149,8 +131,14 @@ pre {
   word-wrap: break-word;
 }
 
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
 code {
-  color: white;
+  padding: 0.3rem .55rem;
 }
 
 mark, 
@@ -172,4 +160,41 @@ u,
 
 
 
+
+
+
+
+
+
+@if( $responsive_scales ) {
+  
+  h1, .#{$aurora}h1 { @include set( $h_type, $val: 5, $lh: 3, $lines: 1, $bp: 'xs'); }
+  h2, .#{$aurora}h2 { @include set( $h_type, $val: 4, $lh: 3, $lines: 1, $bp: 'xs'); }
+
+  @each $bp-name, $bp-num in $breakpoints {
+    
+    @include breakpoints( $bp-name ) {
+      
+      h1, .#{$aurora}h1 { @include set( $h_type, $val: 8, $lh: 4, $lines: 2, $bp: $bp-name); }
+      h2, .#{$aurora}h2 { @include set( $h_type, $val: 6, $lh: 3, $lines: 2, $bp: $bp-name); }
+      h3, .#{$aurora}h3 { @include set( $h_type, $val: 3, $lh: 2, $lines: 1, $bp: $bp-name); }
+      h4, .#{$aurora}h4 { @include set( $h_type, $val: 2, $lh: 2, $lines: 1, $bp: $bp-name); }
+      h5, .#{$aurora}h5 { @include set( $h_type, $val: 1, $lh: 2, $lines: 1, $bp: $bp-name); }
+      h6, .#{$aurora}h6 { @include set( $h_type, $val: 0, $lh: 2, $lines: 1, $bp: $bp-name); }
+      
+      p { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
+      code { @include set( $mono_type, $val: -4, $lh: 1, $lines: 0, $bp: $bp-name ); }
+      ul, ol { @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: $bp-name, $return: 'baseline'); }
+
+      blockquote p { @include set( $body_type, $val: 0, $lh: 2, $lines: 1, $bp: $bp-name, $return: 'baseline'); }
+      blockquote cite { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name, $return: 'baseline'); }
+      
+      table p { @include set( $body_type, $val: 0, $lh: 2, $lines: 0, $bp: $bp-name, $return: 'baseline'); }
+
+      form { @include set( $h_type, $val: 0, $lh: 2, $lines: 0, $bp: 'xs', $return: 'baseline'); }
+
+    }
+  }
+
+}
 
