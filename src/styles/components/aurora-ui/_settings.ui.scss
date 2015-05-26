@@ -7,8 +7,18 @@
 
 $btn_pfx: 'btn';
 
+$tbl_pfx: 'tbl';
+
 
 /**
  * If apply vertical rhythm for ui elements
  **/
 $rhythm_ui: false;
+
+
+/**
+ * btn-group hack
+ **/
+
+$btn_group_hack: false;
+

@@ -1,0 +1,78 @@
+
+/**
+ * Button groups
+ **/
+
+.#{$btn_pfx}-group {
+
+  @if ($btn_group_hack){
+    
+    letter-spacing: -0.28em;
+
+    .#{$btn_pfx} {
+      letter-spacing: 0;
+    }
+
+  }
+  @else {
+
+    .#{$btn_pfx} {
+      float: left;
+    }
+    
+  }
+
+  
+}
+
+
+
+/**
+ * Tables
+ **/
+
+.#{$tbl_pfx} {
+
+  td, th {
+    border-bottom-style: solid;
+    border-bottom-color: map-get( $btn_colors, light );
+  }
+
+  th { border-bottom-width: 2px; }
+  td { border-bottom-width: 1px }
+
+  &:not(.#{$tbl_pfx}--bordered) tr:last-child td { border-bottom: 0; }
+
+}
+
+.#{$tbl_pfx}--stripped {
+  tbody tr:nth-of-type(odd) {
+    background-color: lighten( map-get( $btn_colors, light ), 10);
+  }
+}
+
+.#{$tbl_pfx}--hover {
+  tbody tr:hover {
+    background-color: lighten( map-get( $btn_colors, light ), 10);
+  }
+}
+
+.#{$tbl_pfx}--bordered {
+  
+  tr:first-child th {
+    border-top: 1px solid  map-get( $btn_colors, light );
+  }
+
+  td, th {
+    border-left: 1px solid  map-get( $btn_colors, light );
+
+    &:last-of-type {
+      border-right: 1px solid  map-get( $btn_colors, light );      
+    }
+
+  }
+}
+
+
+
+
