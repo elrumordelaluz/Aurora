@@ -27,6 +27,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 /**
  * Tables
  **/
@@ -72,6 +82,64 @@
   
   tr:last-child td { border-bottom-width: 1px }
 
+}
+
+
+@if ( $responsive_tables ) {
+
+  @include breakpoints( 'xs', 'sm' ) {
+
+    .#{$tbl_pfx}--responsive {
+      
+      th { display: none; }
+    
+      td { 
+        display: block;
+        padding: .3rem;
+
+        &:before {
+          display: block;
+          content: attr(data-th) " ";
+          font-weight: 600;
+          border-bottom: 1px solid map-get( $btn_colors, light );
+        }
+      }
+
+      &.tbl--bordered {
+        td { border-right: 1px solid  map-get( $btn_colors, light ); }
+        tr:first-child td:first-child { border-top: 1px solid  map-get( $btn_colors, light ); }
+      }
+
+    }
+
+  } // @bp
+
+}
+
+
+
+
+
+
+
+
+
+.dd__opener:checked + .dd__list, 
+:target + .dd__list,
+.dd:hover .dd__list
+{
+  max-height: 1000px;
+}
+
+// trick
+.dd__over:target { 
+  display: block; 
+  cursor: default;
+}
+
+.dd__list {
+  max-height: 0;
+  overflow: hidden;
 }
 
 

@@ -121,25 +121,116 @@ block content
           button.btn.btn-sm btn-sm
           button.btn.btn-xs btn-xs
 
-        table.tbl.tbl--hover
+        p
+          button.btn.btn-lg 
+            i.pe-is-m-clack-open
+            |  btn-lg
+          button.btn
+            i.pe-is-m-clack-open
+            |  Default
+          button.btn.btn-sm 
+            i.pe-is-m-clack-open
+            |  btn-sm
+          button.btn.btn-xs
+            i.pe-is-m-clack-open
+            |  btn-xs
+
+        p
+          button.btn.btn-lg 
+            i.pe-is-m-clack-open
+          button.btn
+            i.pe-is-m-clack-open
+          button.btn.btn-sm 
+            i.pe-is-m-clack-open
+          button.btn.btn-xs
+            i.pe-is-m-clack-open
+
+        p
+          .relative.inline-block
+            label.btn(for='dd') Menu &#9662;
+            input(type='checkbox')#dd.dd__opener.hide
+            .absolute.dd__list
+              a(href="#").btn.block menu 1
+              a(href="#").btn.block menu 2
+              a(href="#").btn.block menu 3
+
+          .relative.inline-block
+            label.btn(for='dd_2') Menu &#9662;
+            input(type='checkbox', checked )#dd_2.dd__opener.hide
+            .absolute.dd__list
+              a(href="#").btn.block menu 1
+              a(href="#").btn.block menu 2
+              a(href="#").btn.block menu 3
+
+          .relative.inline-block
+            a.btn(href='#dd_3').dd__opener Menu &#9662;
+            a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_3
+            .absolute.dd__list
+              a(href="#0").btn.block menu 1
+              a(href="#0").btn.block menu 2
+              a(href="#0").btn.block menu 3
+
+
+          .relative.inline-block
+            a.btn(href='#dd_4') right 
+            a.btn(href='#dd_4').dd__opener &#9662;
+            a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_4
+            .absolute.dd__list.right-0.mt1
+              a(href="#0").btn.block menu 1
+              a(href="#0").btn.block menu 2
+              a(href="#0").btn.block menu 3
+
+          hr 
+
+          .inline-block.dd
+            a.btn(href='#0') hover &#9662;
+            .dd__list.right-0
+              a(href="#0").btn.block menu 1
+              a(href="#0").btn.block menu 2
+              a(href="#0").btn.block menu 3
+
+
+        
+            
+
+
+  .ae-container.mt4
+    .ae-grid.ae-grid--float
+      .ae-grid__item.item-sm-12
+
+        h3 Tables
+
+        table.tbl.tbl--bordered.tbl--responsive
           thead
             tr
               th Items 1
               th Items 2
               th Items 3
+              th Items 4
+              th Items 5
+              th Items 6
           tbody
             tr
-              td some
-              td Items
-              td here
+              td(data-th='Items 1') some
+              td(data-th='Items 2') Items
+              td(data-th='Items 3')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit officiis recusandae quaerat, perferendis alias iste, maxime commodi incidunt odit distinctio accusantium nesciunt dignissimos quis. Impedit.
+              td(data-th='Items 4') some
+              td(data-th='Items 5') Items
+              td(data-th='Items 6') here
             tr
-              td more
-              td Items
-              td almost here
+              td(data-th='Items 1') more
+              td(data-th='Items 2') Items
+              td(data-th='Items 3') almost here
+              td(data-th='Items 4')  Lorem ipsum dolor sit amet, consectetur adipisicing.
+              td(data-th='Items 5') Items
+              td(data-th='Items 6') here
             tr
-              td and
-              td more
-              td here
+              td(data-th='Items 1') and
+              td(data-th='Items 2') more
+              td(data-th='Items 3') here
+              td(data-th='Items 4') some
+              td(data-th='Items 5')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, quas!
+              td(data-th='Items 6') here
         
         h5 tbl--bordered &amp; tbl--stripped
         table.tbl.tbl--bordered.tbl--stripped
@@ -163,7 +254,7 @@ block content
               td here
 
 
-  .ae-container
+  .ae-container.mt4
     .ae-grid.ae-grid--float
       .ae-grid__item.item-sm-12
 
@@ -177,6 +268,20 @@ block content
           button.btn 2
           button.btn 3
           button.btn ↦
+
+
+  
+  .ae-container.mt4
+    .ae-grid.ae-grid--float
+      .ae-grid__item.item-sm-12
+
+        h3 helpers
+        .table.full-width.txt--center
+          .btn.table-cell table-cell
+          .btn.table-cell table-cell
+
+        .btn.float-right float-right
+
 
 
         

@@ -64,6 +64,16 @@ button, .#{$btn_pfx} {
 
 
 
+
+
+
+
+
+
+
+
+
+
 /**
  * Inputs
  **/
@@ -116,6 +126,16 @@ select:not([multiple]){
 
 
 
+
+
+
+
+
+
+
+
+
+
 /**
  * Table
  **/
@@ -139,10 +159,12 @@ td {
 }
 th { 
   vertical-align: bottom;
+  
 }
 td { 
   vertical-align: top;
 }
+
 
 
 

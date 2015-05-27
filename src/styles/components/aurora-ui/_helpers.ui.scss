@@ -1,11 +1,85 @@
 
 
-.block { display: block; }
-.inline { display: inline; }
-.inline-block { display: inline-block; }
-.table { display: table; }
-.table-cell { display: table-cell; }
+.block { display: block; } // db
+.inline { display: inline; } // di
+.inline-block { display: inline-block; } // dib
+.table { display: table; } // dt
+.table-cell { display: table-cell; } // dtc
+.full-width { width: 100%; } // w100p
 
-.full-width {
-  width: 100%;
-}
+.float-right { float: right; } // fl-r
+.float-left { float: left; } // fl-l
+
+.hide { display: none; }
+.invisible { visibility: hidden; }
+
+.absolute { position: absolute; }
+.relative { position: relative; }
+.fixed { position: fixed; }
+
+.left-0 { left: 0; }
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+
+
+
+
+
+
+/* 
+**
+**  Spacing Helpers 
+**
+*/
+
+
+$max: 5;
+$const : 0.5rem;
+
+@for $i from 0 through $max {
+  
+  $value : pow( 2, $i - 1 ) * $const;
+
+  @if( $i > 0 ){
+
+    // Margin
+    .m#{$i}   { margin:        $value; }
+    .mt#{$i}  { margin-top:    $value; }
+    .mr#{$i}  { margin-right:  $value; }
+    .mb#{$i}  { margin-bottom: $value; }
+    .ml#{$i}  { margin-left:   $value; }
+    
+    // Negative x Margin
+    .mxn#{$i} { margin-left:   -$value; }
+
+    // Padding
+    .p#{$i}   { padding:      $value; }
+    .py#{$i}  { padding-top:  $value; padding-bottom:   $value; }
+    .px#{$i}  { padding-left: $value; padding-right:    $value; }
+
+    .p#{$i}   { padding:        $value; }
+    .pt#{$i}  { padding-top:    $value; }   
+    .pr#{$i}  { padding-right:  $value; }   
+    .pb#{$i}  { padding-bottom: $value; }   
+    .pl#{$i}  { padding-left:   $value; }
+
+  } 
+
+  @else {
+
+    .m#{$i}   { margin:        0 }
+    .mt#{$i}  { margin-top:    0 }  
+    .mr#{$i}  { margin-right:  0 }  
+    .mb#{$i}  { margin-bottom: 0 }  
+    .ml#{$i}  { margin-left:   0 }  
+
+    .p#{$i}   { padding:        0 }
+    .pt#{$i}  { padding-top:    0 }   
+    .pr#{$i}  { padding-right:  0 }   
+    .pb#{$i}  { padding-bottom: 0 }   
+    .pl#{$i}  { padding-left:   0 }   
+
+  } 
+
+} // @for

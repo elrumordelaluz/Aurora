@@ -1,25 +1,6 @@
 
-.#{$txt_pfx}-center {
-  text-align: center;
-}
 
-.#{$txt_pfx}-left {
-  text-align: left;
-}
-
-.#{$txt_pfx}-right {
-  text-align: right;
-}
-
-.#{$txt_pfx}-smallcaps {
-  font-feature-settings: 'smcp' 1, 'kern' 1;
-  letter-spacing: 0.1rem;
-}
-
-.#{$txt_pfx}-uppercase {
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-}
+// https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings
 
 .lining-numerals {
   font-feature-settings: 'lnum' 1, 'kern' 1;
@@ -29,6 +10,37 @@
   font-feature-settings: 'onum' 1, 'kern' 1;
 }
 
+.#{$txt_pfx}--center {
+  text-align: center;
+}
+
+.#{$txt_pfx}--left {
+  text-align: left;
+}
+
+.#{$txt_pfx}--right {
+  text-align: right;
+}
+
+.#{$txt_pfx}--smallcaps {
+  font-feature-settings: 'smcp' 1, 'kern' 1;
+  letter-spacing: 0.1rem;
+}
+
+.#{$txt_pfx}--uppercase {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.#{$txt_pfx}--normalcase {
+  text-transform: initial;
+}
+
+.#{$txt_pfx}--truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 
 

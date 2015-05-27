@@ -16,6 +16,12 @@ $rhythm_ui: false;
 
 
 /**
+ * Responsive Tables: needs only an extra data-th on each <td> to show when change layout
+ **/
+$responsive_tables: true;
+
+
+/**
  * btn-group hack
  **/
 

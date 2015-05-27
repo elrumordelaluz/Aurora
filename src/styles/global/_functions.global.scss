@@ -14,14 +14,29 @@ $current-breakpoint: $default-breakpoint;
 $placeholders: ();
 
 
-@mixin breakpoints($breakpoint) {
+@mixin breakpoints( $breakpoint, $max: false ) {
 
   $value: map-get($breakpoints, $breakpoint);
+  $value_max: map-get($breakpoints, $max);
   
   @if $value != null {                                   
-    $current-breakpoint: $breakpoint         !global;    
-    @media (min-width: $value) { @content; }             
+    
+    $current-breakpoint: $breakpoint !global;    
+    
+    @if ($max) {
+      @media ( min-width: $value ) and ( max-width: $value_max - 1 ) { 
+        @content; 
+      }
+    }
+    @else {
+      @media ( min-width: $value ) { 
+        @content; 
+      }
+    }
+    
+
     $current-breakpoint: $default-breakpoint !global;    
+
   }
   
   @else {                                  
@@ -30,7 +45,7 @@ $placeholders: ();
   
 }
 
-@mixin placeholder($name) {
+@mixin placeholder( $name ) {
   @if not index($placeholders, $name) {                 
     $placeholders: append($placeholders, $name) !global;
     
@@ -167,6 +182,24 @@ $placeholders: ();
 
 
 
+
+
+
+
+@function pow($number, $exp) {
+  $value: 1;
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
+    }
+  }
+  @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
+    }
+  }
+  @return $value;
+}
 
 
 
