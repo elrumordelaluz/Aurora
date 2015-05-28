@@ -106,15 +106,17 @@ $btn_colors: (
 
 /**
  * Global debug
+ * ( If true > stylesheet )
+ * To control thorugh classes .d-rhythm, .d-grid__grid, .d-grid__item
  **/
 
 $ae_debug: (
 
-  rhythm: false,
+  rhythm: true,
 
-  grid_grid: false,
+  grid_grid: true,
 
-  grid_item: false
+  grid_item: true
 
 );
 

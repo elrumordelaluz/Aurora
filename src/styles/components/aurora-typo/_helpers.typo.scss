@@ -50,15 +50,15 @@
     
     @include breakpoints( $bp-name ) {
       
-      .#{$txt_pfx}-#{$bp-name}-center {
+      .#{$txt_pfx}-#{$bp-name}--center {
         text-align: center;
       }
 
-      .#{$txt_pfx}-#{$bp-name}-left {
+      .#{$txt_pfx}-#{$bp-name}--left {
         text-align: left;
       }
 
-      .#{$txt_pfx}-#{$bp-name}-right {
+      .#{$txt_pfx}-#{$bp-name}--right {
         text-align: right;
       }
 

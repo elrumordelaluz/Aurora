@@ -2,296 +2,320 @@ extends layouts/mainLayout
 
 block content
 
-  .ae-container
-    .ae-grid.ae-grid--float
-      .ae-grid__item.item-sm-6
-       
-        h3 Forms
+  body
 
-        form
-          fieldset
-            legend Inline Form
+    .ae-container
+      .ae-grid.ae-grid--float
+        .ae-grid__item.item-sm-6
+         
+          h3 Forms
+
+          form
+            fieldset
+              legend Inline Form
+            
+            label Name: 
+              input(type="text", placeholder='John Doe')
+            input(type='submit', value='Send').btn 
           
-          label Name: 
-            input(type="text", placeholder='John Doe')
-          input(type='submit', value='Send').btn 
-        
-        hr 
-
-        form
-          //- weird trick to avoid Chrome autocomplete, shame. 
-          input(style="display:none",type="email",name="fakeusernameremembered")
-          input(style="display:none",type="password",name="fakepasswordremembered")
-          //- http://stackoverflow.com/questions/15738259/disabling-chrome-autofill
-
-          label.block Email: 
-            input(type="email").block.full-width
-
-          label.block Password: 
-            input(type="password").block.full-width
-          
-          label.block Choose:
-            select.block.full-width
-              option(value='1') Option 1
-              option(value='2') Option 2
-              option(value='3') Option 3
-
-          label.block Choose (disabled)
-            select.block.full-width(multiple, disabled)
-              option(value='1') Option 1
-              option(value='2') Option 2
-              option(value='3') Option 3
-              option(value='4') Option 4
-              option(value='5') Option 5
-              option(value='6') Option 6
-              option(value='7') Option 7
-          
-          label.block Message:
-            textarea.full-width
-          
-          
-          label
-            input(type='checkbox')
-            |  Remember me
-
-          label.table
-            input(type='checkbox').table-cell
-            small.table-cell   
-              strong Accept Privacy
-              br
-              small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut similique esse dolorem molestiae mollitia, saepe modi, facere aliquid illo, praesentium, cum omnis rerum facilis soluta culpa. Suscipit vel ullam illo inventore ipsum laboriosam cumque nemo maiores accusantium provident. Hic itaque quibusdam earum impedit aliquid accusantium eos, quam alias commodi consequuntur!
-          
-
-          br 
-
-          label
-            input(type='radio', name='radioExample')
-            | radio 1
-          label
-            input(type='radio', name='radioExample')
-            | radio 2
-
-
-          br
-          
-
-          label.table
-            input(type='radio', name='radioExample_2').table-cell
-            small.table-cell   
-              strong More of this:
-              br
-              small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut similique esse dolorem molestiae mollitia, saepe modi, facere aliquid illo, praesentium, cum omnis rerum facilis soluta culpa. Suscipit vel ullam illo inventore ipsum laboriosam cumque nemo maiores accusantium provident. Hic itaque quibusdam earum impedit aliquid accusantium eos, quam alias commodi consequuntur!
-
-          label.table
-            input(type='radio', name='radioExample_2').table-cell
-            small.table-cell   
-              strong or this:
-              br
-              small  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus quos autem unde adipisci repudiandae animi, maxime commodi ut exercitationem magnam iste ab iure sunt?
-
-          br
-          button.btn Send
-
-    
-
-      
-        
-        
-      .ae-grid__item.item-sm-6
-        h4 button
-        p
-          button button
-          button.btn btn 
-          |  
-          a(href='#0').btn a(href) 
-
-        p
-          input(type='button', value='input_button').btn 
-          input(type='submit', value='input_submit').btn 
-          //- button.btn-alias btn-alias
-        p
-          button.btn(disabled) disabled
-
-        p
-          button.btn.full-width full-width
-        
-        p
-          button.btn.btn-lg btn-lg
-          button.btn Default
-          button.btn.btn-sm btn-sm
-          button.btn.btn-xs btn-xs
-
-        p
-          button.btn.btn-lg 
-            i.pe-is-m-clack-open
-            |  btn-lg
-          button.btn
-            i.pe-is-m-clack-open
-            |  Default
-          button.btn.btn-sm 
-            i.pe-is-m-clack-open
-            |  btn-sm
-          button.btn.btn-xs
-            i.pe-is-m-clack-open
-            |  btn-xs
-
-        p
-          button.btn.btn-lg 
-            i.pe-is-m-clack-open
-          button.btn
-            i.pe-is-m-clack-open
-          button.btn.btn-sm 
-            i.pe-is-m-clack-open
-          button.btn.btn-xs
-            i.pe-is-m-clack-open
-
-        p
-          .relative.inline-block
-            label.btn(for='dd') Menu &#9662;
-            input(type='checkbox')#dd.dd__opener.hide
-            .absolute.dd__list
-              a(href="#").btn.block menu 1
-              a(href="#").btn.block menu 2
-              a(href="#").btn.block menu 3
-
-          .relative.inline-block
-            label.btn(for='dd_2') Menu &#9662;
-            input(type='checkbox', checked )#dd_2.dd__opener.hide
-            .absolute.dd__list
-              a(href="#").btn.block menu 1
-              a(href="#").btn.block menu 2
-              a(href="#").btn.block menu 3
-
-          .relative.inline-block
-            a.btn(href='#dd_3').dd__opener Menu &#9662;
-            a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_3
-            .absolute.dd__list
-              a(href="#0").btn.block menu 1
-              a(href="#0").btn.block menu 2
-              a(href="#0").btn.block menu 3
-
-
-          .relative.inline-block
-            a.btn(href='#dd_4') right 
-            a.btn(href='#dd_4').dd__opener &#9662;
-            a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_4
-            .absolute.dd__list.right-0.mt1
-              a(href="#0").btn.block menu 1
-              a(href="#0").btn.block menu 2
-              a(href="#0").btn.block menu 3
-
           hr 
 
-          .inline-block.dd
-            a.btn(href='#0') hover &#9662;
-            .dd__list.right-0
-              a(href="#0").btn.block menu 1
-              a(href="#0").btn.block menu 2
-              a(href="#0").btn.block menu 3
+          form
+            //- weird trick to avoid Chrome autocomplete, shame. 
+            input(style="display:none",type="email",name="fakeusernameremembered")
+            input(style="display:none",type="password",name="fakepasswordremembered")
+            //- http://stackoverflow.com/questions/15738259/disabling-chrome-autofill
 
+            label.block Email: 
+              input(type="email").block.full-width
 
-        
+            label.block Password: 
+              input(type="password").block.full-width
+            
+            label.block Choose:
+              select.block.full-width
+                option(value='1') Option 1
+                option(value='2') Option 2
+                option(value='3') Option 3
+
+            label.block Choose (disabled)
+              select.block.full-width(multiple, disabled)
+                option(value='1') Option 1
+                option(value='2') Option 2
+                option(value='3') Option 3
+                option(value='4') Option 4
+                option(value='5') Option 5
+                option(value='6') Option 6
+                option(value='7') Option 7
+            
+            label.block Message:
+              textarea.full-width
+            
+            
+            label
+              input(type='checkbox')
+              |  Remember me
+
+            label.table
+              input(type='checkbox').table-cell
+              small.table-cell   
+                strong Accept Privacy
+                br
+                small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut similique esse dolorem molestiae mollitia, saepe modi, facere aliquid illo, praesentium, cum omnis rerum facilis soluta culpa. Suscipit vel ullam illo inventore ipsum laboriosam cumque nemo maiores accusantium provident. Hic itaque quibusdam earum impedit aliquid accusantium eos, quam alias commodi consequuntur!
             
 
+            br 
 
-  .ae-container.mt4
-    .ae-grid.ae-grid--float
-      .ae-grid__item.item-sm-12
-
-        h3 Tables
-
-        table.tbl.tbl--bordered.tbl--responsive
-          thead
-            tr
-              th Items 1
-              th Items 2
-              th Items 3
-              th Items 4
-              th Items 5
-              th Items 6
-          tbody
-            tr
-              td(data-th='Items 1') some
-              td(data-th='Items 2') Items
-              td(data-th='Items 3')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit officiis recusandae quaerat, perferendis alias iste, maxime commodi incidunt odit distinctio accusantium nesciunt dignissimos quis. Impedit.
-              td(data-th='Items 4') some
-              td(data-th='Items 5') Items
-              td(data-th='Items 6') here
-            tr
-              td(data-th='Items 1') more
-              td(data-th='Items 2') Items
-              td(data-th='Items 3') almost here
-              td(data-th='Items 4')  Lorem ipsum dolor sit amet, consectetur adipisicing.
-              td(data-th='Items 5') Items
-              td(data-th='Items 6') here
-            tr
-              td(data-th='Items 1') and
-              td(data-th='Items 2') more
-              td(data-th='Items 3') here
-              td(data-th='Items 4') some
-              td(data-th='Items 5')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, quas!
-              td(data-th='Items 6') here
-        
-        h5 tbl--bordered &amp; tbl--stripped
-        table.tbl.tbl--bordered.tbl--stripped
-          thead
-            tr
-              th Items 1
-              th Items 2
-              th Items 3
-          tbody
-            tr
-              td some
-              td Items
-              td here
-            tr
-              td more
-              td Items
-              td almost here
-            tr
-              td and
-              td more
-              td here
+            label
+              input(type='radio', name='radioExample')
+              | radio 1
+            label
+              input(type='radio', name='radioExample')
+              | radio 2
 
 
-  .ae-container.mt4
-    .ae-grid.ae-grid--float
-      .ae-grid__item.item-sm-12
+            br
+            
 
-        h3 components
+            label.table
+              input(type='radio', name='radioExample_2').table-cell
+              small.table-cell   
+                strong More of this:
+                br
+                small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut similique esse dolorem molestiae mollitia, saepe modi, facere aliquid illo, praesentium, cum omnis rerum facilis soluta culpa. Suscipit vel ullam illo inventore ipsum laboriosam cumque nemo maiores accusantium provident. Hic itaque quibusdam earum impedit aliquid accusantium eos, quam alias commodi consequuntur!
 
-        h6 btn-group
+            label.table
+              input(type='radio', name='radioExample_2').table-cell
+              small.table-cell   
+                strong or this:
+                br
+                small  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus quos autem unde adipisci repudiandae animi, maxime commodi ut exercitationem magnam iste ab iure sunt?
 
-        .btn-group
-          button.btn(disabled) ↤
-          button.btn 1
-          button.btn 2
-          button.btn 3
-          button.btn ↦
+            br
+            button.btn Send
 
-
-  
-  .ae-container.mt4
-    .ae-grid.ae-grid--float
-      .ae-grid__item.item-sm-12
-
-        h3 helpers
-        .table.full-width.txt--center
-          .btn.table-cell table-cell
-          .btn.table-cell table-cell
-
-        .btn.float-right float-right
-
-
-
-        
       
 
         
-      
+          
+          
+        .ae-grid__item.item-sm-6
+          h4 button
+          p
+            button button
+            button.btn btn 
+            |  
+            a(href='#0').btn a(href) 
 
-block scripts
+          p
+            input(type='button', value='input_button').btn 
+            input(type='submit', value='input_submit').btn 
+            //- button.btn-alias btn-alias
+          p
+            button.btn(disabled) disabled
 
-  script.
+          p
+            button.btn.full-width full-width
+          
+          p
+            button.btn.btn-lg btn-lg
+            button.btn Default
+            button.btn.btn-sm btn-sm
+            button.btn.btn-xs btn-xs
+
+          p
+            button.btn.btn-lg 
+              i.pe-is-m-clack-open
+              |  btn-lg
+            button.btn
+              i.pe-is-m-clack-open
+              |  Default
+            button.btn.btn-sm 
+              i.pe-is-m-clack-open
+              |  btn-sm
+            button.btn.btn-xs
+              i.pe-is-m-clack-open
+              |  btn-xs
+
+          p
+            button.btn.btn-lg 
+              i.pe-is-m-clack-open
+            button.btn
+              i.pe-is-m-clack-open
+            button.btn.btn-sm 
+              i.pe-is-m-clack-open
+            button.btn.btn-xs
+              i.pe-is-m-clack-open
+
+          p
+            .relative.inline-block
+              label.btn(for='dd') Menu &#9662;
+              input(type='checkbox')#dd.dd__opener.hide
+              .absolute.dd__list
+                a(href="#").btn.block menu 1
+                a(href="#").btn.block menu 2
+                a(href="#").btn.block menu 3
+
+            .relative.inline-block
+              label.btn(for='dd_2') Menu &#9662;
+              input(type='checkbox', checked )#dd_2.dd__opener.hide
+              .absolute.dd__list
+                a(href="#").btn.block menu 1
+                a(href="#").btn.block menu 2
+                a(href="#").btn.block menu 3
+
+            .relative.inline-block
+              a.btn(href='#dd_3').dd__opener Menu &#9662;
+              a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_3
+              .absolute.dd__list
+                a(href="#0").btn.block menu 1
+                a(href="#0").btn.block menu 2
+                a(href="#0").btn.block menu 3
+
+
+            .relative.inline-block
+              a.btn(href='#dd_4') right 
+              a.btn(href='#dd_4').dd__opener &#9662;
+              a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_4
+              .absolute.dd__list.right-0.mt1
+                a(href="#0").btn.block menu 1
+                a(href="#0").btn.block menu 2
+                a(href="#0").btn.block menu 3
+
+            hr 
+
+            .inline-block.dd
+              a.btn(href='#0') hover &#9662;
+              .dd__list.right-0
+                a(href="#0").btn.block menu 1
+                a(href="#0").btn.block menu 2
+                a(href="#0").btn.block menu 3
+
+
+          
+              
+
+
+    .ae-container.mt4
+      .ae-grid.ae-grid--float
+        .ae-grid__item.item-sm-12
+
+          h3 Tables
+          
+          h6.txt-lg--center tbl--hover &amp; tbl--responsive
+          table.tbl.tbl--hover.tbl--responsive
+            thead
+              tr
+                th Items 1
+                th Items 2
+                th Items 3
+                th Items 4
+                th Items 5
+                th Items 6
+            tbody
+              tr
+                td(data-th='Items 1') some
+                td(data-th='Items 2') Items
+                td(data-th='Items 3')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit officiis recusandae quaerat, perferendis alias iste, maxime commodi incidunt odit distinctio accusantium nesciunt dignissimos quis. Impedit.
+                td(data-th='Items 4') some
+                td(data-th='Items 5') Items
+                td(data-th='Items 6') here
+              tr
+                td(data-th='Items 1') more
+                td(data-th='Items 2') Items
+                td(data-th='Items 3') almost here
+                td(data-th='Items 4')  Lorem ipsum dolor sit amet, consectetur adipisicing.
+                td(data-th='Items 5') Items
+                td(data-th='Items 6') here
+              
+          
+          h5 tbl--bordered &amp; tbl--responsive
+          table.tbl.tbl--bordered.tbl--responsive
+            thead
+              tr
+                th Items 1
+                th Items 2
+                th Items 3
+                th Items 4
+                th Items 5
+                th Items 6
+            tbody
+              tr
+                td(data-th='Items 1') some
+                td(data-th='Items 2') Items
+                td(data-th='Items 3')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit officiis recusandae quaerat, perferendis alias iste, maxime commodi incidunt odit distinctio accusantium nesciunt dignissimos quis. Impedit.
+                td(data-th='Items 4') some
+                td(data-th='Items 5') Items
+                td(data-th='Items 6') here
+              tr
+                td(data-th='Items 1') more
+                td(data-th='Items 2') Items
+                td(data-th='Items 3') almost here
+                td(data-th='Items 4')  Lorem ipsum dolor sit amet, consectetur adipisicing.
+                td(data-th='Items 5') Items
+                td(data-th='Items 6') here
+              
+
+          h5 tbl--bordered &amp; tbl--stripped (no resp)
+          table.tbl.tbl--bordered.tbl--stripped
+            thead
+              tr
+                th Items 1
+                th Items 2
+                th Items 3
+            tbody
+              tr
+                td some
+                td Items
+                td here
+              tr
+                td more
+                td Items
+                td almost here
+              tr
+                td and
+                td more
+                td here
+
+
+    .ae-container.mt4
+      .ae-grid.ae-grid--float
+        .ae-grid__item.item-sm-12
+
+          h3 components
+
+          h6 btn-group
+
+          .btn-group
+            button.btn(disabled) ↤
+            button.btn 1
+            button.btn 2
+            button.btn 3
+            button.btn ↦
+
+
+    
+    .ae-container.mt4
+      .ae-grid.ae-grid--float
+        .ae-grid__item.item-sm-12
+
+          h3 helpers
+          .table.full-width.txt--center
+            .btn.table-cell table-cell
+            .btn.table-cell table-cell
+
+          .btn.float-right float-right
+
+
+
+          
+        
+
+          
+        
+
+  block scripts
+
+    script.
 
         

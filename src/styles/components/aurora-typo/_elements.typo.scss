@@ -139,19 +139,19 @@ code {
 }
 
 mark, 
-.#{$txt_pfx}-highlight {
+.#{$txt_pfx}--highlight {
   background-color: map-get( $type_colors, links );;
 }
 
 del, 
 s, 
-.#{$txt_pfx}-line-through {
+.#{$txt_pfx}--line-through {
   text-decoration-line: line-through;
 }
 
 ins, 
 u, 
-.#{$txt_pfx}-underlined {
+.#{$txt_pfx}--underlined {
   text-decoration: underline;
 }
 
