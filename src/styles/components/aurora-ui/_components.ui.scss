@@ -9,7 +9,8 @@
     
     letter-spacing: -0.28em;
 
-    .#{$btn_pfx} {
+    // .#{$btn_pfx}, 
+    & > * {
       letter-spacing: 0;
     }
 

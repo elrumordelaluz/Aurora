@@ -22,7 +22,17 @@
 .right-0 { right: 0; }
 .bottom-0 { bottom: 0; }
 
+.aboslute-center {
+  position: absolute;
+  margin: auto;
+  top: 0; right: 0; bottom: 0; left: 0;  
+}
 
+.absolute-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 
 
@@ -58,11 +68,11 @@ $const : 0.5rem;
     .py#{$i}  { padding-top:  $value; padding-bottom:   $value; }
     .px#{$i}  { padding-left: $value; padding-right:    $value; }
 
-    .p#{$i}   { padding:        $value; }
-    .pt#{$i}  { padding-top:    $value; }   
-    .pr#{$i}  { padding-right:  $value; }   
-    .pb#{$i}  { padding-bottom: $value; }   
-    .pl#{$i}  { padding-left:   $value; }
+    .p#{$i}   { padding:        $value !important; }
+    .pt#{$i}  { padding-top:    $value !important; }   
+    .pr#{$i}  { padding-right:  $value !important; }   
+    .pb#{$i}  { padding-bottom: $value !important; }   
+    .pl#{$i}  { padding-left:   $value !important; }
 
   } 
 
@@ -83,3 +93,6 @@ $const : 0.5rem;
   } 
 
 } // @for
+
+
+

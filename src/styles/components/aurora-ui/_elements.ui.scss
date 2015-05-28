@@ -16,7 +16,7 @@ button, .#{$btn_pfx} {
   cursor: pointer;
   display: inline-block;
   padding: .5rem 1rem;
-  margin: 0;
+  // margin: 0;
   height: auto;
   line-height: 1.125rem;
   user-select: none;
@@ -25,7 +25,7 @@ button, .#{$btn_pfx} {
   -webkit-appearance: none;
   font-weight: 400;
 
-  &:disabled {
+  &:disabled, &.disabled {
     @extend %disabled;
   }
 
@@ -44,6 +44,9 @@ button, .#{$btn_pfx} {
 .#{$btn_pfx}-alias {
   color: white;
   background-color: map-get( $btn_colors, dark );
+  &:hover {
+    background-color: darken( map-get( $btn_colors, dark ), 3 );
+  }
 }
 
 .#{$btn_pfx}-sm {
@@ -82,8 +85,8 @@ button, .#{$btn_pfx} {
   background-color: white;
   border: 1px solid map-get( $btn_colors, light );
   padding: .5rem;
-  height: 2.25rem;
-  margin: 0;
+  height: 2.23rem;
+  // margin: 0;
   vertical-align: middle;
 
   &:disabled {
@@ -141,8 +144,8 @@ select:not([multiple]){
  **/
 
 table {
-  border-collapse: collapse;
-  // border-collapse: separate;
+  // border-collapse: collapse;
+  border-collapse: separate;
   border-spacing: 0;
   max-width: 100%;
   width: 100%;
