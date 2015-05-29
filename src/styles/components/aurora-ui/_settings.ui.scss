@@ -7,6 +7,7 @@
 
 $btn_pfx: 'btn';
 $tbl_pfx: 'tbl';
+$input_pfx: 'input';
 
 
 /**
@@ -25,5 +26,5 @@ $responsive_tables: true;
  * btn-group hack
  **/
 
-$btn_group_hack: true;
+$btn_group_hack: true; // TODO: if false
 

@@ -6,7 +6,7 @@ block content
 
     .ae-container
       .ae-grid.ae-grid--float
-        .ae-grid__item.item-sm-6
+        .ae-grid__item.item-sm-8
          
           h3 Forms
 
@@ -15,7 +15,7 @@ block content
               legend Inline Form
             
             label Name: 
-              input(type="text", placeholder='John Doe')
+              input(type="text", placeholder='John Doe').input
             input(type='submit', value='Send').btn 
           
           hr 
@@ -27,19 +27,19 @@ block content
             //- http://stackoverflow.com/questions/15738259/disabling-chrome-autofill
 
             label.block Email: 
-              input(type="email").block.full-width
+              input(type="email").block.full-width.input
 
             label.block Password: 
-              input(type="password").block.full-width
+              input(type="password").block.full-width.input
             
             label.block Choose:
-              select.block.full-width
+              select.block.full-width.input
                 option(value='1') Option 1
                 option(value='2') Option 2
                 option(value='3') Option 3
 
             label.block Choose (disabled)
-              select.block.full-width(multiple, disabled)
+              select.block.full-width(multiple, disabled).input
                 option(value='1') Option 1
                 option(value='2') Option 2
                 option(value='3') Option 3
@@ -85,7 +85,7 @@ block content
                 small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut similique esse dolorem molestiae mollitia, saepe modi, facere aliquid illo, praesentium, cum omnis rerum facilis soluta culpa. Suscipit vel ullam illo inventore ipsum laboriosam cumque nemo maiores accusantium provident. Hic itaque quibusdam earum impedit aliquid accusantium eos, quam alias commodi consequuntur!
 
             label.table
-              input(type='radio', name='radioExample_2').table-cell
+              input(type='radio', name='radioExample_2').table-cell.input
               small.table-cell   
                 strong or this:
                 br
@@ -99,36 +99,48 @@ block content
             label.btn
               .btn-group
                 .inline-block 1. &nbsp;
-                input(type='text', placeholder='write smthng')
+                input(type='text', placeholder='write smthng').input
                 button.btn.btn-alias Send
             
             .btn-group.mt1
-              input(type='text', placeholder='write smthng')
+              input(type='text', placeholder='write smthng').input
               button.btn Send
 
             .btn-group.mt1
               label(for='groupExample_3').btn 2.
-              input(type='text', placeholder='write smthng')#groupExample_3
+              input(type='text', placeholder='write smthng')#groupExample_3.input
               button.btn Send
             
             
             .relative.mt1
-              input(type='text', placeholder='your best film...')#groupExample_4.pl3
+              input(type='text', placeholder='your best film...')#groupExample_4.pl3.input
               label.absolute-y.left-0.ml1(for='groupExample_4')
                 i.pe-is-m-clack-open
             
             .relative.mt1
-              input(type='text', placeholder='your best song...')#groupExample_5.pl3
+              input(type='text', placeholder='your best song...')#groupExample_5.pl3.input
               label.absolute-y.left-0.ml1(for='groupExample_5')
                 i.pe-is-m-guitar
 
+            .relative.mt1
+              input(type='text', placeholder='say hello...')#groupExample_6.pl4.full-width.input
+              label.absolute-y.left-0.ml1(for='groupExample_6') que tal?
 
+            
+            p
+              input(type='text').input
+            
+            .btn-group.mt1
+              input(type='text', placeholder='say hola...').input-sm
+              button.btn.btn-sm Send
+            
+            input(type='range').block.full-width
       
 
         
           
           
-        .ae-grid__item.item-sm-6
+        .ae-grid__item.item-sm-4
           h4 button
           p
             button button

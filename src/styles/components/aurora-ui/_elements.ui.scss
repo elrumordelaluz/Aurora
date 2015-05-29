@@ -16,7 +16,7 @@ button, .#{$btn_pfx} {
   cursor: pointer;
   display: inline-block;
   padding: .5rem 1rem;
-  // margin: 0;
+  margin: 0;
   height: auto;
   line-height: 1.125rem;
   user-select: none;
@@ -49,20 +49,7 @@ button, .#{$btn_pfx} {
   }
 }
 
-.#{$btn_pfx}-sm {
-  @include set( $body_type, $val: -5, $lh: 1, $lines: 0, $bp: 'xs', $return: 'font');
-  padding: .25rem .7rem;
-}
 
-.#{$btn_pfx}-xs {
-  @include set( $body_type, $val: -6, $lh: 1, $lines: 0, $bp: 'xs', $return: 'font');
-  padding: .16rem .5rem;
-}
-
-.#{$btn_pfx}-lg {
-  @include set( $body_type, $val: 2, $lh: 1, $lines: 0, $bp: 'xs', $return: 'font');
-  padding: .85rem 1.3rem;
-}
 
 
 
@@ -84,10 +71,8 @@ button, .#{$btn_pfx} {
 %input {
   background-color: white;
   border: 1px solid map-get( $btn_colors, light );
-  padding: .5rem;
-  height: 2.23rem;
-  // margin: 0;
   vertical-align: middle;
+  margin: 0;
 
   &:disabled {
     @extend %disabled;
@@ -111,9 +96,15 @@ input[type=week] {
   -webkit-appearance: none;
 }
 
+.input {
+  padding: .5rem 1rem;
+  line-height: 1.125rem;
+}
+
 select {
   line-height: 1.75;
   padding: .5rem;
+
 }
 
 textarea {
@@ -124,6 +115,7 @@ textarea {
 
 select:not([multiple]){
   @extend %input;
+  height: 2.23rem; /// 
 }
   
 
@@ -171,3 +163,23 @@ td {
 
 
 
+
+
+
+
+
+
+.#{$btn_pfx}-sm, .#{$input_pfx}-sm  {
+  @include set( $body_type, $val: -5, $lh: 1, $lines: 0, $bp: 'xs', $return: 'font');
+  padding: .25rem .7rem;
+}
+
+.#{$btn_pfx}-xs, .#{$input_pfx}-xs  {
+  @include set( $body_type, $val: -6, $lh: 1, $lines: 0, $bp: 'xs', $return: 'font');
+  padding: .16rem .5rem;
+}
+
+.#{$btn_pfx}-lg, .#{$input_pfx}-lg  {
+  @include set( $body_type, $val: 2, $lh: 3, $lines: 0, $bp: 'xs', $return: 'font');
+  padding: 0 1.3rem;
+}

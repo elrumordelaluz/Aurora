@@ -22,15 +22,15 @@ $aurora:                if( $prefix, '#{$prefix}-', '' );
 $global_box_model:             true;
 
 
-/**
- * There are lots of resets types on the web, we included this to choose:
- *
- * normalize     --  http://necolas.github.io/normalize.css/ -- brokes Typo
- * meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
- * html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
- * none          --  only resets box model based on the variable and margins/padings to 0
- *
- **/
+/////
+// There are lots of resets types on the web, we included this to choose:
+//
+// normalize     --  http://necolas.github.io/normalize.css/ -- brokes Typo
+// meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
+// html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
+// none          --  only resets box model based on the variable and margins/padings to 0
+//
+/////
 $reset_type:            none;
 
 
