@@ -6,7 +6,7 @@ block content
 
     .ae-container
       .ae-grid.ae-grid--float
-        .ae-grid__item.item-sm-8
+        .ae-grid__item.item-sm-6
          
           h3 Forms
 
@@ -26,20 +26,20 @@ block content
             input(style="display:none",type="password",name="fakepasswordremembered")
             //- http://stackoverflow.com/questions/15738259/disabling-chrome-autofill
 
-            label.block Email: 
-              input(type="email").block.full-width.input
+            label.u-db Email: 
+              input(type="email").u-db.u-w100p.input
 
-            label.block Password: 
-              input(type="password").block.full-width.input
+            label.u-db Password: 
+              input(type="password").u-db.u-w100p.input
             
-            label.block Choose:
-              select.block.full-width.input
+            label.u-db Choose:
+              select.u-db.u-w100p.input
                 option(value='1') Option 1
                 option(value='2') Option 2
                 option(value='3') Option 3
 
-            label.block Choose (disabled)
-              select.block.full-width(multiple, disabled).input
+            label.u-db Choose (disabled)
+              select.u-db.u-w100p(multiple, disabled).input
                 option(value='1') Option 1
                 option(value='2') Option 2
                 option(value='3') Option 3
@@ -48,17 +48,17 @@ block content
                 option(value='6') Option 6
                 option(value='7') Option 7
             
-            label.block Message:
-              textarea.full-width
+            label.u-db Message:
+              textarea.u-w100p
             
             
             label
               input(type='checkbox')
               |  Remember me
 
-            label.table
-              input(type='checkbox').table-cell
-              small.table-cell   
+            label.u-dt
+              input(type='checkbox').u-dtc
+              small.u-dtc   
                 strong Accept Privacy
                 br
                 small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut similique esse dolorem molestiae mollitia, saepe modi, facere aliquid illo, praesentium, cum omnis rerum facilis soluta culpa. Suscipit vel ullam illo inventore ipsum laboriosam cumque nemo maiores accusantium provident. Hic itaque quibusdam earum impedit aliquid accusantium eos, quam alias commodi consequuntur!
@@ -77,16 +77,16 @@ block content
             br
             
 
-            label.table
-              input(type='radio', name='radioExample_2').table-cell
-              small.table-cell   
+            label.u-dt
+              input(type='radio', name='radioExample_2').u-dtc
+              small.u-dtc   
                 strong More of this:
                 br
                 small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut similique esse dolorem molestiae mollitia, saepe modi, facere aliquid illo, praesentium, cum omnis rerum facilis soluta culpa. Suscipit vel ullam illo inventore ipsum laboriosam cumque nemo maiores accusantium provident. Hic itaque quibusdam earum impedit aliquid accusantium eos, quam alias commodi consequuntur!
 
-            label.table
-              input(type='radio', name='radioExample_2').table-cell.input
-              small.table-cell   
+            label.u-dt
+              input(type='radio', name='radioExample_2').u-dtc.input
+              small.u-dtc   
                 strong or this:
                 br
                 small  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus quos autem unde adipisci repudiandae animi, maxime commodi ut exercitationem magnam iste ab iure sunt?
@@ -98,49 +98,49 @@ block content
             
             label.btn
               .btn-group
-                .inline-block 1. &nbsp;
+                .u-dib 1. &nbsp;
                 input(type='text', placeholder='write smthng').input
                 button.btn.btn-alias Send
             
-            .btn-group.mt1
+            .btn-group.u-mt1
               input(type='text', placeholder='write smthng').input
               button.btn Send
 
-            .btn-group.mt1
+            .btn-group.u-mt1
               label(for='groupExample_3').btn 2.
               input(type='text', placeholder='write smthng')#groupExample_3.input
               button.btn Send
             
             
-            .relative.mt1
-              input(type='text', placeholder='your best film...')#groupExample_4.pl3.input
-              label.absolute-y.left-0.ml1(for='groupExample_4')
+            .u-posr.u-mt1
+              input(type='text', placeholder='your best film...')#groupExample_4.u-pl3.input
+              label.u-at-y.u-l0.u-ml1(for='groupExample_4')
                 i.pe-is-m-clack-open
             
-            .relative.mt1
-              input(type='text', placeholder='your best song...')#groupExample_5.pl3.input
-              label.absolute-y.left-0.ml1(for='groupExample_5')
+            .u-posr.u-mt1
+              input(type='text', placeholder='your best song...')#groupExample_5.u-pl3.input
+              label.u-at-y.u-l0.u-ml1(for='groupExample_5')
                 i.pe-is-m-guitar
 
-            .relative.mt1
-              input(type='text', placeholder='say hello...')#groupExample_6.pl4.full-width.input
-              label.absolute-y.left-0.ml1(for='groupExample_6') que tal?
+            .u-posr.u-mt1
+              input(type='text', placeholder='say hello...')#groupExample_6.u-pl4.u-w100p.input
+              label.u-at-y.u-l0.u-ml1(for='groupExample_6') que tal?
 
             
             p
               input(type='text').input
             
-            .btn-group.mt1
+            .btn-group.u-mt1
               input(type='text', placeholder='say hola...').input-sm
               button.btn.btn-sm Send
             
-            input(type='range').block.full-width
+            input(type='range').u-db.u-w100p
       
 
         
           
           
-        .ae-grid__item.item-sm-4
+        .ae-grid__item.item-sm-6
           h4 button
           p
             button button
@@ -156,7 +156,7 @@ block content
             button.btn(disabled) disabled
 
           p
-            button.btn.full-width full-width
+            button.btn.u-w100p full-width
           
           p
             button.btn.btn-lg btn-lg
@@ -189,55 +189,55 @@ block content
               i.pe-is-m-clack-open
 
           p
-            .relative.inline-block
+            .u-posr.u-dib
               label.btn(for='dd') Menu &#9662;
-              input(type='checkbox')#dd.dd__opener.hide
-              .absolute.dd__list
-                a(href="#").btn.block menu 1
-                a(href="#").btn.block menu 2
-                a(href="#").btn.block menu 3
+              input(type='checkbox')#dd.dd__opener.u-dn
+              .u-posa.dd__list
+                a(href="#").btn.u-db menu 1
+                a(href="#").btn.u-db menu 2
+                a(href="#").btn.u-db menu 3
 
-            .relative.inline-block
+            .u-posr.u-dib
               label.btn(for='dd_2') Menu &#9662;
-              input(type='checkbox', checked )#dd_2.dd__opener.hide
-              .absolute.dd__list
-                a(href="#").btn.block menu 1
-                a(href="#").btn.block menu 2
-                a(href="#").btn.block menu 3
+              input(type='checkbox', checked )#dd_2.dd__opener.u-dn
+              .u-posa.dd__list
+                a(href="#").btn.u-db menu 1
+                a(href="#").btn.u-db menu 2
+                a(href="#").btn.u-db menu 3
 
-            .relative.inline-block
+            .u-posr.u-dib
               a.btn(href='#dd_3').dd__opener Menu &#9662;
-              a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_3
-              .absolute.dd__list
-                a(href="#0").btn.block menu 1
-                a(href="#0").btn.block menu 2
-                a(href="#0").btn.block menu 3
+              a(href='#0').dd__over.u-posf.u-full.u-dn#dd_3
+              .u-posa.dd__list
+                a(href="#0").btn.u-db menu 1
+                a(href="#0").btn.u-db menu 2
+                a(href="#0").btn.u-db menu 3
 
 
-            .relative.inline-block
+            .u-posr.u-dib
               a.btn(href='#dd_4') right 
               a.btn(href='#dd_4').dd__opener &#9662;
-              a(href='#0').dd__over.fixed.top-0.right-0.bottom-0.left-0.hide#dd_4
-              .absolute.dd__list.right-0.mt1
-                a(href="#0").btn.block menu 1
-                a(href="#0").btn.block menu 2
-                a(href="#0").btn.block menu 3
+              a(href='#0').dd__over.u-posf.u-full.u-dn#dd_4
+              .u-posa.dd__list.u-r0.u-mt1
+                a(href="#0").btn.u-db menu 1
+                a(href="#0").btn.u-db menu 2
+                a(href="#0").btn.u-db menu 3
 
             hr 
 
-            .inline-block.dd
+            .u-dib.dd
               a.btn(href='#0') hover &#9662;
               .dd__list.right-0
-                a(href="#0").btn.block menu 1
-                a(href="#0").btn.block menu 2
-                a(href="#0").btn.block menu 3
+                a(href="#0").btn.u-db menu 1
+                a(href="#0").btn.u-db menu 2
+                a(href="#0").btn.u-db menu 3
 
 
           
               
 
 
-    .ae-container.mt4
+    .ae-container.u-mt4
       .ae-grid.ae-grid--float
         .ae-grid__item.item-sm-12
 
@@ -319,7 +319,7 @@ block content
                 td here
 
 
-    .ae-container.mt4
+    .ae-container.u-mt4
       .ae-grid.ae-grid--float
         .ae-grid__item.item-sm-12
 
@@ -336,14 +336,15 @@ block content
 
 
     
-    .ae-container.mt4
+    .ae-container.u-mt4.py5.u-posr
+      .u-at-center.btn hola
       .ae-grid.ae-grid--float
         .ae-grid__item.item-sm-12
 
           h3 helpers
-          .table.full-width.txt--center
-            .btn.table-cell table-cell
-            .btn.table-cell table-cell
+          .u-dt.u-w100p.txt--center
+            .btn.u-dtc table-cell
+            .btn.u-dtc table-cell
 
           .btn.float-right float-right
 

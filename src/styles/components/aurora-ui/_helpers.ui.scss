@@ -1,47 +1,88 @@
 
+//  Display 
+//  =======
+//  .u-d*
 
-.block { display: block; } // db
-.inline { display: inline; } // di
-.inline-block { display: inline-block; } // dib
-.table { display: table; } // dt
-.table-cell { display: table-cell; } // dtc
-.full-width { width: 100%; } // w100p
-
-.float-right { float: right; } // fl-r
-.float-left { float: left; } // fl-l
-
-.hide { display: none;  }
-.invisible { visibility: hidden; }
-
-.absolute { position: absolute; }
-.relative { position: relative; }
-.fixed { position: fixed; }
-
-.left-0 { left: 0; }
-.top-0 { top: 0; }
-.right-0 { right: 0; }
-.bottom-0 { bottom: 0; }
-
-.aboslute-center {
-  position: absolute;
-  margin: auto;
-  top: 0; right: 0; bottom: 0; left: 0;  
-}
-
-.absolute-y {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
+.u-db { display: block; }
+.u-dib { display: inline-block; }
+.u-di { display: inline; }
+.u-dt { display: table; }
+.u-dtc { display: table-cell; }
+// .u-hide,
+.u-dn { display: none; }
 
 
+//  Float
+//  =====
+//  .u-fl, .u-fr // add clear
+
+.u-fl { float: left; }
+.u-fr { float: right; }
 
 
-/* 
-**
-**  Spacing Helpers 
-**
-*/
+//  Position 
+//  ========
+//  .u-pos*
+
+.u-posa { position: absolute; }
+.u-posr { position: relative; }
+.u-posf { position: fixed; }
+.u-poss { position: static; }
+
+
+//  Top, Right, Bottom, Left 
+//  ========================
+//  .u-t*, .u-r*, .u-b*, .u-l*
+
+.u-t0 { top: 0; }
+.u-t50p { top: 50%; }
+.u-r0 { right: 0; }
+.u-r50p { right: 50%; }
+.u-b0 { bottom: 0; }
+.u-b50p { bottom: 50%; }
+.u-l0 { left: 0; }
+.u-l50p { left: 50%; }
+
+
+
+//  Width 
+//  =====
+//  .u-w*
+
+// .u-full-w,
+.u-w100p { width: 100%; }
+
+
+//  Overflow 
+//  ========
+//  .u-o*
+
+.u-oh { overflow: hidden; }
+.u-oa { overflow: auto; }
+.u-os { overflow: scroll; }
+
+
+
+//  Vsibility
+//  =========
+//  .u-v*
+
+.u-vh { visibility: hidden; }
+
+
+
+//  Margins
+//  =======
+//  .u-m*, .u-mt*, .u-mr*, .u-mb*, .u-ml*
+
+.u-mauto { margin: auto; }
+
+
+
+//  Padding
+//  =======
+//  .u-p*, .u-pt*, .u-pr*, .u-pb*, .u-pl*
+
 
 
 $max: 5;
@@ -54,45 +95,95 @@ $const : 0.5rem;
   @if( $i > 0 ){
 
     // Margin
-    .m#{$i}   { margin:        $value; }
-    .mt#{$i}  { margin-top:    $value; }
-    .mr#{$i}  { margin-right:  $value; }
-    .mb#{$i}  { margin-bottom: $value; }
-    .ml#{$i}  { margin-left:   $value; }
+    .u-m#{$i}   { margin:        $value; }
+    .u-mt#{$i}  { margin-top:    $value; }
+    .u-mr#{$i}  { margin-right:  $value; }
+    .u-mb#{$i}  { margin-bottom: $value; }
+    .u-ml#{$i}  { margin-left:   $value; }
     
     // Negative x Margin
-    .mxn#{$i} { margin-left:   -$value; }
+    .u-mxn#{$i} { margin-left:   -$value; }
 
     // Padding
-    .p#{$i}   { padding:      $value; }
-    .py#{$i}  { padding-top:  $value; padding-bottom:   $value; }
-    .px#{$i}  { padding-left: $value; padding-right:    $value; }
+    .u-p#{$i}   { padding:      $value; }
+    .u-py#{$i}  { padding-top:  $value; padding-bottom:   $value; }
+    .u-px#{$i}  { padding-left: $value; padding-right:    $value; }
 
-    .p#{$i}   { padding:        $value !important; }
-    .pt#{$i}  { padding-top:    $value !important; }   
-    .pr#{$i}  { padding-right:  $value !important; }   
-    .pb#{$i}  { padding-bottom: $value !important; }   
-    .pl#{$i}  { padding-left:   $value !important; }
+    .u-p#{$i}   { padding:        $value !important; }
+    .u-pt#{$i}  { padding-top:    $value !important; }   
+    .u-pr#{$i}  { padding-right:  $value !important; }   
+    .u-pb#{$i}  { padding-bottom: $value !important; }   
+    .u-pl#{$i}  { padding-left:   $value !important; }
 
   } 
 
   @else {
 
-    .m#{$i}   { margin:        0 }
-    .mt#{$i}  { margin-top:    0 }  
-    .mr#{$i}  { margin-right:  0 }  
-    .mb#{$i}  { margin-bottom: 0 }  
-    .ml#{$i}  { margin-left:   0 }  
+    .u-m#{$i}   { margin:        0 }
+    .u-mt#{$i}  { margin-top:    0 }  
+    .u-mr#{$i}  { margin-right:  0 }  
+    .u-mb#{$i}  { margin-bottom: 0 }  
+    .u-ml#{$i}  { margin-left:   0 }  
 
-    .p#{$i}   { padding:        0 }
-    .pt#{$i}  { padding-top:    0 }   
-    .pr#{$i}  { padding-right:  0 }   
-    .pb#{$i}  { padding-bottom: 0 }   
-    .pl#{$i}  { padding-left:   0 }   
+    .u-p#{$i}   { padding:        0 }
+    .u-pt#{$i}  { padding-top:    0 }   
+    .u-pr#{$i}  { padding-right:  0 }   
+    .u-pb#{$i}  { padding-bottom: 0 }   
+    .u-pl#{$i}  { padding-left:   0 }   
 
   } 
 
 } // @for
+
+
+
+
+
+
+////
+// 
+// Special stuff
+//
+////
+
+.u-am-center {
+  // the object needs specific measures
+  @extend .u-mauto;
+  @extend .u-posa; 
+  @extend .u-t0;
+  @extend .u-r0;
+  @extend .u-b0;
+  @extend .u-l0;
+} 
+
+.u-full {
+  @extend .u-t0;
+  @extend .u-r0;
+  @extend .u-b0;
+  @extend .u-l0;
+}
+
+.u-at-center {
+  // the object doesn't needs specific measures
+  @extend .u-posa;
+  @extend .u-t50p;
+  @extend .u-l50p;
+  
+  transform: translate( -50%, -50% );
+}
+
+.u-at-y {
+  // the object doesn't needs specific measures
+  @extend .u-posa;
+  @extend .u-t50p;
+
+  transform: translateY( -50% );
+}
+
+
+
+
+
 
 
 

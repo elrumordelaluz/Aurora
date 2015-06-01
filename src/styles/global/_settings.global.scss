@@ -22,22 +22,27 @@ $aurora:                if( $prefix, '#{$prefix}-', '' );
 $global_box_model:             true;
 
 
-/////
-// There are lots of resets types on the web, we included this to choose:
-//
-// normalize     --  http://necolas.github.io/normalize.css/ -- brokes Typo
-// meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
-// html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
-// none          --  only resets box model based on the variable and margins/padings to 0
-//
-/////
+/**
+* There are lots of resets types on the web, we included this to choose:
+*
+* normalize     --  http://necolas.github.io/normalize.css/ -- brokes Typo
+* meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
+* html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
+* none          --  only resets box model based on the variable and margins/padings to 0
+*
+**/
 $reset_type:            none;
+
+
+
+
+
 
 
 /**
  * Media queries in em or px
  **/
-$mq_em:               false; // TODO add to grids
+$mq_em:               false; // TODO: add to grids
 
 $breakpoints: (
   'xs'      : 320px,
@@ -46,6 +51,11 @@ $breakpoints: (
   'lg'      : 1200px,
   'xl'      : 1600px
 );
+
+
+
+
+
 
 
 
@@ -76,7 +86,6 @@ $aurora_colors: (
 $color_highlight: map-get( $aurora_colors, 1 );
 
 
-
 $type_colors: (
 
   links: $color_highlight,
@@ -97,6 +106,9 @@ $btn_colors: (
   dark: #737373
 
 );
+
+
+
 
 
 
