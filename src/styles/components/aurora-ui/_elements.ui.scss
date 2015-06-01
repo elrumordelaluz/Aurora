@@ -1,4 +1,7 @@
 
+input::-moz-focus-inner { border: 0; padding: 0; } 
+button::-moz-focus-inner { border: 0; padding: 0; }
+
 /**
  * Buttons
  **/
@@ -18,7 +21,7 @@ button, .#{$btn_pfx} {
   padding: .5rem 1rem;
   margin: 0;
   height: auto;
-  line-height: 1.125rem;
+  line-height: 1.125;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -98,7 +101,7 @@ input[type=week] {
 
 .input {
   padding: .5rem 1rem;
-  line-height: 1.125rem;
+  line-height: 1.125;
 }
 
 select {

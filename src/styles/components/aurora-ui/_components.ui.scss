@@ -1,15 +1,17 @@
 
+
+
 /**
- * Button groups
+ * Groups
  **/
 
-.#{$btn_pfx}-group {
 
-  @if ($btn_group_hack){
+.c-group {
+
+  @if ($c_group_hack){
     
     letter-spacing: -0.28em;
 
-    // .#{$btn_pfx}, 
     & > * {
       letter-spacing: 0;
     }
@@ -17,16 +19,15 @@
   }
   @else {
 
-    .#{$btn_pfx} {
+    overflow: auto;
+
+    & > * {
       float: left;
     }
     
   }
 
-  
 }
-
-
 
 
 
