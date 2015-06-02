@@ -26,7 +26,13 @@ $responsive_tables: true;
  * btn-group hack
  **/
 
-$btn_group_hack: true; // TODO: if false
-
 $c_group_hack: false;
 
+
+
+/**
+ * border 
+ **/
+
+$bd_width: 1px;
+$bd_radius: 3px;

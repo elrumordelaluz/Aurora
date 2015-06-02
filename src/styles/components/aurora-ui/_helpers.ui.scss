@@ -36,12 +36,16 @@
 
 .u-t0 { top: 0; }
 .u-t50p { top: 50%; }
+.u-t100p { top: 100%; }
 .u-r0 { right: 0; }
 .u-r50p { right: 50%; }
+.u-r100p { right: 100%; }
 .u-b0 { bottom: 0; }
 .u-b50p { bottom: 50%; }
+.u-b100p { bottom: 100%; }
 .u-l0 { left: 0; }
 .u-l50p { left: 50%; }
+.u-l100p { left: 100%; }
 
 
 
@@ -68,6 +72,66 @@
 //  .u-v*
 
 .u-vh { visibility: hidden; }
+
+
+
+//  Vsibility
+//  =========
+//  .u-bd
+
+.u-bd {
+  border-style: solid;
+  border-width: $bd_width;
+}
+
+.u-bdt {
+  border-top-style: solid;
+  border-top-width: $bd_width;
+}
+
+.u-bdr {
+  border-right-style: solid;
+  border-right-width: $bd_width;
+}
+
+.u-bdb {
+  border-bottom-style: solid;
+  border-bottom-width: $bd_width;
+}
+
+.u-bdl {
+  border-left-style: solid;
+  border-left-width: $bd_width;
+}
+
+.u-br {
+  border-radius: $bd_radius;
+}
+
+.u-br0 {
+  border-radius: 0;
+}
+
+.u-br50p {
+  border-radius: 50%;
+}
+
+.u-brtl {
+  border-top-left-radius: $bd_radius;
+}
+
+.u-brtr {
+  border-top-right-radius: $bd_radius;
+}
+
+.u-brbl {
+  border-bottom-left-radius: $bd_radius;
+}
+
+.u-brbr {
+  border-bottom-right-radius: $bd_radius;
+}
+
 
 
 
@@ -140,14 +204,17 @@ $const : 0.5rem;
 
 
 
-////
-// 
-// Special stuff
-//
-////
+
+
+//-----------------
+//- 
+//-  Special stuff
+//-
+//-----------------
 
 .u-am-center {
   // the object needs specific measures
+  
   @extend .u-mauto;
   @extend .u-posa; 
   @extend .u-t0;
@@ -179,6 +246,11 @@ $const : 0.5rem;
 
   transform: translateY( -50% );
 }
+
+
+
+
+
 
 
 

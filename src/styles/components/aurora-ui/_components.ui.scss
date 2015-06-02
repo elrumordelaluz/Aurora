@@ -133,11 +133,13 @@
   max-height: 1000px;
 }
 
-// trick
+
+// trick dd__over
 .dd__over:target { 
   display: block; 
   cursor: default;
 }
+
 
 .dd__list {
   max-height: 0;

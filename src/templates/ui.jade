@@ -107,9 +107,9 @@ block content
               button.btn Send
 
             .c-group.u-mt1
-              label(for='groupExample_3').btn 2.
+              label(for='groupExample_3').btn.u-brbl.u-brtl 2.
               input(type='text', placeholder='write smthng')#groupExample_3.input
-              button.btn Send
+              button.btn.u-brbr.u-brtr Send
             
             
             .u-posr.u-mt1
@@ -180,13 +180,13 @@ block content
               |  btn-xs
 
           p
-            button.btn.btn-lg 
+            button.btn.btn-lg.u-br
               i.pe-is-m-clack-open
             button.btn
               i.pe-is-m-clack-open
             button.btn.btn-sm 
               i.pe-is-m-clack-open
-            button.btn.btn-xs
+            button.btn.btn-xs.u-br50p
               i.pe-is-m-clack-open
 
           p
@@ -202,7 +202,6 @@ block content
               label.btn(for='dd_2') Menu &#9662;
               input(type='checkbox', checked )#dd_2.dd__opener.u-dn
               .u-posa.dd__list
-                a(href="#").btn.u-db menu 1
                 a(href="#").btn.u-db menu 2
                 a(href="#").btn.u-db menu 3
 
@@ -210,6 +209,11 @@ block content
               a.btn(href='#dd_3').dd__opener Menu &#9662;
               a(href='#0').dd__over.u-posf.u-full.u-dn#dd_3
               .u-posa.dd__list
+                .u-dt
+                  a(href="#0").u-dtc.btn  A
+                  .u-bdl.u-bdr
+                    a(href="#0").u-dtc.btn B
+                  a(href="#0").u-dtc.btn C
                 a(href="#0").btn.u-db menu 1
                 a(href="#0").btn.u-db menu 2
                 a(href="#0").btn.u-db menu 3
@@ -227,11 +231,11 @@ block content
             hr 
 
             .u-dib.dd
-              a.btn(href='#0') hover &#9662;
+              a.btn(href='#0').u-brtl.u-brtr hover &#9662;
               .dd__list.right-0
                 a(href="#0").btn.u-db menu 1
                 a(href="#0").btn.u-db menu 2
-                a(href="#0").btn.u-db menu 3
+                a(href="#0").btn.u-db.u-brbl.u-brbr menu 3
 
 
           
@@ -337,7 +341,7 @@ block content
 
 
     
-    .ae-container.u-mt4.py5.u-posr
+    .ae-container.u-mt4.u-mb5
       .ae-grid.ae-grid--float
         .ae-grid__item.item-sm-12
 
@@ -345,12 +349,90 @@ block content
           .u-dt.u-w100p.txt--center
             .btn.u-dtc table-cell
             .btn.u-dtc table-cell
+            .btn.u-dtc table-cell
+            .btn.u-dtc table-cell
+            .btn.u-dtc table-cell
+            .btn.u-dtc table-cell
+            .btn.u-dtc table-cell
+            .btn.u-dtc table-cell
 
-          .btn.float-right float-right
+          .btn.u-fr float-right
 
+          hr
 
+          h3 navs
+
+          ul.u-dt.u-w100p
+            li.u-dtc
+              a(href='#0').u-db.u-w100p.txt--center.u-bdt hola
+            li.u-dtc
+              a(href='#0').u-db.u-w100p.txt--center.u-bdb ciao
+            li.u-dtc
+              a(href='#0').u-db.u-w100p.txt--center.u-bdt hello
 
           
+          form.u-posr.u-oa
+            label.u-db Email: 
+              input(type="email").u-db.u-w100p.input
+
+            label(for='acc_2').u-w100p.u-mt1 
+              ins More specific fields
+              small  Acc. Checkbox 2
+            input(type='checkbox')#acc_2.dd__opener.u-dn
+            .dd__list.u-w100p
+              .u-p1
+                label.u-db Email: 
+                  input(type="email").u-db.u-w100p.input
+
+                label.u-db Password: 
+                  input(type="password").u-db.u-w100p.input
+                
+                label.u-db Choose:
+                  select.u-db.u-w100p.input
+                    option(value='1') Option 1
+                    option(value='2') Option 2
+                    option(value='3') Option 3
+
+            label(for='acc').u-w100p 
+              ins Read our Privacy Statement
+              small  Acc. Checkbox 1
+            input(type='checkbox')#acc.dd__opener.u-dn
+            .dd__list.u-w100p
+              .u-p1
+                small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt repellendus ullam tempora atque, corrupti nulla, ducimus id autem recusandae, itaque ipsum. Inventore minima accusamus temporibus deleniti praesentium, similique omnis sed quod ullam dolorem voluptate adipisci commodi deserunt quae illo hic id odio sint saepe et. Quasi facere rerum perferendis sequi nemo nam dolores, sit natus repellendus corporis iusto, quos, doloribus porro magnam et delectus voluptate aliquid illum debitis laudantium. Dolorem sed odit, quibusdam perspiciatis ratione magnam dolorum iste placeat. Perspiciatis iste esse exercitationem unde quibusdam eveniet illum accusamus, temporibus autem deleniti suscipit voluptate laudantium nisi quis, maxime. Quidem, impedit repellendus.
+            
+            .u-bdt.u-pt1
+              button.btn.u-fr Send
+
+
+          .u-posr.u-mt3
+            label.btn(for='acc_3').u-w100p 
+              i.pe-is-m-clack-open
+              |  Acc. Radio 1
+            input(type='radio', name='acccc')#acc_3.dd__opener.u-dn
+            .dd__list.u-w100p
+              .u-p1
+                small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt repellendus ullam tempora atque, corrupti nulla, ducimus id autem recusandae, itaque ipsum. Inventore minima accusamus temporibus deleniti praesentium, similique omnis sed quod ullam dolorem voluptate adipisci commodi deserunt quae illo hic id odio sint saepe et. Quasi facere rerum perferendis sequi nemo nam dolores, sit natus repellendus corporis iusto, quos, doloribus porro magnam et delectus voluptate aliquid illum debitis laudantium. Dolorem sed odit, quibusdam perspiciatis ratione magnam dolorum iste placeat.
+            label.btn(for='acc_4').u-w100p Acc. Radio 2
+            input(type='radio', name='acccc')#acc_4.dd__opener.u-dn
+            .dd__list.u-w100p
+              .u-p1
+                table.tbl.tbl--hover.tbl--responsive
+                  thead
+                    tr
+                      th Items 1
+                      th Items 2
+                      th Items 3
+                  tbody
+                    tr
+                      td(data-th='Items 1')  Lorem ipsum dolor sit.
+                      td(data-th='Items 2')  Lorem ipsum dolor sit amet.
+                      td(data-th='Items 3')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit officiis recusandae quaerat.
+                    tr
+                      td(data-th='Items 1') more
+                      td(data-th='Items 2') Items
+                      td(data-th='Items 3') almost here
+                      
         
 
           
