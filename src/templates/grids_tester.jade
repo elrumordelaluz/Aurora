@@ -1,0 +1,36 @@
+extends layouts/mainLayout
+
+block content
+
+  style.
+    .ae-grid {
+      background-color: rgba(0,0,0,0.1);
+    }
+    .ae-grid__item {
+      border: 1px solid;
+    }
+
+  body
+    
+    .ae-container
+      .ae-grid.ae-grid--float
+        .ae-grid__item.item-sm-3  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+
+    .ae-container
+      .ae-grid.ae-grid--block
+        .ae-grid__item.item-sm-3  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+
+    //- .ae-container for {{ .ae-grid--table }} should have .no-padding to avoid extra margins
+    //- because table stuff
+    .ae-container.no-padding
+      .ae-grid.ae-grid--table
+        .ae-grid__item.item-sm-3  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.

@@ -1,143 +1,85 @@
+// --------------
+// Grid Functions
+// --------------
 
+@include placeholder('fl') {
+  float: left;
+}
 
+@include placeholder('fr') {
+  float: right;
+}
 
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    GRID FUNCTIONS & MIXINS
+@include placeholder('dtc') {
+  display: table-cell;
+}
 
-\* * * * * * * * * * * * * * * * * * * * */
-
-
-
-@include placeholder('fl') { float: left; }
-@include placeholder('fr') { float: right; }
-@include placeholder('dtc') { display: table-cell; }
-@include placeholder('dib') { 
-  display: inline-block; 
+@include placeholder('dib') {
+  display: inline-block;
   vertical-align: top;
 }
 
 
-@mixin do-grid-items ( $cols, $prefix, $style ) {
-
-  $px: if($prefix, -#{$prefix}, '' );
-
+@mixin do-grid-items($cols, $prefix, $style) {
+  $px: if($prefix, -#{$prefix}, '');
 
   @for $i from 1 through $cols {
-
     .item#{$px}-#{$i} {
 
-      @if ( $style == 'float' ){
-
+      @if $style == 'float' {
         @include _(fl);
-        
+
         &.item--right {
           @include _(fr);
-        }  
+        }
+      } @else if $style == 'table' {
+        @include _(dtc);
+      } @else if $style == 'block' {
+        @include _(dib);
+      } @else if $style == 'all' {
+        .#{$aurora}grid--float & {
+          @include _(fl);
+        }
 
-      } @else if ( $style == 'table' ){
-        
+        .#{$aurora}grid--table & {
           @include _(dtc);
+        }
 
-      } @else if ( $style == 'block' ){
-        
+        .#{$aurora}grid--block & {
           @include _(dib);
-
-      } @else if ( $style == 'all' ){
-        
-        .#{$aurora}grid--float & { @include _(fl); }
-
-        .#{$aurora}grid--table & { @include _(dtc); }
-
-        .#{$aurora}grid--block & { @include _(dib); }
-
-      }
-      
-      width: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
-      
-      @if ( $item_debug ) {
-        .d-grid__item &:before {
-          content:'Item#{$px}-#{$i}'!important;
         }
       }
-
+      width: if($calc, calc(#{$i}/#{$cols} * 100%), $i / $cols * 100%);
     }
-
-    
   } // @for
+}
 
-} // @mixin
-
-
-
-
-@mixin do-push-items ( $cols, $prefix ) {
-
-  $px: if($prefix, -#{$prefix}, '' );
+@mixin do-push-items($cols, $prefix) {
+  $px: if($prefix, -#{$prefix}, '');
 
   @for $i from 1 through $cols {
-   
     .item#{$px}--push-#{$i} {
-
-      left: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
-
-      @if ( $item_debug ) {
-        .d-grid__item &:before {
-          content:'Item#{$px}--push-#{$i}'!important;
-        }
-      }
-
+      left: if($calc, calc(#{$i}/#{$cols} * 100%), $i / $cols * 100%);
     }
-    
   } // @for
+}
 
-} // @mixin
-
-
-
-@mixin do-pull-items ( $cols, $prefix ) {
-
-  $px: if($prefix, -#{$prefix}, '' );
+@mixin do-pull-items($cols, $prefix) {
+  $px: if($prefix, -#{$prefix}, '');
 
   @for $i from 1 through $cols {
-
     .item#{$px}--pull-#{$i} {
-      
-      right: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
-
-      @if ( $item_debug ) {
-        .d-grid__item &:before {
-          content:'Item#{$px}--pull-#{$i}'!important;
-        }
-      }
-
+      right: if($calc, calc(#{$i}/#{$cols} * 100%), $i / $cols * 100%);
     }
-    
   } // @for
+}
 
-} // @mixin
-
-
-
-@mixin do-offset-items ( $cols, $prefix ) {
-
-  $px: if($prefix, -#{$prefix}, '' );
+@mixin do-offset-items($cols, $prefix) {
+  $px: if($prefix, -#{$prefix}, '');
 
   @for $i from 1 through $cols {
-
     .item#{$px}--offset-#{$i} {
-      
-      margin-left: if( $calc, calc( #{$i}/#{$cols} * 100% ), $i/$cols * 100% );
-
-      @if ( $item_debug ) {
-        .d-grid__item &:before {
-          content:'Item#{$px}--offset-#{$i}'!important;
-        }
-      }
-
+      margin-left: if($calc, calc(#{$i}/#{$cols} * 100%), $i / $cols * 100%);
     }
-    
   } // @for
-
-} // @mixin
-
+}

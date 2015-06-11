@@ -6,7 +6,7 @@ block content
 
     .ae-container
       .ae-grid.ae-grid--float
-        .ae-grid__item.item-sm-6
+        .ae-grid__item.item-sm-6.item-lg-12
          
           h3 Forms
 
@@ -141,7 +141,7 @@ block content
         
           
           
-        .ae-grid__item.item-sm-6
+        .ae-grid__item.item-sm-6.item-lg-12
           h4 button
           p
             button button
@@ -458,16 +458,69 @@ block content
 
             .ae-grid__item.item-sm-6
 
-              .u-posr.u-dt.u-w100p.u-oa
-                a.btn(href='#tab_1').dd__opener.u-dtc Menu
-                a.btn(href='#tab_2').dd__opener.u-dtc Menu
-                a(href='#0').dd__over.u-dn#tab_1
-                .u-posa.dd__list.u-l0.u-t100p.u-w100p
-                  p  Lorem ipsumdsads
+              .u-posr.u-w100p
+                a.btn(href='#tab_1').dd__opener 1
+                a.btn(href='#tab_2').dd__opener 2
+                a.btn(href='#tab_3').dd__opener 3
+                a(href='#0').dd__over.u-dn.u-w100p#tab_1
+                .dd__list.u-l0.u-t100p.u-w100p.u-bgc-light
+                  .u-p1
+                    p  Lorem ipsumdsads
                 a(href='#0').dd__over.u-dn#tab_2
-                .u-posa.dd__list.u-l0.u-t100p.u-w100p
-                  p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic.
+                .dd__list.u-l0.u-t100p.u-w100p.u-bgc-light
+                  .u-p1
+                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic.
 
+              
+              .u-posr.u-mt2.u-dt.u-w100p
+                
+                input(type='radio', name='tb')#tab_a.tab__opener.u-dn
+                label.btn(for='tab_a').u-dtc
+                  i.pe-is-m-clack-open
+                  | 1
+                
+                input(type='radio', name='tb')#tab_b.tab__opener.u-dn
+                label.btn(for='tab_b').u-dtc
+                  i.pe-is-m-clack-open
+                  | 1
+
+                input(type='radio', name='tb')#tab_c.tab__opener.u-dn
+                label.btn(for='tab_c').u-dtc
+                  i.pe-is-m-clack-open
+                  | 1
+                input(type='radio', name='tb')#tab_d.tab__opener.u-dn
+                label.btn(for='tab_d').u-dtc
+                  i.pe-is-m-clack-open
+                  | 1
+                .tab__container.u-posa.u-l0.u-t100p.u-w100p
+                  .tab__content.u-dn.u-bgc-light.u-w100p.u-db
+                    .u-p2
+                      p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, reiciendis.
+                  .tab__content.u-dn.u-bgc-light.u-w100p.u-db
+                    .u-p2.u-posr
+                      label ddasd
+                        input.input.u-db.u-w100p
+                  .tab__content.u-dn.u-w100p.u-db
+                    .u-p1
+                      table.tbl.tbl--bordered
+                        thead
+                          tr
+                            th Items 1
+                            th Items 2
+                            th Items 3
+                        tbody
+                          tr
+                            td(data-th='Items 1')  Lorem ipsum dolor sit.
+                            td(data-th='Items 2')  Lorem ipsum dolor sit amet.
+                            td(data-th='Items 3')  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit officiis recusandae quaerat.
+                          tr
+                            td(data-th='Items 1') more
+                            td(data-th='Items 2') Items
+                            td(data-th='Items 3') almost here
+                  .tab__content.u-dn.u-bgc-light.u-w100p.u-db
+                    .u-p1
+                      p
+                        small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, reiciendis.
 
 
               

@@ -13,6 +13,8 @@ button::-moz-focus-inner { border: 0; padding: 0; }
 }
 
 button, .#{$btn_pfx} {
+  @if ( not $global_box_model ) { box-sizing: border-box; }
+
   border: 1px solid transparent;
   font-family: inherit;
   text-decoration: none;
@@ -72,6 +74,8 @@ button, .#{$btn_pfx} {
  **/
 
 %input {
+  @if ( not $global_box_model ) { box-sizing: border-box; }
+  
   background-color: white;
   border: 1px solid map-get( $btn_colors, light );
   vertical-align: middle;
@@ -111,12 +115,14 @@ select {
 }
 
 textarea {
+  @if ( not $global_box_model ) { box-sizing: border-box; }
+  
   border: 1px solid map-get( $btn_colors, light );
   padding: .5rem;
   line-height: 1.5;
 }
 
-select:not([multiple]){
+select:not([multiple]) {
   @extend %input;
   height: 2.23rem; /// 
 }

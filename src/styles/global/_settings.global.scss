@@ -1,134 +1,70 @@
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    GLOBAL SETTINGS
+// ---------------------
+//  
+//    GLOBAL SETTINGS
+//
+// ---------------------
 
-\* * * * * * * * * * * * * * * * * * * * */
+$lg-prefix: 'aurora';
+$sm-prefix: 'ae';
 
+//Prefix to add before element/components (i.e aurora-component / ae-component); false to disable.
+$prefix: $sm-prefix;
 
-$lg_prefix: 'aurora';
-$sm_prefix: 'ae';
+$aurora: if($prefix, '#{$prefix}-', '');
 
+// Aplly box model global by html and * selectors or only when is needed
+$global-box-model: false;
 
-/**
- * Prefix to add before element/components (i.e aurora-component / ae-component); false to disable.
- **/
-$prefix:                $sm_prefix;
+// ---------------------
+//
+// There are lots of resets types on the web, we included this to choose:
+// ======================================================================
+// 
+// normalize     --  http://necolas.github.io/normalize.css/ -- brokes Typo
+// meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
+// html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
+// none          --  only resets box model based on the variable and margins/padings to 0
+//
+// ---------------------
+$do-reset: true;
+$reset-type: none;
 
-$aurora:                if( $prefix, '#{$prefix}-', '' );
-
-/**
- * Aplly box model global by html and * selectors or only when is needed
- **/
-$global_box_model:             true;
-
-
-/**
-* There are lots of resets types on the web, we included this to choose:
-*
-* normalize     --  http://necolas.github.io/normalize.css/ -- brokes Typo
-* meyer         --  http://cssreset.com/scripts/eric-meyer-reset-css/
-* html5         --  lhttp://html5doctor.com/html-5-reset-stylesheet/
-* none          --  only resets box model based on the variable and margins/padings to 0
-*
-**/
-$reset_type:            none;
-
-
-
-
-
-
-
-/**
- * Media queries in em or px
- **/
-$mq_em:               false; // TODO: add to grids
+// Media queries in em or px
+$mq-em: false; // TODO: add to grids
 
 $breakpoints: (
-  'xs'      : 320px,
-  'sm'      : 768px,
-  'md'      : 992px,
-  'lg'      : 1200px,
-  'xl'      : 1600px
+  "xs": 320px, 
+  "sm": 768px, 
+  "md": 992px, 
+  "lg": 1200px, 
+  "xl": 1600px
 );
 
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Global colors
- **/
-
-$aurora_colors: (
-
-  1: rgb(233, 161, 181),
-
-  2: rgb(179, 147, 171),
-
-  3: rgb(187, 222, 196),
-
-  4: rgb(184, 252, 240),
-
-  5: rgb(100, 110, 179),
-
+// Global colors
+$aurora-colors: (
+  1: rgb(233, 161, 181), 
+  2: rgb(179, 147, 171), 
+  3: rgb(187, 222, 196), 
+  4: rgb(184, 252, 240), 
+  5: rgb(100, 110, 179), 
   6: rgb(33, 27, 62)
-
 );
 
-$color_highlight: map-get( $aurora_colors, 1 );
+$color-highlight: map-get($aurora_colors, 1);
 
+$type-colors: (links: $color-highlight, heading: #484848, body: #484848, light: #a7a7a7);
 
-$type_colors: (
+$btn-colors: (light: #e0e0e0, dark: #737373);
 
-  links: $color_highlight,
-  
-  heading: #484848,
-  
-  body: #484848,
-  
-  light: #a7a7a7
+// 
+// Global debug
+// ============
+// ( If true > stylesheet )
+// To control thorugh classes .d-rhythm, .d-grid__grid, .d-grid__item
+// 
 
-);
-
-
-$btn_colors: (
-
-  light: #e0e0e0,
-  
-  dark: #737373
-
-);
-
-
-
-
-
-
-
-
-
-
-/**
- * Global debug
- * ( If true > stylesheet )
- * To control thorugh classes .d-rhythm, .d-grid__grid, .d-grid__item
- **/
-
-$ae_debug: (
-
-  rhythm: true,
-
-  grid_grid: true,
-
+$ae-debug: (
+  rhythm: true, 
+  grid_grid: true, 
   grid_item: true
-
 );
-

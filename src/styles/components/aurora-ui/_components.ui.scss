@@ -147,5 +147,26 @@
 }
 
 
+.tab__opener:checked + label {
+  background-color: map-get( $btn_colors, dark );
+}
+
+$max_tabs: 5;
+
+%db { display: block; }
+
+@for $i from 1 through $max_tabs {
+
+  .tab__opener:nth-of-type(#{$i}):checked ~ .tab__container .tab__content:nth-of-type(#{$i})
+  {
+    @extend %db;
+  }
+
+}
+
+
+
+
+
 
 

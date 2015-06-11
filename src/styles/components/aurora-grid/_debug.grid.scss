@@ -1,0 +1,67 @@
+// ---------------------
+//  
+//    GRID DEBUG
+//
+// ---------------------
+
+@if $grid-debug {
+  .d-grid__grid {
+    .#{$aurora}grid {
+      background: linear-gradient(to right, rgba(0, 0, 0, .04) 50%, rgba(0, 0, 0, .07) 50%);
+      background-size: calc(1/6 * 100%) 100%;
+    }
+  }
+}
+
+@if $item-debug {
+  .d-grid__item {
+    .#{$aurora}grid__item {
+      background-color: rgba(#3498db, .3);
+      color: white;
+      counter-increment: grid-item;
+      outline: 1px solid;
+      text-align: center;
+      
+
+      &:before {
+        // content: 'Item - ' counter(grid-item);
+        content: 'Item';
+        display: block;
+        font-size: .7em;
+        height: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+  @each $bp-name, $bp-num in $breakpoints {
+    @for $i from 1 through $columns {
+      .item-#{$bp-name}-#{$i} {
+
+        .d-grid__item &:before {
+          content: 'item-#{$bp-name}-#{$i}' !important;
+        }
+      }
+
+      .item-#{$bp-name}--push-#{$i} {
+        .d-grid__item &:before {
+          content: 'Item-#{$bp-name}--push-#{$i}' !important;
+        }
+      }
+
+      .item-#{$bp-name}--pull-#{$i} {
+        .d-grid__item &:before {
+          content: 'Item-#{$bp-name}--pull-#{$i}' !important;
+        }
+      }
+
+      .item-#{$bp-name}--offset-#{$i} {
+        .d-grid__item &:before {
+          content: 'Item-#{$bp-name}--offset-#{$i}' !important;
+        }
+      }
+    }// @for
+  }
+}

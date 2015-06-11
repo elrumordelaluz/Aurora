@@ -1,105 +1,74 @@
-
-
-@if ( $grid_style == 'float') {
-
-  @include float-helpers( false );
+@if $grid-style == 'float' {
+  @include float-helpers(false);
 
   @each $bp-name, $bp-num in $breakpoints {
-
-    @include breakpoints( $bp-name ) {
-
-      @if ( $responsive_container ){
+    @include breakpoints($bp-name) {
+      @if $responsive-container {
         .#{$aurora}container {
           width: map-get($container, $bp-name);
-        }  
+        }
       }
-
-      @include do-grid-items ( $columns, $bp-name, 'float' );
-      @include do-offset-items ( $columns, $bp-name );
-      @include do-push-items ( $columns, $bp-name );
-      @include do-pull-items ( $columns, $bp-name );
-
+      @include do-grid-items($columns, $bp-name, 'float');
+      @include do-offset-items($columns, $bp-name);
+      @include do-push-items($columns, $bp-name);
+      @include do-pull-items($columns, $bp-name);
     }
-
   }
+} @else if $grid-style == 'table' {
+  @include table-helpers(false);
 
-} @else if ( $grid_style == 'table' ) {
-  
-  @include table-helpers( false );
-  
   @each $bp-name, $bp-num in $breakpoints {
-
-    @include breakpoints( $bp-name ) {
-
-      @if ( $responsive_container ){
+    @include breakpoints($bp-name) {
+      @if $responsive-container {
         .#{$aurora}container {
           width: map-get($container, $bp-name);
-        }  
+        }
       }
+      @include do-grid-items($columns, $bp-name, 'table');
+      @include do-push-items($columns, $bp-name);
+      @include do-pull-items($columns, $bp-name);
 
-      @include do-grid-items ( $columns, $bp-name, 'table' );
-      @include do-push-items ( $columns, $bp-name );
-      @include do-pull-items ( $columns, $bp-name );
-
-      // Hidden Items 
+      // Hidden Items
       .item-#{$bp-name}--hidden {
         visibility: hidden;
       }
+
       // Invisible Items
       .item-#{$bp-name}--invisible {
         display: none;
       }
-
     }
-
   }
-
-} @else if ( $grid_style == 'block' ) {
-
-  @include block-helpers( false);
+} @else if $grid-style == 'block' {
+  @include block-helpers(false);
 
   @each $bp-name, $bp-num in $breakpoints {
-
-    @include breakpoints( $bp-name ) {
-
-      @if ( $responsive_container ){
+    @include breakpoints($bp-name) {
+      @if $responsive-container {
         .#{$aurora}container {
           width: map-get($container, $bp-name);
-        }  
-      }
-      
-      @include do-grid-items ( $columns, $bp-name, 'block' );      
-
-    }
-
-  }
-
-} @else if ( $grid_style == 'all' ) {
-
-    @include table-helpers( true );
-    @include float-helpers( true );
-    @include block-helpers( true );
-  
-    @each $bp-name, $bp-num in $breakpoints {
-
-      @include breakpoints( $bp-name ) {
-        
-        @if ( $responsive_container ){
-          .#{$aurora}container {
-            width: map-get($container, $bp-name);
-          }  
         }
-        
-        @include do-grid-items ( $columns, $bp-name, 'all' );
-
-        @include do-offset-items ( $columns, $bp-name );
-
-        @include do-push-items ( $columns, $bp-name );
-        @include do-pull-items ( $columns, $bp-name );
-
       }
-
+      @include do-grid-items($columns, $bp-name, 'block');
     }
-  
+  }
+} @else if $grid-style == 'all' {
+  @include table-helpers(true);
+  @include float-helpers(true);
+  @include block-helpers(true);
+  // .#{$aurora}grid--table .#{$aurora}grid__item--eq { @include _(dtc); }
 
+  @each $bp-name, $bp-num in $breakpoints {
+    @include breakpoints($bp-name) {
+      @if $responsive-container {
+        .#{$aurora}container {
+          width: map-get($container, $bp-name);
+        }
+      }
+      @include do-grid-items($columns, $bp-name, 'all');
+      @include do-offset-items($columns, $bp-name);
+      @include do-push-items($columns, $bp-name);
+      @include do-pull-items($columns, $bp-name);
+    }
+  }
 }

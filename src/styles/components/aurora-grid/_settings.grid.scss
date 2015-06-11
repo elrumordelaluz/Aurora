@@ -1,74 +1,59 @@
+// ---------------------
+//  
+//    GRID SETTINGS
+//
+// ---------------------
 
+// ---------------------
+// 
+// There are four grids techniques to choose depending on the final use and browser support.
+// =========================================================================================
+// table    --  lorem ipsum
+// block    --  lorem ipsum
+// float    --  lorem ipsum
+// grid     --  lorem ipsum
+//
+// ---------------------
 
+$grid-style: 'all';
 
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    GRID SETTINGS
+$columns: 12;
 
-\* * * * * * * * * * * * * * * * * * * * */
+$responsive-container: false;
 
-/**
- * There are four grids techniques to choose depending on the final use and browser support.
- *
- * table    --  lorem ipsum
- * block    --  lorem ipsum
- * float    --  lorem ipsum
- * grid     --  lorem ipsum
- *
- **/
-$grid_style:            'all'; 
-
-$columns:               12;
-
-$responsive_container: false;
-
-/**
- * Contaner sizes for each breakpoint, in case $responsive_container is true
-**/
+// Contaner sizes for each breakpoint, in case $responsive_container is true
 $container: (
-  'sm'      : 750px,
-  'md'      : 970px,
-  'lg'      : 1170px
+  'sm': 750px,
+  'md': 970px,
+  'lg': 1170px
 );
 
+// Default container width in case not use breakpoints
+$container-width: 940px;
 
-/**
- * Default container width in case not use breakpoints
-**/
-$container_width:       940px;
+// Gutter distributes half on left and right sides
+$gutter: 30px;
 
-/**
- * Gutter distributes half on left and right sides
-**/
-$gutter:                30px;
+// If apply the same gutter space between grids (rows)
+$vertical-space: false;
 
-/**
- * If apply the same gutter space between grids (rows)
-**/
-$vertical_space:        false;
+// If use css calc() to get the items widths or calculate the percentage before
+$calc: false;
 
-/**
- * If use css calc() to get the items widths or calculate the percentage before
-**/
-$calc:                  false;
+// ---------------------
+//
+// Inline block need a hack to avoid white spaces 
+// ==============================================
+// false    --  use a markup solution like remove whitespaces or add comments between items or remove the closing tag of each item. more: http://davidwalsh.name/remove-whitespace-inline-block
+// font     --  Font hack adds a font-size: 0 to the container and reset it on each item.
+// letter   --  Letter hack adds a negative letter-spacing to the container and then reset it on each item.
+//
+// ---------------------
 
-/**
- * Inline block need a hack to avoid white spaces
- *
- * false    --  use a markup solution like remove whitespaces or add comments between items or remove the closing tag of each item. more: http://davidwalsh.name/remove-whitespace-inline-block
- * font     --  Font hack adds a font-size: 0 to the container and reset it on each item.
- * letter   --  Letter hack adds a negative letter-spacing to the container and then reset it on each item.
- *
- **/
-$inline_block_hacks:    'letter';
+$inline-block-hacks: 'letter';
 
-/**
- * Debug: item shows an auto generated content inside each item; grid shows a transparency grid as background
-**/
-$item_debug:            map-get( $ae_debug, grid_item );
-$grid_debug:            map-get( $ae_debug, grid_grid );
+// Debug: item shows an auto generated content inside each item; grid shows a transparency grid as background
+$item-debug: map-get($ae-debug, grid_item);
+$grid-debug: map-get($ae-debug, grid_grid);
 
-
-
-
-
+//

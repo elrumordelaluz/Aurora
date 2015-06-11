@@ -1,44 +1,66 @@
-
-// aurora-grid :: Defaults
+// -------------
+// Grid Defaults
+// -------------
 
 .#{$aurora}container {
-  
-  @if ( not $responsive_container ){
-    max-width: $container_width;
+
+  @if not $responsive-container {
+    max-width: $container-width;
   }
 
+  @if not $global-box-model {
+    box-sizing: border-box;
+  }
   margin-left: auto;
   margin-right: auto;
 
-  padding-right: $gutter/2;
-  padding-left: $gutter/2;
-
+  &:not(.no-gutter):not(.no-padding) {
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+  }
 }
-
 
 .#{$aurora}grid {
-    
-  @if( $vertical_space ) {
-    margin-bottom: $gutter/2;
+
+  &:not(.#{$aurora}grid--table){
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
+  }
+
+  .no-gutter & {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @if $vertical-space {
+    margin-bottom: $gutter / 2;
+  }
+
+  @if not $global-box-model {
+    box-sizing: border-box;
   }
 
 }
 
-
+// --------- 
 // Grid Item
+// ---------
 
-  .#{$aurora}grid__item {
+.#{$aurora}grid__item {
+  letter-spacing: normal;
+  min-height: 1px;
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+  position: relative;
+  word-spacing: normal;
+  // font-size: initial;
 
-    position: relative;
-    min-height: 1px;
-    letter-spacing: normal;
-    word-spacing: normal;
-    font-size: initial;
-
-    @if ( not $global_box_model ) {
-      box-sizing: border-box;
-    }
-
+  .no-gutter & {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-
+  @if not $global-box-model {
+    box-sizing: border-box;
+  }
+}
