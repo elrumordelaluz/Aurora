@@ -33,22 +33,24 @@
           @include _(fr);
         }
       } @else if $style == 'table' {
-        @include _(dtc);
+        // @include _(dtc);
       } @else if $style == 'block' {
         @include _(dib);
       } @else if $style == 'all' {
+
         .#{$aurora}grid--float & {
           @include _(fl);
         }
 
-        .#{$aurora}grid--table & {
-          @include _(dtc);
-        }
+        // .#{$aurora}grid--table & {
+        //   @include _(dtc);
+        // }
 
         .#{$aurora}grid--block & {
           @include _(dib);
         }
       }
+
       width: if($calc, calc(#{$i}/#{$cols} * 100%), $i / $cols * 100%);
     }
   } // @for

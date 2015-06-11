@@ -1,5 +1,14 @@
 
+@import 'global/settings.global';
+@import 'global/functions.global';
+// @import 'components/aurora-grid/all.grid';
 
-@import "global/settings.global";
-@import "global/functions.global";
-@import "components/aurora-grid/all.grid"; 
+
+@import 'components/aurora-grid/settings.grid';
+// $grid-style: 'table'; // in case need a specific output
+@import 'components/aurora-grid/functions.grid';
+@import 'components/aurora-grid/defaults.grid';
+@import 'components/aurora-grid/elements.grid';
+@import 'components/aurora-grid/objects.grid';
+@import 'components/aurora-grid/components.grid';
+@import 'components/aurora-grid/helpers.grid';

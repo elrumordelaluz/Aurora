@@ -27,21 +27,18 @@
 @mixin table-helpers($all-styles: false) {
   $style-sel: if($all-styles, ".#{$aurora}grid--table", ".#{$aurora}grid");
 
-  // Gutters
-  .#{$aurora}grid--gutters {
-    margin-left: -$gutter;
-    margin-right: -$gutter;
-  }
+    
 
-  .#{$aurora}grid--gutters #{$style-sel} {
-    border-spacing: $gutter 0;
-  }
 
   // Grid
   #{$style-sel} {
     display: table;
     table-layout: fixed;
     width: 100%;
+    
+    .#{$aurora}grid__item {
+      @include _(dtc);  
+    }
   }
 }
 
