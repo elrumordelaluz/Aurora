@@ -1,214 +1,156 @@
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    GLOBAL FUNCTIONS & MIXINS
-
-\* * * * * * * * * * * * * * * * * * * * */
-
-
-  
-
-
+// ---------------------
+//  
+//    GLOBAL FUNCTIONS
+//
+// ---------------------
 
 $default-breakpoint: root;
 $current-breakpoint: $default-breakpoint;
 $placeholders: ();
 
-
-@mixin breakpoints( $breakpoint, $max: false ) {
-
+@mixin breakpoints($breakpoint, $max: false) {
   $value: map-get($breakpoints, $breakpoint);
-  $value_max: map-get($breakpoints, $max);
-  
-  @if $value != null {                                   
-    
-    $current-breakpoint: $breakpoint !global;    
-    
-    @if ($max) {
-      @media ( min-width: $value ) and ( max-width: $value_max - 1 ) { 
-        @content; 
-      }
-    }
-    @else {
-      @media ( min-width: $value ) { 
-        @content; 
-      }
-    }
-    
+  $value-max: map-get($breakpoints, $max);
 
-    $current-breakpoint: $default-breakpoint !global;    
+  @if $value != null {
+    $current-breakpoint: $breakpoint !global;
 
-  }
-  
-  @else {                                  
-    @warn "Invalid breakpoint `#{$breakpoint}`.";        
-  }
-  
-}
-
-@mixin placeholder( $name ) {
-  @if not index($placeholders, $name) {                 
-    $placeholders: append($placeholders, $name) !global;
-    
-    @at-root {
-      @each $breakpoint, $value in $breakpoints {       
-        @media (min-width: $value) {                    
-          %#{$name}-#{$breakpoint} {                    
-            @content;                                   
-          }
-        }
+    @if $max {
+      @media (min-width: $value) and (max-width: $value_max - 1) {
+        @content;
       }
-    
-      %#{$name}-#{$default-breakpoint} {                
+    } @else {
+      @media (min-width: $value) {
         @content;
       }
     }
-  }
-  
-  @else {
-    @warn "Placeholder `#{$name}` already exists.";     
+    $current-breakpoint: $default-breakpoint !global;
+  } @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`.";
   }
 }
 
+@mixin placeholder($name) {
+  @if not index($placeholders, $name) {
+    $placeholders: append($placeholders, $name) !global;
+
+    @at-root {
+      @each $breakpoint, $value in $breakpoints {
+        @media (min-width: $value) {
+          %#{$name}-#{$breakpoint} {
+            @content;
+          }
+        }
+      }
+
+      %#{$name}-#{$default-breakpoint} {
+        @content;
+      }
+    }
+  } @else {
+    @warn "Placeholder `#{$name}` already exists.";
+  }
+}
 
 @mixin _($name) {
   @extend %#{$name}-#{$current-breakpoint} !optional;
 }
 
-
-@function un_px($val){
+@function un-px($val) {
   @return $val / 1px;
 }
 
-
-@function mq( $val, $base ) {
-  
-  @if ( $mq_em ) {
-    @return un_px($val) / un_px($base) * 1em;
+@function mq($val, $base) {
+  @if $mq-em {
+    @return un-px($val) / un-px($base) * 1em;
   } @else {
     @return $val;
   }
-
 }
-
-
-
-
-
-
-
-
 
 // Math from: https://github.com/adambom/Sass-Math/blob/master/math.scss
 
+@function power($x, $n) {
+  $ret: 1;
 
-@function power ($x, $n) {
-    $ret: 1;
-    
-    @if $n >= 0 {
-        @for $i from 1 through $n {
-            $ret: $ret * $x;
-        } 
-    } @else {
-        @for $i from $n to 0 {
-            $ret: $ret / $x;
-        }
+  @if $n >= 0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
     }
-    
-    @return $ret;
+  } @else {
+    @for $i from $n to 0 {
+      $ret: $ret / $x;
+    }
+  }
+  @return $ret;
 }
 
-@function factorial ($x) {
-    $ret: 1;
-    
-    @if $x > 0 {
-        @while $x > 0 {
-            $ret: $ret * $x;
-            
-            $x: $x - 1;
-        }
+@function factorial($x) {
+  $ret: 1;
+
+  @if $x > 0 {
+    @while $x > 0 {
+      $ret: $ret * $x;
+      $x: $x - 1;
     }
-    
-    @return $ret;
+  }
+  @return $ret;
 }
 
-@function sin ($x) {
-    $ret: 0;
-    
-    @for $n from 0 to 25 {
-        $ret: $ret + power(-1, $n) * power($x, 2 * $n + 1) / factorial(2 * $n + 1);
-    }
+@function sin($x) {
+  $ret: 0;
 
-    @return $ret;
+  @for $n from 0 to 25 {
+    $ret: $ret + power(-1, $n) * power($x, 2 * $n + 1) / factorial(2 * $n + 1);
+  }
+  @return $ret;
 }
 
-@function cos ($x) {
-    $ret: 0;
-    
-    @for $n from 0 to 25 {
-        $ret: $ret + power(-1, $n) * power($x, 2 * $n) / factorial(2 * $n);
-    }
+@function cos($x) {
+  $ret: 0;
 
-    @return $ret;
+  @for $n from 0 to 25 {
+    $ret: $ret + power(-1, $n) * power($x, 2 * $n) / factorial(2 * $n);
+  }
+  @return $ret;
 }
 
-@function exp ($x) {
-    $ret: 0;
-    
-    @for $n from 0 to 25 {
-        $ret: $ret + power($x, $n) / factorial($n);
-    }
-    
-    @return $ret;
+@function exp($x) {
+  $ret: 0;
+
+  @for $n from 0 to 25 {
+    $ret: $ret + power($x, $n) / factorial($n);
+  }
+  @return $ret;
 }
 
 @function ln($x) {
-    $ret: 0;
-    $n: 1;
-    $dx: .001;
-    
-    @while $n <= $x {
-        $ret: $ret + $dx / $n;
-        
-        $n: $n + $dx;
-    }
-    
-    @return $ret;
+  $ret: 0;
+  $n: 1;
+  $dx: .001;
+
+  @while $n <= $x {
+    $ret: $ret + $dx / $n;
+    $n: $n + $dx;
+  }
+  @return $ret;
 }
 
-@function sqrt($x) {    
-    @return exp(0.5 * ln($x));
+@function sqrt($x) {
+  @return exp(.5 * ln($x));
 }
-
-
-
-
-
-
-
 
 @function pow($number, $exp) {
   $value: 1;
+
   @if $exp > 0 {
     @for $i from 1 through $exp {
       $value: $value * $number;
     }
-  }
-  @else if $exp < 0 {
+  } @else if $exp < 0 {
     @for $i from 1 through -$exp {
       $value: $value / $number;
     }
   }
   @return $value;
 }
-
-
-
-
-
-
-
-
-
-
-
-

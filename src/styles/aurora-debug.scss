@@ -1,9 +1,7 @@
+@import 'global/settings.global';
 
+@import 'components/aurora-grid/settings.grid';
+@import 'components/aurora-grid/debug.grid';
 
-@import "global/settings.global";
-
-@import "components/aurora-grid/settings.grid"; 
-@import "components/aurora-grid/debug.grid"; 
-
-@import "components/aurora-typo/settings.typo"; 
-@import "components/aurora-typo/debug.typo"; 
+@import 'components/aurora-typo/settings.typo';
+@import 'components/aurora-typo/debug.typo';

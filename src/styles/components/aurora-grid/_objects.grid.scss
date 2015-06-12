@@ -27,9 +27,6 @@
 @mixin table-helpers($all-styles: false) {
   $style-sel: if($all-styles, ".#{$aurora}grid--table", ".#{$aurora}grid");
 
-    
-
-
   // Grid
   #{$style-sel} {
     display: table;

@@ -1,49 +1,38 @@
+// Import Settings
+@import 'global/settings.global';
+@import 'components/aurora-typo/settings.typo';
+@import 'components/aurora-grid/settings.grid';
+@import 'components/aurora-ui/settings.ui';
+@import 'components/aurora-theme/settings.theme';
 
-
-// Import Settings 
-@import "global/settings.global";
-@import "components/aurora-typo/settings.typo";
-@import "components/aurora-grid/settings.grid";
-@import "components/aurora-ui/settings.ui";
-@import "components/aurora-theme/settings.theme";
-
-
-
-// Import Functions 
-@import "global/functions.global";
-@import "components/aurora-typo/functions.typo";
-@import "components/aurora-grid/functions.grid";
-@import "components/aurora-ui/functions.ui";
-
-
+// Import Functions
+@import 'global/functions.global';
+@import 'components/aurora-typo/functions.typo';
+@import 'components/aurora-grid/functions.grid';
+@import 'components/aurora-ui/functions.ui';
 
 // Import Defaults
-@import "global/reset";
-@import "components/aurora-typo/defaults.typo";
-@import "components/aurora-grid/defaults.grid";
-@import "components/aurora-ui/defaults.ui";
-
+@import 'global/reset';
+@import 'components/aurora-typo/defaults.typo';
+@import 'components/aurora-grid/defaults.grid';
+@import 'components/aurora-ui/defaults.ui';
 
 // Import Elements
-@import "components/aurora-typo/elements.typo";
-@import "components/aurora-grid/elements.grid";
-@import "components/aurora-ui/elements.ui";
-
+@import 'components/aurora-typo/elements.typo';
+@import 'components/aurora-grid/elements.grid';
+@import 'components/aurora-ui/elements.ui';
 
 // Import Objects
-@import "components/aurora-typo/objects.typo";
-@import "components/aurora-grid/objects.grid";
-@import "components/aurora-ui/objects.ui";
-
+@import 'components/aurora-typo/objects.typo';
+@import 'components/aurora-grid/objects.grid';
+@import 'components/aurora-ui/objects.ui';
 
 // Import Components
-@import "components/aurora-typo/components.typo";
-@import "components/aurora-grid/components.grid";
-@import "components/aurora-ui/components.ui";
-
+@import 'components/aurora-typo/components.typo';
+@import 'components/aurora-grid/components.grid';
+@import 'components/aurora-ui/components.ui';
 
 // Import Overrides
-@import "components/aurora-typo/helpers.typo";
-@import "components/aurora-grid/helpers.grid";
-@import "components/aurora-ui/helpers.ui";
-
+@import 'components/aurora-typo/helpers.typo';
+@import 'components/aurora-grid/helpers.grid';
+@import 'components/aurora-ui/helpers.ui';

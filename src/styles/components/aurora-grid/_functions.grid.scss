@@ -28,18 +28,17 @@
 
       @if $style == 'float' {
         @include _(fl);
-
-        &.item--right {
-          @include _(fr);
-        }
       } @else if $style == 'table' {
         // @include _(dtc);
       } @else if $style == 'block' {
         @include _(dib);
       } @else if $style == 'all' {
 
+        // .#{$aurora}grid:not(.#{$aurora}grid--table):not(.#{$aurora}grid--block) & {
+        //   @include _(fl);
+        // }
         .#{$aurora}grid--float & {
-          @include _(fl);
+          @include _(fl); 
         }
 
         // .#{$aurora}grid--table & {

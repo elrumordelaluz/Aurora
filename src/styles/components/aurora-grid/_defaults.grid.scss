@@ -22,7 +22,7 @@
 
 .#{$aurora}grid {
 
-  &:not(.#{$aurora}grid--table){
+  &:not(.#{$aurora}grid--table) {
     margin-left: -$gutter / 2;
     margin-right: -$gutter / 2;
   }
