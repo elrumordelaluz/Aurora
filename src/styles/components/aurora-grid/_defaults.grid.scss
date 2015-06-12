@@ -55,6 +55,10 @@
   word-spacing: normal;
   // font-size: initial;
 
+  .v-top & { vertical-align: top; }
+  .v-middle & { vertical-align: middle; }
+  .v-bottom & { vertical-align: bottom; }
+
   .no-gutter & {
     padding-left: 0;
     padding-right: 0;
