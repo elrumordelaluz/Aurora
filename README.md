@@ -1,3 +1,10 @@
-# Aurora
+# Aurora 
 
-wip
+### Code Style
+#### Sass
+Comments
+``
+  // --------------- 
+  // This is a Title
+  // ---------------
+``

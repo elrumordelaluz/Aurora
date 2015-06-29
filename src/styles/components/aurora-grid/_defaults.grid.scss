@@ -4,15 +4,16 @@
 
 .#{$aurora}container {
 
-  @if not $responsive-container {
-    max-width: $container-width;
-  }
-
   @if not $global-box-model {
     box-sizing: border-box;
   }
+  
   margin-left: auto;
   margin-right: auto;
+
+  @if not $responsive-container {
+    max-width: $container-width;
+  }
 
   &:not(.no-gutter):not(.no-padding) {
     padding-left: $gutter / 2;
@@ -55,9 +56,10 @@
   word-spacing: normal;
   // font-size: initial;
 
-  .v-top & { vertical-align: top; }
-  .v-middle & { vertical-align: middle; }
-  .v-bottom & { vertical-align: bottom; }
+  // TODO: add in ae-ui as utilities
+  // .v-top & { vertical-align: top; }
+  // .v-middle & { vertical-align: middle; }
+  // .v-bottom & { vertical-align: bottom; }
 
   .no-gutter & {
     padding-left: 0;
