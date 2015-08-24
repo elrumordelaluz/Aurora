@@ -12,6 +12,8 @@
 .u-dn { display: none; }
 
 
+
+
 //  Float
 //  =====
 //  .u-fl, .u-fr // add clear
@@ -72,6 +74,7 @@
 //  .u-v*
 
 .u-vh { visibility: hidden; }
+.u-vv { visibility: visible; }
 
 
 
@@ -81,31 +84,31 @@
 
 .u-bd {
   border-style: solid;
-  border-width: $bd_width;
+  border-width: $bd-width;
 }
 
 .u-bdt {
   border-top-style: solid;
-  border-top-width: $bd_width;
+  border-top-width: $bd-width;
 }
 
 .u-bdr {
   border-right-style: solid;
-  border-right-width: $bd_width;
+  border-right-width: $bd-width;
 }
 
 .u-bdb {
   border-bottom-style: solid;
-  border-bottom-width: $bd_width;
+  border-bottom-width: $bd-width;
 }
 
 .u-bdl {
   border-left-style: solid;
-  border-left-width: $bd_width;
+  border-left-width: $bd-width;
 }
 
 .u-br {
-  border-radius: $bd_radius;
+  border-radius: $bd-radius;
 }
 
 .u-br0 {
@@ -117,19 +120,19 @@
 }
 
 .u-brtl {
-  border-top-left-radius: $bd_radius;
+  border-top-left-radius: $bd-radius;
 }
 
 .u-brtr {
-  border-top-right-radius: $bd_radius;
+  border-top-right-radius: $bd-radius;
 }
 
 .u-brbl {
-  border-bottom-left-radius: $bd_radius;
+  border-bottom-left-radius: $bd-radius;
 }
 
 .u-brbr {
-  border-bottom-right-radius: $bd_radius;
+  border-bottom-right-radius: $bd-radius;
 }
 
 
@@ -179,9 +182,7 @@ $const : 0.5rem;
     .u-pb#{$i}  { padding-bottom: $value !important; }   
     .u-pl#{$i}  { padding-left:   $value !important; }
 
-  } 
-
-  @else {
+  } @else {
 
     .u-m#{$i}   { margin:        0 }
     .u-mt#{$i}  { margin-top:    0 }  
@@ -206,11 +207,11 @@ $const : 0.5rem;
 //  .u-bgc*
 
 .u-bgc-light {
-  background-color: map-get( $btn_colors, light );
+  background-color: map-get($btn-colors, light);
 }
 
 .u-bgc-dark {
-  background-color: map-get( $btn_colors, dark );
+  background-color: map-get($btn-colors, dark);
 }
 
 
@@ -224,7 +225,6 @@ $const : 0.5rem;
 
 .u-am-center {
   // the object needs specific measures
-  
   @extend .u-mauto;
   @extend .u-posa; 
   @extend .u-t0;
@@ -245,20 +245,59 @@ $const : 0.5rem;
   @extend .u-posa;
   @extend .u-t50p;
   @extend .u-l50p;
-  
-  transform: translate( -50%, -50% );
+  transform: translate(-50%, -50%);
 }
 
 .u-at-y {
   // the object doesn't needs specific measures
   @extend .u-posa;
   @extend .u-t50p;
-
-  transform: translateY( -50% );
+  transform: translateY(-50%);
 }
 
 
 
+
+
+
+// Responsive visible classes
+
+// @each $bp-name, $bp-num in $breakpoints {
+//   @include breakpoints( $bp-name ) {
+//     .u-#{$bp-name}-db { display: block !important; }
+//     .u-#{$bp-name}-dn { display: none !important; }
+//   }
+// }
+@include breakpoints(0 , 'xs') {
+  .u-xxs-db { display: block !important; }
+  .u-xxs-dn { display: none !important; }
+  .u-xxs-vh { visibility: hidden !important; }
+  .u-xxs-vv { visibility: visible !important; }
+}
+@include breakpoints('xs' , 'sm') {
+  .u-xs-db { display: block !important; }
+  .u-xs-dn { display: none !important; }
+  .u-xs-vh { visibility: hidden !important; }
+  .u-xs-vv { visibility: visible !important; }
+}
+@include breakpoints('sm' , 'md') {
+  .u-sm-db { display: block !important; }
+  .u-sm-dn { display: none !important; }
+  .u-sm-vh { visibility: hidden !important; }
+  .u-sm-vv { visibility: visible !important; }
+}
+@include breakpoints('md' , 'lg') {
+  .u-md-db { display: block !important; }
+  .u-md-dn { display: none !important; }
+  .u-md-vh { visibility: hidden !important; }
+  .u-md-vv { visibility: visible !important; }
+}
+@include breakpoints('lg' , 'xl') {
+  .u-lg-db { display: block !important; }
+  .u-lg-dn { display: none !important; }
+  .u-lg-vh { visibility: hidden !important; }
+  .u-lg-vv { visibility: visible !important; }
+}
 
 
 

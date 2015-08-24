@@ -19,7 +19,7 @@ $grid-style: 'all';
 
 $columns: 12;
 
-$responsive-container: false;
+$responsive-container: true;
 
 // Contaner sizes for each breakpoint, in case $responsive_container is true
 $container: (
@@ -29,7 +29,7 @@ $container: (
 );
 
 // Default container width in case not use breakpoints
-$container-width: 940px;
+$container-width: 980px;
 
 // Gutter distributes half on left and right sides
 $gutter: 20px;

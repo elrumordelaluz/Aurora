@@ -1,27 +1,20 @@
-
-
-
-/**
- * Groups
- **/
-
-
+ // Groups
+ 
 .c-group {
 
-  @if ($c_group_hack){
+  @if ($c-group-hack){
     
-    letter-spacing: -0.28em;
+    letter-spacing: -.28em;
 
-    & > * {
+    > * {
       letter-spacing: 0;
     }
 
-  }
-  @else {
+  } @else {
 
     overflow: auto;
 
-    & > * {
+    > * {
       float: left;
     }
     

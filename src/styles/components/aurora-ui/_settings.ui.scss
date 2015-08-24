@@ -1,38 +1,18 @@
+// Helper prefixes
+$btn-pfx: 'btn';
+$tbl-pfx: 'tbl';
+$input-pfx: 'input';
 
+// If apply vertical rhythm for ui elements
+$rhythm-ui: false;
 
+// Responsive Tables: needs only an extra data-th on each <td> to show when change layout
+$responsive-tables: true;
 
-/**
- * Helper prefixes
- **/
+// btn-group hack
+$c-group-hack: false;
 
-$btn_pfx: 'btn';
-$tbl_pfx: 'tbl';
-$input_pfx: 'input';
+// border 
 
-
-/**
- * If apply vertical rhythm for ui elements
- **/
-$rhythm_ui: false;
-
-
-/**
- * Responsive Tables: needs only an extra data-th on each <td> to show when change layout
- **/
-$responsive_tables: true;
-
-
-/**
- * btn-group hack
- **/
-
-$c_group_hack: false;
-
-
-
-/**
- * border 
- **/
-
-$bd_width: 1px;
-$bd_radius: 3px;
+$bd-width: 1px;
+$bd-radius: 3px;

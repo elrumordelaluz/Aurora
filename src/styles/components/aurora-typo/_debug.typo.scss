@@ -1,10 +1,9 @@
-
-@if ( $rhythm_debug ){ 
+@if ($rhythm-debug) { 
 
   .d-rhythm {
-    background: linear-gradient( to bottom, $debug_line_colors 0, transparent 1px );
+    background: linear-gradient(to bottom, $debug_line_colors 0, transparent 1px);
     background-repeat: repeat-y;
     background-size: 100% 1rem;
   }
-  
+
 }

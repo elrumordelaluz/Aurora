@@ -1,35 +1,26 @@
+// TYPO FUNCTIONS / MIXINS
 
-
-/* * * * * * * * * * * * * * * * * * * * *\
+@mixin base-font-size($base-fz, $bp) {
   
-    2. TYPO FUNCTIONS / MIXINS
-
-\* * * * * * * * * * * * * * * * * * * * */
-
-
-
-@mixin base_font_size( $base_fz, $bp ) {
-  
-  $ms_b: map-get( map-get($modular_scales, $bp), b);
-
-  font-size: $ms_b / un_px($base_fz) * 100%;
+  $ms-b: map-get(map-get($modular_scales, $bp), b);
+  font-size: $ms-b / un-px($base_fz) * 100%;
 
 }
 
 
-@function push( $l, $fz, $lh, $b, $c) {
-  @return ( $l - (( $fz / 2 * (( $lh * $b /  $fz) - $c)) / $b + 0.00001) ) * 1rem;
+@function push($l, $fz, $lh, $b, $c) {
+  @return ($l - (($fz / 2 * (($lh * $b /  $fz) - $c)) / $b + .00001)) * 1rem;
 }
 
-@function shift( $fz, $lh, $b, $c) {
-  @return ( ( $fz / 2 * (( $lh * $b /  $fz) - $c )) / $b + 0.00001 ) * 1rem;
+@function shift($fz, $lh, $b, $c) {
+  @return (($fz / 2 * (($lh * $b /  $fz) - $c)) / $b + .00001) * 1rem;
 }
 
 @function rem($fz, $base) {
   @return $fz / $base / 1px * 1rem;
 }
 
-@mixin set( $font, $val, $lh, $lines, $bp, $return: 'both' ) {
+@mixin set($font, $val, $lh, $lines, $bp, $return: 'both') {
   
   $cap: map-get($font, cap-height);
   $ms: if($responsive_scales, map-get($modular_scales, $bp), $base_modular);
@@ -38,19 +29,19 @@
   $func: map-get($ms, f);
   $sizes: map-get($ms, s);
 
-  $fz: ms( $val, $sizes, $func );
+  $fz: ms($val, $sizes, $func);
 
-  @if ( $return == 'font' ) {
-    font-size: rem( $fz, $base );
+  @if ($return == 'font') {
+    font-size: rem($fz, $base);
     line-height: #{$lh}rem;
-  } @else if ( $return == 'baseline' ) {
-    padding-top: shift( $fz, $lh, $base, $cap );
-    margin-bottom: push( $lines, $fz, $lh, $base, $cap );
+  } @else if ($return == 'baseline') {
+    margin-bottom: push($lines, $fz, $lh, $base, $cap);
+    padding-top: shift($fz, $lh, $base, $cap);
   } @else {
-    font-size: rem( $fz, $base );
+    font-size: rem($fz, $base);
     line-height: #{$lh}rem;
-    padding-top: shift( $fz, $lh, $base, $cap );
-    margin-bottom: push( $lines, $fz, $lh, $base, $cap );
+    margin-bottom: push($lines, $fz, $lh, $base, $cap);
+    padding-top: shift($fz, $lh, $base, $cap);
   } 
 
 }

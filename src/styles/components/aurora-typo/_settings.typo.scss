@@ -1,42 +1,36 @@
+// TYPOGRAPHY SETTINGS
+
 @import 'modular-scale';  // https://github.com/modularscale/modularscale-sass
 
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    TYPOGRAPHY SETTINGS
+$font-family:           'Helvetica Neue', Helvetica, sans-serif;
+$root-size:             16px;
+$line-height:           2rem;
 
-\* * * * * * * * * * * * * * * * * * * * */
+// The baseline is the imaginary line upon which a line of text rests
+$baseline:              $root-size * $line-height / 2;
 
-
-$font_family:           'Helvetica Neue', Helvetica, sans-serif;
-$root_size:             16px;
-$line_height:           2rem;
-
-/* The baseline is the imaginary line upon which a line of text rests */
-$baseline:              $root_size * $line_height / 2;
-
-/* 
-**  A modular scale, like a musical scale, is a prearranged set of harmonious proportions.
-**   —Robert Bringhurst 
-**
-*/
+// ---------------------
+//  A modular scale, like a musical scale, is a prearranged set of harmonious proportions.
+//  —Robert Bringhurst 
+// ---------------------
 
 
-/* 
-*  Modular Scale variables:
-*  b -- base: font size to control rhythm/line-height/etc
-*  f -- function: that modulate the scale (https://github.com/modularscale/modularscale-sass#ratios)
-*  s -- sizes: base sizes to calculate the modular scale (is possible to have only one base number)
-*/
+// ---------------------
+//  Modular Scale variables:
+//  b -- base: font size to control rhythm/line-height/etc
+//  f -- function: that modulate the scale (https://github.com/modularscale/modularscale-sass#ratios)
+//  s -- sizes: base sizes to calculate the modular scale (is possible to have only one base number)
+// ---------------------
 
-$base_modular: (
+$base-modular: (
   b: 16,
   f: $golden,
   s: 16px
 );
 
-$responsive_scales: true;
+$responsive-scales: true;
 
-$modular_scales: (
+$modular-scales: (
   
   'xs': ( 
     b: 12,
@@ -69,19 +63,19 @@ $modular_scales: (
 
 
 
-/* 
-*  Basic Fonts
-*  font-family   -- The font family name and defaults
-*  regular       -- regular weight
-*  bold          -- bold weigth
-*  italic        -- italic variant
-*  cap-height    -- cap height number
-*/
+// ---------------------
+//  Basic Fonts
+//  font-family   -- The font family name and defaults
+//  regular       -- regular weight
+//  bold          -- bold weigth
+//  italic        -- italic variant
+//  cap-height    -- cap height number
+// ---------------------
 
-$body_type: (
+$body-type: (
 
   // font-family: 'Palatino Linotype, Book Antiqua, Palatino, serif',
-  font-family: 'Helvetica, sans-serif',
+  font-family: 'Helvetica Neue, Helvetica, sans-serif',
 
   regular: 200,
 
@@ -89,12 +83,11 @@ $body_type: (
 
   italic: italic,
 
-  // cap-height: 0.52
-  cap-height: 0.65
+  cap-height: .65
 
 );
 
-$h_type: (
+$h-type: (
 
   font-family: 'Helvetica, sans-serif',
 
@@ -102,49 +95,41 @@ $h_type: (
 
   bold: 700,
 
-  cap-height: 0.65
+  cap-height: .65
 
 );
 
-$mono_type: (
+$mono-type: (
   
   font-family: 'Lucida Console, Monaco, monospace',
   
   regular: 400,
   
-  cap-height: 0.68
+  cap-height: .68
 
 );
 
 
 
 
+// Helper prefixes
+$txt-pfx: 'txt';
 
 
-
-
-
-/**
- * Helper prefixes
- **/
-
-$txt_pfx: 'txt';
-
-
-$responsive_txt_helpers: true;
+$responsive-txt-helpers: true;
 
 
 
 
 
 
-/**
- * Debug: rhythm shows horizontal baselines as <body> background
-**/
+// ---------------------
+// Debug: rhythm shows horizontal baselines as <body> background
+// ---------------------
 
-$rhythm_debug:          map-get( $ae_debug, rhythm );
+$rhythm-debug: map-get($ae-debug, rhythm);
 
-$debug_colors: (
+$debug-colors: (
   black: #000,
   white: #fff,
   red: #BD424B, 
@@ -155,6 +140,6 @@ $debug_colors: (
   light: #d7d7d7
 );
 
-$debug_line_colors: map-get( $debug_colors, light );
+$debug-line-colors: map-get($debug-colors, light);
 
 

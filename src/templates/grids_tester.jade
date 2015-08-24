@@ -12,9 +12,15 @@ block content
 
   body
     
-    .ae-container
+    .ae-container.no-gutter
       .ae-grid.ae-grid--float
-        .ae-grid__item.item-sm-6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
+        .ae-grid__item.item-sm-6
+          .ae-grid.ae-grid--float.reset-gutter
+            .ae-grid__item.item-sm-6
+              .ae-grid.ae-grid--float.reset-gutter
+                .ae-grid__item.item-sm-6  Lorem ipsum dolor.
+                .ae-grid__item.item-sm-6  Lorem ipsum dolor.
+            .ae-grid__item.item-sm-6  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, sint.
         .ae-grid__item.item-sm-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
         .ae-grid__item.item-sm-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.
         .ae-grid__item.item-sm-1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorem.

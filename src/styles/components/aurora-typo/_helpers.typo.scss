@@ -10,59 +10,56 @@
   font-feature-settings: 'onum' 1, 'kern' 1;
 }
 
-.#{$txt_pfx}--center {
+.u-tac {
   text-align: center;
 }
 
-.#{$txt_pfx}--left {
+.u-tal {
   text-align: left;
 }
 
-.#{$txt_pfx}--right {
+.u-tar {
   text-align: right;
 }
 
-.#{$txt_pfx}--smallcaps {
+.u-#{$txt_pfx}--smallcaps {
   font-feature-settings: 'smcp' 1, 'kern' 1;
-  letter-spacing: 0.1rem;
+  letter-spacing: .1rem;
 }
 
-.#{$txt_pfx}--uppercase {
-  letter-spacing: 0.1rem;
+.u-#{$txt_pfx}--uppercase {
+  letter-spacing: .1rem;
   text-transform: uppercase;
 }
 
-.#{$txt_pfx}--normalcase {
+.u-#{$txt_pfx}--normalcase {
   text-transform: initial;
 }
 
-.#{$txt_pfx}--truncate {
-  white-space: nowrap;
+.u-#{$txt_pfx}--truncate {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 
 
-@if( $responsive_txt_helpers ) {
+@if ($responsive-txt-helpers) {
   
   @each $bp-name, $bp-num in $breakpoints {
     
-    @include breakpoints( $bp-name ) {
-      
-      .#{$txt_pfx}-#{$bp-name}--center {
+    @include breakpoints($bp-name) {
+      .u-#{$bp-name}-tac {
         text-align: center;
       }
 
-      .#{$txt_pfx}-#{$bp-name}--left {
+      .u-#{$bp-name}-tal {
         text-align: left;
       }
 
-      .#{$txt_pfx}-#{$bp-name}--right {
+      .u-#{$bp-name}-tar {
         text-align: right;
       }
-
-
     }
   
   }

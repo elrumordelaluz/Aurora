@@ -1,40 +1,24 @@
-
-/* * * * * * * * * * * * * * * * * * * * *\
-  
-    TYPOGRAPHY DEFAULTS
-
-\* * * * * * * * * * * * * * * * * * * * */
-
+// TYPOGRAPHY DEFAULTS
 
 html {
-  
+  @include base-font-size($root-size, 'xs');
   text-size-adjust: 100%;
-  
-  @include base_font_size( $root_size, 'xs' );
-  
-  @if ( $responsive_scales ){
-    
+
+  @if ($responsive-scales){
     @each $bp-name, $bp-num in $breakpoints {
-      @include breakpoints( $bp-name ) {
-        @include base_font_size( $root_size, $bp-name );
+      @include breakpoints($bp-name) {
+        @include base-font-size($root-size, $bp-name);
       }
     }
-
   }
   
 }
 
 body {
-  
-  color: map-get( $type_colors, body );
+  @include set($body-type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'font');
 
-  font-family: unquote( map-get($body_type, font-family) );
+  color: map-get($type-colors, body);
+  font-family: unquote(map-get($body-type, font-family));
   font-style: normal;
-  font-weight: map-get( $body_type, regular );
-  
-  @include set( $body_type, $val: 0, $lh: 2, $lines: 2, $bp: 'xs', $return: 'font');
-  
+  font-weight: map-get($body-type, regular);  
 }
-
-
-

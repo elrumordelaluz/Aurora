@@ -9,15 +9,21 @@ $current-breakpoint: $default-breakpoint;
 $placeholders: ();
 
 @mixin breakpoints($breakpoint, $max: false) {
-  $value: map-get($breakpoints, $breakpoint);
+  $value: if(map-get($breakpoints, $breakpoint), map-get($breakpoints, $breakpoint), $breakpoint );
   $value-max: map-get($breakpoints, $max);
 
   @if $value != null {
     $current-breakpoint: $breakpoint !global;
 
     @if $max {
-      @media (min-width: $value) and (max-width: $value_max - 1) {
-        @content;
+      @if $value != 0 {
+        @media (min-width: $value) and (max-width: $value_max - 1) {
+          @content;
+        }
+      } @else {
+        @media (max-width: $value_max - 1) {
+          @content;
+        }
       }
     } @else {
       @media (min-width: $value) {
